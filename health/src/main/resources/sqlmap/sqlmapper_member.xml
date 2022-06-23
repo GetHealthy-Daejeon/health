@@ -2,20 +2,28 @@
 <mapper namespace="com.dw.health.mapper.MemberMapper">
 
 	<insert id="doJoin">
-		INSERT INTO members
+		INSERT INTO membership
 		(
-			member_name,
-			member_id,
-			member_password
+		member_name,
+		member_password
 		)
 		VALUES
 		(
-			#{memberName},
-			#{memberId},
-			#{memberPassword}
+		#{memberName},
+		#{memberPassword}
 		)
 	</insert>
 
+
+	<select id="selectStudentsOne" resultType="memberVO">
+		SELECT
+		member_id AS memberId,
+		member_name AS memberName,
+		member_password AS memberPassword,
+		create_at AS createAt
+		FROM membership
+		WHERE member_name = #{memberName}
+	</select>
 
 
 </mapper>

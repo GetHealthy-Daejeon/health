@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="/resources/static/css/login.css" />
 <link href="/resources/static/css/bootstrap.min.css" rel="stylesheet">
-<!-- <link rel="stylesheet" href="/resources/static/css/font-awesome.min.css"> -->  
+<!-- <link rel="stylesheet" href="/resources/static/css/font-awesome.min.css"> -->
 <title>건강하슈 로그인</title>
 </head>
 <body data-spy="scroll" data-target="#header">
@@ -60,9 +60,8 @@
 								data-toggle="collapse"
 								data-target="#bs-example-navbar-collapse-1"
 								aria-expanded="false">
-								<span class="icon-bar"></span> 
-								<span class="icon-bar"></span> 
-								<span class="icon-bar"></span>
+								<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
 							</button>
 							<a class="navbar-brand custom_navbar-brand" href="#"><img
 								src="/resources/static/img/logo.png" alt=""></a>
@@ -126,7 +125,7 @@
 		</div>
 		<input class="login-btn" type="button" value="로그인" onclick="login()" />
 		<div class="signup-link">
-			<br>회원이 아닌가요? <a href="join.html">회원가입</a>
+			<br>회원이 아닌가요? <a href="/health/join">회원가입</a>
 		</div>
 	</section>
 
@@ -162,7 +161,7 @@
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 		crossorigin="anonymous"></script>
 	<script>
-		function join() {
+		function login() {
 			var userId = $('#userId').val();
 			var userPassword = $('#userPassword').val();
 			if (userId == '' || userPassword == '') {
@@ -183,7 +182,7 @@
 				data : JSON.stringify(jsonData),
 				success : function(response) {
 					if (response) {
-						/* location.href = 'health/index.html'*/
+						/* location.href = '/health/join' */
 						alert('로그인 되었습니다.')
 					} else {
 						alert('아이디 혹은 비밀번호가 틀렸습니다.')

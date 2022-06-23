@@ -236,10 +236,7 @@
             $("#password").focus();
             return false;
         }
-        if(pass_len < 8){
-            alert('비밀번호가 너무 짧습니다 (8~16글자)')
-            $("#password").focus();
-        }
+        
         // =============== 패스워드 재확인 확인란
         if(password != rePassword){
             alert('비밀번호가 서로 다릅니다.')
@@ -277,11 +274,11 @@
         var jsonData = JSON.stringify({
         	memberId : userId,
             memberName : userName,
-            memberPassword : userPassword
+            memberPassword : password
             
         });
 
-        //AJAX 세팅x
+        //AJAX 세팅
         $.ajax({
           url : '/health/join',
           type : 'POST',

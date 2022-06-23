@@ -40,6 +40,10 @@ dependencies {
 	//PageHandler
 	implementation group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.4.2'
 	
+	//jsr310 의존성 추가
+	implementation('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
+
+	
 	
 
 
