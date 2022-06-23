@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dw.health.service.MemberService;
-import com.dw.health.vo.memberVO;
+import com.dw.health.vo.MemberVO;
 
 @RestController
 @RequestMapping("/health")
@@ -21,9 +21,8 @@ public class MemberController {
 
 	// 멤버 저장
 	// post는 body로 데이터를 받음
-	@CrossOrigin
 	@PostMapping("/join")
-	public int callSaveStudents(@RequestBody memberVO vo) {
+	public int callSaveStudents(@RequestBody MemberVO vo) {
 		return memberservice.doJoin(vo);
 	}
 
@@ -31,7 +30,7 @@ public class MemberController {
 	// 회원이 있는지 없는지 true , false로 확인.
 	@CrossOrigin
 	@PostMapping("/login")
-	public boolean callIsLogin(@RequestBody memberVO vo, HttpSession httpSession) {
+	public boolean callIsLogin(@RequestBody MemberVO vo, HttpSession httpSession) {
 		boolean isLogin = memberservice.ismember(vo, httpSession);
 		return isLogin;
 	}

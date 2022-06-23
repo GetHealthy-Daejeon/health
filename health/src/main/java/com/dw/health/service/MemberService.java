@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dw.health.mapper.MemberMapper;
-import com.dw.health.vo.memberVO;
+import com.dw.health.vo.MemberVO;
 
 @Service
 public class MemberService {
@@ -20,7 +20,7 @@ public class MemberService {
 
 	//멤버 저장
 	@Transactional(rollbackFor = { Exception.class })
-	public int doJoin(memberVO vo) {
+	public int doJoin(MemberVO vo) {
 		// 학생 비밀번호 암호화
 		String password = vo.getMemberPassword();
 		password = passwordEncoder.encode(password);
@@ -31,9 +31,9 @@ public class MemberService {
 	
 	// 가입된 학생인지 아닌지 체크
 	@Transactional(rollbackFor = { Exception.class })
-	public boolean ismember(memberVO vo, HttpSession httpSession) {
+	public boolean ismember(MemberVO vo, HttpSession httpSession) {
 
-		memberVO member = membermapper.selectStudentsOne(vo);
+		MemberVO member = membermapper.selectStudentsOne(vo);
 		// 회원이 있는지 없는지 부터 체크
 		if (member == null) { // query결과가 null로 리턴
 			return false;

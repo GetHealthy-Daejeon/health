@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.0'
+	id 'org.springframework.boot' version '2.6.8'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
@@ -40,12 +40,9 @@ dependencies {
 	//PageHandler
 	implementation group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.4.2'
 	
-	//jsr310 의존성 추가
-	implementation('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
-
+	//jsr310 의존성 추가  <- ???
+	//implementation('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
 	
-	
-
 
 	
 }

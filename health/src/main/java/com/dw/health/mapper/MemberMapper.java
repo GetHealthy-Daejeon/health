@@ -2,7 +2,7 @@ package com.dw.health.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.dw.health.vo.memberVO;
+import com.dw.health.vo.MemberVO;
 
 @Mapper
 public interface MemberMapper {
@@ -14,9 +14,9 @@ public interface MemberMapper {
 	 * @date : 2022. 6. 22.
 	 * comment : 회원가입
 	 */
-	public int doJoin(memberVO vo);
+	public int doJoin(MemberVO vo);
 	
-	public memberVO selectStudentsOne(memberVO vo);
+	public MemberVO selectStudentsOne(MemberVO vo);
 	
 	
 

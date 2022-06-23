@@ -271,12 +271,11 @@
       }
 
           //API서버에 전송할 json 생성
-        var jsonData = JSON.stringify({
+        var jsonData = {
         	memberId : userId,
-            memberName : userName,
-            memberPassword : password
-            
-        });
+        	memberName : userName,
+        	memberPassword : password
+          };
 
         //AJAX 세팅
         $.ajax({
@@ -286,12 +285,12 @@
           dataType : 'json',
           data : JSON.stringify(jsonData),
           success : function(response){
-            if(response>0){
-              alert('회원가입이 완료되었습니다.');
-            }
-          }
-        })
-        }
+	            if(response>0){
+	              alert('회원가입이 완료되었습니다.');
+	            }
+          	}
+        });
+       }
       </script>
     </body>
 
