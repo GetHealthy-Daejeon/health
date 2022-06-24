@@ -12,12 +12,6 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
         <title>Join</title>
-
-
-        <!--Fontawesom-->
-        <!-- <link rel="stylesheet" href="/resources/static/font-awesome.min.css"> -->
-
-
         <!-- Bootstrap -->
         <link href="/resources/static/css/bootstrap.min.css" rel="stylesheet">
 
@@ -249,6 +243,7 @@
         }else{
           alert("성명은 한글만 입력해주세요.")
           $("#userName").focus();
+          return false;
         }
 
         //생년월일 숫자 정규화 필터
@@ -272,8 +267,8 @@
 
           //API서버에 전송할 json 생성
         var jsonData = {
-        	memberId : userId,
         	memberName : userName,
+        	memberId : userId,
         	memberPassword : password
           };
 
@@ -287,6 +282,8 @@
           success : function(response){
 	            if(response>0){
 	              alert('회원가입이 완료되었습니다.');
+	            }else{
+	            	alert('회원가입이 취소되었습니다.');
 	            }
           	}
         });

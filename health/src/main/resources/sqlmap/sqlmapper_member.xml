@@ -15,15 +15,22 @@
 	</insert>
 
 
-	<select id="selectStudentsOne" resultType="memberVO">
+
+		<!-- AS로 VO에 있는 필드변수 이름을 별칭으로 줘서 mapping을 해 줌 -->
+	<select id="selectAllMemberMap" resultType="map">
 		SELECT
-		member_id AS memberId,
-		member_name AS memberName,
-		member_password AS memberPassword,
-		create_at AS createAt
+			member_id AS 응애,
+			member_name AS memberName,
+			create_at AS createAt
 		FROM membership
-		WHERE member_name = #{memberName}
 	</select>
+	
+	
+	<!-- 회원 삭제 -->
+	<delete id="deleteMember">
+		DELETE FROM membership
+		WHERE member_id = #{memberId}
+	</delete>
 
 
 </mapper>

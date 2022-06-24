@@ -10,7 +10,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="/resources/static/css/login.css" />
 <link href="/resources/static/css/bootstrap.min.css" rel="stylesheet">
-<!-- <link rel="stylesheet" href="/resources/static/css/font-awesome.min.css"> -->
 <title>건강하슈 로그인</title>
 </head>
 <body data-spy="scroll" data-target="#header">

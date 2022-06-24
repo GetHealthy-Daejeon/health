@@ -29,5 +29,10 @@ public class LoginController {
 	public String callJoinPage() {
 		return "join";
 	}
+	
+	@GetMapping("/member")
+	public String loadMemberPage() {
+		return "member";
+	}
 
 }

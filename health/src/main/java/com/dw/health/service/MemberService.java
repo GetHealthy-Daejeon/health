@@ -1,5 +1,8 @@
 package com.dw.health.service;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dw.health.mapper.MemberMapper;
 import com.dw.health.vo.MemberVO;
+import com.github.pagehelper.PageHelper;
 
 @Service
 public class MemberService {
@@ -52,4 +56,20 @@ public class MemberService {
 		return true;
 	}
 
+	
+//	//회원 조회
+//	public List<Map<String,Object>> getAllMemberList(int pageNum, int pageSize){
+//		PageHelper.startPage(pageNum, pageSize);
+//		return membermapper.selectAllMemberList();
+//	}
+	
+	public List<Map<String, Object>> getAllMemberMap(){
+		return membermapper.selectAllMemberMap();
+	}
+	
+	// 회원 삭제
+	@Transactional(rollbackFor = {Exception.class})
+	public int deleteMember(int memberId) {
+		return membermapper.deleteMember(memberId);
+	}
 }
