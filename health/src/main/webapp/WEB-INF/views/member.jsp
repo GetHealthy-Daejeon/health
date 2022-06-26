@@ -102,8 +102,9 @@
 			<h2>회원 명단</h2>
 		</div>
 		<div class="member_button">
-			<input type="button" id="delete_member" value="멤버 삭제"> <input
-				type="button" id="update_member" value="멤버 수정">
+			<input type="button" id="delete_member" value="멤버 추가">
+			<input type="button" id="delete_member" value="멤버 삭제"> 
+			<input type="button" id="update_member" value="멤버 수정">
 		</div>
 		<table>
 			<thead>
