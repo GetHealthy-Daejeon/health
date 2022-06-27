@@ -1,9 +1,5 @@
 
 
-/*
-font-family: 'Roboto Slab', serif;
-*/
-
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100);
 
 /*
@@ -454,7 +450,6 @@ ul.entry-meta {
 /* 회원 명단 */
 #member {
    position: relative; 
-   border: 1px solid red;
    /* text-align: center; */
    min-height: 600px;
    padding: 3%;
@@ -497,13 +492,22 @@ ul.entry-meta {
     cursor: pointer;
 }
 
+#insert_member{
+    padding: 5px;
+    width: 150px;
+    background-color: #43a906;
+
+}
+
 #delete_member{
+    padding: 5px;
     width: 150px;
     background-color: #43a906;
 
 }
 
 #update_member{
+    padding: 5px;
     width: 150px;
     background-color: #43a906;
 }
@@ -526,3 +530,130 @@ ul.entry-meta {
 .pagination a:hover{
     background-color: #43A906;
     color: gainsboro}
+/* 글 작성 */
+.write-popup{
+    z-index: 1;
+    display: none;
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    margin : 40px auto;
+    width: 700px;
+    height: 500px;
+    background-color:var(--grey);
+    box-shadow: 0 7px 25px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.editor{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 80%;
+}
+.input-box{
+    display: flex;
+    justify-content: space-around;
+}
+.input-box label{
+    padding: 1%;
+    font-size: 20px;
+    font-weight: 600;
+}
+.input-box input{
+    border: solid 2px #1E90FF;
+    border-radius: 5px;
+    padding: 1%;
+    font-size: 18px;
+    width: 70%;
+}
+.input-box textarea{
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: solid 2px #1E90FF;
+    border-radius: 5px;
+}
+
+.btn-area{
+    text-align: center;
+}
+
+.btn-cancel{
+    font-size: 18px;
+    background-color: #e74a3b;
+    padding: 2%;
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.btn-success{
+    font-size: 18px;
+    background-color: #1cc88a;
+    padding: 2%;
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 3px;
+}
+.logs-popup{
+    z-index: 10;
+    display: block;
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    margin : 40px auto;
+    width: 700px;
+    height: 500px;
+    background-color:#ffffff;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+
+/* 글 수정 */
+.update-popup{
+    z-index: 1;
+    display: none;
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    margin : 40px auto;
+    width: 700px;
+    height: 500px;
+    background-color:#ffffff;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+.btn-update{
+    font-size: 18px;
+    font-weight:600;
+    
+    background-color: rgb(51, 128, 4);
+    padding: 2%;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.btn-update:hover,
+.btn-delete:hover{
+	background-color: #43A906
+}
+
+.btn-delete{
+    font-size: 18px;
+    font-weight:600;
+    background-color: rgb(51, 128, 4);
+    padding: 2%;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 3px;
+}
+

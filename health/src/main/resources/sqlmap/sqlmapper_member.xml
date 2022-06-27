@@ -5,7 +5,7 @@
 		INSERT INTO membership
 		(
 		member_name,
-		member_password
+		member_password,
 		)
 		VALUES
 		(
@@ -16,16 +16,36 @@
 
 
 
-		<!-- AS로 VO에 있는 필드변수 이름을 별칭으로 줘서 mapping을 해 줌 -->
-	<select id="selectAllMemberMap" resultType="map">
+	<!-- AS로 VO에 있는 필드변수 이름을 별칭으로 줘서 mapping을 해 줌 -->
+	<select id="selectAllMemberList" resultType="map">
 		SELECT
-			member_id AS 응애,
-			member_name AS memberName,
-			create_at AS createAt
+		member_id AS memberId,
+		member_name AS memberName,
+		create_at AS createAt
 		FROM membership
 	</select>
-	
-	
+
+	<!-- 특정 회원 상세보기 -->
+	<select id="selectMemberOne" resultType="MemberVO">
+		SELECT
+		member_id AS memberId,
+		member_name AS memberName,
+		create_at AS createAt
+		FROM membership
+		WHERE member_id = #{memberId}
+	</select>
+
+	<!-- 회원 수정 -->
+	<update id="updateBoard">
+		UPDATE board
+		SET
+		member_name = #{memberName},
+		member_password = #{memberPassword}
+		
+		WHERE member_id = #{memberId}
+	</update>
+
+
 	<!-- 회원 삭제 -->
 	<delete id="deleteMember">
 		DELETE FROM membership

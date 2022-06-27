@@ -22,16 +22,31 @@ public interface MemberMapper {
 	public MemberVO selectStudentsOne(MemberVO vo);
 	
 	
-//	/**
-//	 * @return
-//	 * @author : Minyoung Kim
-//	 * @date : 2022. 6. 24.
-//	 * comment : 회원 조회
-//	 */
-//	public List<Map<String,Object>> selectAllMemberList();
+	/**
+	 * @return
+	 * @author : Minyoung Kim
+	 * @date : 2022. 6. 24.
+	 * comment : 회원 조회
+	 */
+	public List<Map<String,Object>> selectAllMemberList();
 	
+	/**
+	 * @param memberId
+	 * @return
+	 * @author : Minyoung Kim
+	 * @date : 2022. 6. 27.
+	 * comment : 누른 회원 상세 조회
+	 */
+	public MemberVO selectMemberOne(int memberId);
 	
-	public List<Map<String, Object>> selectAllMemberMap();
+	/**
+	 * @param vo
+	 * @return
+	 * @author : Minyoung Kim
+	 * @date : 2022. 6. 27.
+	 * comment : 회원 수정
+	 */
+	public int updateBoard(MemberVO vo);
 	
 	
 	

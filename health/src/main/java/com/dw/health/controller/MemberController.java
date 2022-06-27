@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,24 +45,34 @@ public class MemberController {
 		return isLogin;
 	}
 
-//	@CrossOrigin
-//	@GetMapping("/member")
-//	public PageInfo<Map<String,Object>> callMemberList(@RequestParam("pageNum")int pageNum,
-//			@RequestParam("pageSize")int pageSize){
-//		
-//		List<Map<String, Object>> list = memberservice.getAllMemberList(pageNum,pageSize); 
-//		return new PageInfo<Map<String,Object>>(list);
-//	}
-	
-	// map으로 학생 조회
-	@GetMapping("/member/map")
-	public List<Map<String, Object>> callMemberListByMap(HttpSession httpSession){
-		return memberservice.getAllMemberMap();
-	}
-
-	// 특정 멤버 삭제
 	@CrossOrigin
-	@DeleteMapping("/member/id/{id}")
+	@GetMapping("/member")
+	public PageInfo<Map<String,Object>> callMemberList(@RequestParam("pageNum")int pageNum,
+			@RequestParam("pageSize")int pageSize){
+		
+		List<Map<String, Object>> list = memberservice.getAllMemberList(pageNum,pageSize);
+		
+		return new PageInfo<Map<String,Object>>(list);
+	}
+	
+	//회원 상세보기 (R)
+	@CrossOrigin
+	@GetMapping("/member/{id}")
+	public MemberVO callBoard(@PathVariable("id") int memberId) {
+		return memberservice.getMember(memberId);
+	}
+	
+	//회원 수정 (U)
+	@CrossOrigin
+	@PatchMapping("/member/{id}")
+	public int callUpdateBoard(@PathVariable("id") int memberId, @RequestBody MemberVO vo) {
+		return memberservice.getUpdateBoard(vo, memberId);
+	}
+	
+	
+	//회원 삭제 (D)
+	@CrossOrigin
+	@DeleteMapping("/member/{id}")
 	public int callRemoveMember(@PathVariable("id") int memberId) {
 		return memberservice.deleteMember(memberId);
 	}

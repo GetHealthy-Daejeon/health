@@ -13,7 +13,7 @@ import lombok.ToString;
 @Setter
 public class MemberVO {
 	
-	private String memberId;
+	private int memberId;
 	private String memberName;
 	private String memberPassword;
 	private String createAt;

@@ -57,14 +57,24 @@ public class MemberService {
 	}
 
 	
-//	//회원 조회
-//	public List<Map<String,Object>> getAllMemberList(int pageNum, int pageSize){
-//		PageHelper.startPage(pageNum, pageSize);
-//		return membermapper.selectAllMemberList();
-//	}
+	//회원 전체 조회
+	@Transactional(rollbackFor = {Exception.class})
+	public List<Map<String,Object>> getAllMemberList(int pageNum, int pageSize){
+		PageHelper.startPage(pageNum, pageSize);
+		return membermapper.selectAllMemberList();
+	}
 	
-	public List<Map<String, Object>> getAllMemberMap(){
-		return membermapper.selectAllMemberMap();
+	//회원 상세 조회
+	public MemberVO getMember(int memberId) {
+		return membermapper.selectMemberOne(memberId);
+	}
+	
+	
+	//게시물 수정
+	@Transactional(rollbackFor = Exception.class)
+	public int getUpdateBoard(MemberVO vo, int memberId) {
+		vo.setMemberId(memberId);
+		return membermapper.updateBoard(vo);
 	}
 	
 	// 회원 삭제
