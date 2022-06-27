@@ -57,7 +57,7 @@ public class MemberService {
 	}
 
 	
-	//회원 전체 조회
+	//회원 전체 조회 
 	@Transactional(rollbackFor = {Exception.class})
 	public List<Map<String,Object>> getAllMemberList(int pageNum, int pageSize){
 		PageHelper.startPage(pageNum, pageSize);

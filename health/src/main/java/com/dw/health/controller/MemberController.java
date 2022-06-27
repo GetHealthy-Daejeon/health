@@ -53,8 +53,8 @@ public class MemberController {
 		List<Map<String, Object>> list = memberservice.getAllMemberList(pageNum,pageSize);
 		
 		return new PageInfo<Map<String,Object>>(list);
-	}
-	
+	} 
+	 
 	//회원 상세보기 (R)
 	@CrossOrigin
 	@GetMapping("/member/{id}")

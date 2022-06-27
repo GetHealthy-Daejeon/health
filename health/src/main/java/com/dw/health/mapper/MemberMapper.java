@@ -39,8 +39,8 @@ public interface MemberMapper {
 	 */
 	public MemberVO selectMemberOne(int memberId);
 	
-	/**
-	 * @param vo
+	/** 
+	 * @param vo 
 	 * @return
 	 * @author : Minyoung Kim
 	 * @date : 2022. 6. 27.

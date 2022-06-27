@@ -31,8 +31,7 @@ public class LoginController {
 //	@RequestMapping(value = "/login" , method = {RequestMethod.GET, RequestMethod.POST})
 //	public String callLoginPage() {
 //		return "login";
-//	}
-
+//	}  
 	@GetMapping("join")
 	public String callJoinPage() {
 		return "join";

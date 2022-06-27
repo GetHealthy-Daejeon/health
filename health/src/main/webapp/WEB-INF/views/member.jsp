@@ -149,7 +149,13 @@
 			<h2>회원 명단</h2>
 		</div>
 		<div class="member_button">
+<<<<<<< HEAD
 			<!-- <input type="button" id="insert_member" value="멤버 추가"> -->
+=======
+			<input type="button" id="delete_member" value="멤버 추가">
+			<input type="button" id="delete_member" value="멤버 삭제"> 
+			<input type="button" id="update_member" value="멤버 수정">
+>>>>>>> branch 'master' of https://github.com/minyong2/health.git
 		</div>
 		<table>
 			<thead>
@@ -366,7 +372,7 @@ $('#contentDelete').click(function() {
 });
 
 //게시물 수정 하는 함수
-$('#contentUpdate').click(function() {
+$('#contentUpdate').click(function() { 
 	//1. 게시판 번호 확인
 	var memberId = $('#boardIdHidden').val(); //hidden에 숨겨둔 boardId 가져오기.
 	//2. JSON 생성
