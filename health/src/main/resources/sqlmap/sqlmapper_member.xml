@@ -36,11 +36,10 @@
 	</select>
 
 	<!-- 회원 수정 --> 
-	<update id="updateBoard">
-		UPDATE board
+	<update id="updateMember">
+		UPDATE membership
 		SET
-		member_name = #{memberName},
-		member_password = #{memberPassword}
+		member_name = #{memberName}
 		
 		WHERE member_id = #{memberId}
 	</update>

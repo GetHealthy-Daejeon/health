@@ -137,9 +137,9 @@
 			</div>
 
 			<div class="btn-area">
-				<input id="boardIdHidden" type="hidden"> <a
-					id="contentUpdate" href="#" class="btn-update">수정</a> <a
-					id="contentDelete" href="#" class="btn-delete">삭제</a>
+				<input id="boardIdHidden" type="hidden"> 
+				<a id="contentUpdate" href="#" type="button" class="btn-update">수정</a>
+				<a id="contentDelete" href="#" type="button" class="btn-delete">삭제</a>
 			</div>
 		</div>
 	</div>
@@ -149,13 +149,7 @@
 			<h2>회원 명단</h2>
 		</div>
 		<div class="member_button">
-<<<<<<< HEAD
-			<!-- <input type="button" id="insert_member" value="멤버 추가"> -->
-=======
-			<input type="button" id="delete_member" value="멤버 추가">
-			<input type="button" id="delete_member" value="멤버 삭제"> 
-			<input type="button" id="update_member" value="멤버 수정">
->>>>>>> branch 'master' of https://github.com/minyong2/health.git
+
 		</div>
 		<table>
 			<thead>
@@ -177,14 +171,14 @@
 		</table>
 		<div class="pagination">
 			<c:if test="${pageHelper.hasPreviousPage}">
-				<a onclick="getBoardList(${pageHelper.pageNum-1},10)">Previous</a>
+				<a onclick="getMemberList(${pageHelper.pageNum-1},10)">Previous</a>
 			</c:if>
 			<c:forEach begin="${pageHelper.navigateFirstPage}"
 				end="${pageHelper.navigateLastPage}" var="pageNum">
-				<a id="pageNum${pageNum}" onclick="getBoardList(${pageNum},10)">${pageNum}</a>
+				<a id="pageNum${pageNum}" onclick="getMemberList(${pageNum},10)">${pageNum}</a>
 			</c:forEach>
 			<c:if test="${pageHelper.hasNextPage}">
-				<a onclick="getBoardList(${pageHelper.pageNum+1},10)">Next</a>
+				<a onclick="getMemberList(${pageHelper.pageNum+1},10)">Next</a>
 			</c:if>
 		</div>
 	</div>
@@ -236,7 +230,7 @@
 	}
 
 	function getMemberList(pageNum, pageSize) {
-		var memberListUrl = "http://localhost:8080/health/member?pageNum="
+		var memberListUrl = "http://localhost:8080/health/members?pageNum="
 				+ pageNum + "&pageSize=" + pageSize;
 
 		$.ajax({
@@ -285,52 +279,6 @@ function getMember(memberId) {//클릭한 게시물 확인하는 함수
 	});
 }//end
 
-
-$('#contentSubmit').click(function(){
-
-if(confirm('게시글을 작성하시겠습니까?')){
-var title = $('#title').val();
-var content = $('#content').val();
-var studentsId = 9;
-
-if(title == '' || content == ''){
-	alert('제목 혹은 내용을 입력해주십시오');
-	$('#title').focus();
-
-	return false;
-}
-
-var jsonData = {
-studentsId : studentsId,
-title : title,
-content : content
-}
-
-$.ajax({
-	url : 'http://localhost:8080/health/member',
-	type : 'POST',
-	contentType : 'application/json',
-	dataType : 'json',
-	data : JSON.stringify(jsonData),
-	success : function(response){
-		if(response>0){
-			// alert('글 작성 완료');
-			//작성 화면 감추기
-			$('.write-popup').css('display', 'none');
-			//글 작성창에 이전에 작성했던 내용 지우기.
-			$('#title').val('');
-			$('#content').val('');
-
-			$('#data').children().remove();
-			getBoardList();
-		}
-}
-})
-};
-})
-
-
-
     $('#insert_member').click(function(){
         $('.write-popup').css('display', 'block');
     });
@@ -355,7 +303,7 @@ $.ajax({
 //게시물 삭제 하는 함수
 $('#contentDelete').click(function() {
 	var memberId = $('#boardIdHidden').val(); //hidden에 숨겨둔 boardId 가져오기.
-	if (confirm('해당 게시물을 정말 삭제하시겠습니까?')) {
+	if (confirm('해당 회원을 정말 삭제하시겠습니까?')) {
 		$.ajax({
 			url: '/health/member/' + memberId,
 			type: 'DELETE',
@@ -363,8 +311,8 @@ $('#contentDelete').click(function() {
 			success: function(response) {
 				if (response > 0) {
 					alert('삭제완료');
-/* 					var pageNum = $('#nowPageNum').val();
-					getBoardList(pageNum, 10); */
+ 					var pageNum = $('#nowPageNum').val();
+ 					getMemberList(pageNum, 10); 
 				}
 			}
 		});
@@ -378,6 +326,7 @@ $('#contentUpdate').click(function() {
 	//2. JSON 생성
 	var memberName = $('#memberName').val();
 	var memberPassword = $('#memberPassword').val();
+	
 	var jsonData = {
 			memberName: memberName,
 			memberPassword: memberPassword
@@ -393,7 +342,7 @@ $('#contentUpdate').click(function() {
 			if (response > 0) {
 				alert('수정완료');
 				var pageNum = $('#nowPageNum').val();
-				getBoardList(pageNum, 10);
+				getMemberList(pageNum, 10);
 			}
 		}
 	});//ajax end

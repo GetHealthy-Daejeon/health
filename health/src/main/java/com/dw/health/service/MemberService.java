@@ -70,16 +70,18 @@ public class MemberService {
 	}
 	
 	
-	//게시물 수정
+	//회원 정보 수정
 	@Transactional(rollbackFor = Exception.class)
-	public int getUpdateBoard(MemberVO vo, int memberId) {
+	public int getUpdateMember(MemberVO vo, int memberId) {
 		vo.setMemberId(memberId);
-		return membermapper.updateBoard(vo);
+		return membermapper.updateMember(vo);
 	}
 	
 	// 회원 삭제
 	@Transactional(rollbackFor = {Exception.class})
 	public int deleteMember(int memberId) {
+		
+		
 		return membermapper.deleteMember(memberId);
 	}
 }

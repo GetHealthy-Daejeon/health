@@ -65,14 +65,15 @@ public class MemberController {
 	//회원 수정 (U)
 	@CrossOrigin
 	@PatchMapping("/member/{id}")
-	public int callUpdateBoard(@PathVariable("id") int memberId, @RequestBody MemberVO vo) {
-		return memberservice.getUpdateBoard(vo, memberId);
+	public int callUpdateMember(@PathVariable("id") int memberId, @RequestBody MemberVO vo) {
+		return memberservice.getUpdateMember(vo, memberId);
 	}
 	
 	
 	//회원 삭제 (D)
 	@CrossOrigin
-	@DeleteMapping("/member/{id}")
+//	@DeleteMapping("/member/{id}")
+	@RequestMapping(value="/member/{id}", method= {RequestMethod.DELETE})
 	public int callRemoveMember(@PathVariable("id") int memberId) {
 		return memberservice.deleteMember(memberId);
 	}

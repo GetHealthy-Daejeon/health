@@ -46,7 +46,7 @@ public interface MemberMapper {
 	 * @date : 2022. 6. 27.
 	 * comment : 회원 수정
 	 */
-	public int updateBoard(MemberVO vo);
+	public int updateMember(MemberVO vo);
 	
 	
 	
