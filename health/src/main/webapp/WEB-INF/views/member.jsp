@@ -95,27 +95,6 @@
 </section>
 <!--End of Hedaer Section-->
 <section id="member">
-	<!-- <div class="write-popup">
-		<div class="editor">
-			<div class="input-box">
-				<label for="memberName">회원 이름 : </label> <input id="memberName"
-					type="text" placeholder="회원의 이름을 입력하세요" readonly>
-			</div>
-			<div class="input-box">
-				<label for="memberPassword">비밀번호 </label> <input id="memberPassword"
-					type="password" placeholder="비밀번호를 입력하세요...">
-			</div>
-			<div class="input-box">
-				<label for="createAt">가입날짜 : </label> <input id="mamberCreatAt"
-					type="datetime-local" placeholder="가입일자">
-
-			</div>
-			<div class="btn-area">
-				<a href="#" class="btn-cancel">취소</a> <a id="contentSubmit" href="#"
-					class="btn-success">등록</a>
-			</div>
-		</div>
-	</div> -->
 	<!-- 글 작성 수정 -->
 	<div class="update-popup">
 		<div class="editor">
@@ -123,12 +102,12 @@
 				<a href="#" class="btn-close">닫기</a>
 			</div>
 			<div class="input-box">
-				<label for="studentsName">회원 아이디 : </label> 
+				<label for="memberName">회원 아이디 : </label> 
 				<input id="memberId" type="text"  value="${memberId}" readonly>
-				<input id="memberId" type="hidden" value="${studentsId}">
+				<%-- <input id="memberHiddenId" type="hidden" value="${memberId}"> --%>
 			</div>
 			<div class="input-box">
-				<label for="studentsName">회원 이름 : </label> 
+				<label for="memberName">회원 이름 : </label> 
 				<input id="memberName" type="text" placeholder="회원의 이름을 입력하세요" >
 			</div>
 			<div class="input-box">
@@ -154,8 +133,9 @@
 		<table>
 			<thead>
 				<tr>
-					<th>멤버 아이디</th>
+					<th>멤버 아이디넘버</th>
 					<th>멤버 이름</th>
+					<th>비밀번호</th>
 					<th>가입 날짜</th>
 				</tr>
 			</thead>
@@ -164,6 +144,7 @@
 					<tr onclick="getMember(${item.memberId})">
 						<td>${item.memberId}</td>
 						<td>${item.memberName}</td>
+						<td>${item.memberPassword}</td>
 						<td>${item.createAt}</td>
 					</tr>
 				</c:forEach>
@@ -244,6 +225,7 @@
 					for (var i = 0; i < response.list.length; i++) {
 						html += '<tr><td>' + response[i].memberName
 								+ '</td><td>' + response[i].memberId
+								+ '</td><td>' + response[i].memberPassword
 								+ '</td><td>' + response[i].createAt
 								+ '</td></tr>'
 					}
@@ -302,7 +284,7 @@ function getMember(memberId) {//클릭한 게시물 확인하는 함수
 <script>
 //게시물 삭제 하는 함수
 $('#contentDelete').click(function() {
-	var memberId = $('#boardIdHidden').val(); //hidden에 숨겨둔 boardId 가져오기.
+	var memberId = $('#memberId').val(); //hidden에 숨겨둔 boardId 가져오기.
 	if (confirm('해당 회원을 정말 삭제하시겠습니까?')) {
 		$.ajax({
 			url: '/health/member/' + memberId,
@@ -311,8 +293,8 @@ $('#contentDelete').click(function() {
 			success: function(response) {
 				if (response > 0) {
 					alert('삭제완료');
- 					var pageNum = $('#nowPageNum').val();
- 					getMemberList(pageNum, 10); 
+ 					/* var pageNum = $('#nowPageNum').val();
+ 					getMemberList(pageNum, 10);  */
 				}
 			}
 		});
@@ -322,7 +304,7 @@ $('#contentDelete').click(function() {
 //게시물 수정 하는 함수
 $('#contentUpdate').click(function() { 
 	//1. 게시판 번호 확인
-	var memberId = $('#boardIdHidden').val(); //hidden에 숨겨둔 boardId 가져오기.
+	var memberId = $('#memberId').val(); //hidden에 숨겨둔 boardId 가져오기.
 	//2. JSON 생성
 	var memberName = $('#memberName').val();
 	var memberPassword = $('#memberPassword').val();
@@ -331,6 +313,7 @@ $('#contentUpdate').click(function() {
 			memberName: memberName,
 			memberPassword: memberPassword
 	};
+	console.log(memberId)
 	//3. AJAX를 이용해서 업데이트!
 	$.ajax({
 		url: '/health/member/' + memberId,
@@ -341,8 +324,8 @@ $('#contentUpdate').click(function() {
 		success: function(response) {
 			if (response > 0) {
 				alert('수정완료');
-				var pageNum = $('#nowPageNum').val();
-				getMemberList(pageNum, 10);
+/* 				var pageNum = $('#nowPageNum').val();
+				getMemberList(pageNum, 10); */
 			}
 		}
 	});//ajax end

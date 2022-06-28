@@ -268,7 +268,6 @@
           //API서버에 전송할 json 생성
         var jsonData = {
         	memberName : userName,
-        	memberId : userId,
         	memberPassword : password
           };
 
@@ -282,8 +281,7 @@
           success : function(response){
 	            if(response>0){
 	              alert('회원가입이 완료되었습니다.');
-	            }else{
-	            	alert('회원가입이 취소되었습니다.');
+	              /* location.href = "/login"; */
 	            }
           	}
         });

@@ -25,10 +25,10 @@ public class MemberService {
 	//멤버 저장
 	@Transactional(rollbackFor = { Exception.class })
 	public int doJoin(MemberVO vo) {
-		// 학생 비밀번호 암호화
-		String password = vo.getMemberPassword();
-		password = passwordEncoder.encode(password);
-		vo.setMemberPassword(password);
+//		// 학생 비밀번호 암호화
+//		String password = vo.getMemberPassword();
+//		password = passwordEncoder.encode(password);
+//		vo.setMemberPassword(password);
 		return membermapper.doJoin(vo);
 	}
 
@@ -80,8 +80,6 @@ public class MemberService {
 	// 회원 삭제
 	@Transactional(rollbackFor = {Exception.class})
 	public int deleteMember(int memberId) {
-		
-		
 		return membermapper.deleteMember(memberId);
 	}
 }

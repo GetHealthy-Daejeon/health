@@ -6,11 +6,13 @@
 		(
 		member_name,
 		member_password,
+		create_at
 		)
 		VALUES
 		(
 		#{memberName},
-		#{memberPassword}
+		#{memberPassword},
+		NOW()
 		)
 	</insert>
 
@@ -21,6 +23,7 @@
 		SELECT
 		member_id AS memberId,
 		member_name AS memberName,
+		member_password AS memberPassword,
 		create_at AS createAt
 		FROM membership
 	</select>
@@ -28,11 +31,13 @@
 	<!-- 특정 회원 상세보기 -->
 	<select id="selectMemberOne" resultType="MemberVO">
 		SELECT
-		member_id AS memberId, 
-		member_name AS memberName,
-		create_at AS createAt
-		FROM membership
-		WHERE member_id = #{memberId}
+			member_id AS memberId, 
+			member_name AS memberName,
+			create_at AS createAt
+		FROM
+			membership
+		WHERE 
+			member_id = #{memberId}
 	</select>
 
 	<!-- 회원 수정 --> 

@@ -34,7 +34,7 @@ public class LoginController {
 //	}  
 	@GetMapping("join")
 	public String callJoinPage() {
-		return "join";
+		return "/join";
 	}
 	
 	@GetMapping("home")

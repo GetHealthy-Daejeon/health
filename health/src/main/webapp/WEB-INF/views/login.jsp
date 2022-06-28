@@ -181,7 +181,7 @@
 				data : JSON.stringify(jsonData),
 				success : function(response) {
 					if (response) {
-						/* location.href = '/health/join' */
+						location.href = '/health/member?pageNum=1&pageSize=10';
 						alert('로그인 되었습니다.')
 					} else {
 						alert('아이디 혹은 비밀번호가 틀렸습니다.')
