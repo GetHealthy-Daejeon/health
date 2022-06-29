@@ -19,7 +19,8 @@ public interface MemberMapper {
 	 */
 	public int doJoin(MemberVO vo);
 	
-	public MemberVO selectStudentsOne(MemberVO vo);
+	public MemberVO selectMemberOne(MemberVO vo);
+	public MemberVO selectLoginOne(MemberVO vo);
 	
 	
 	/**

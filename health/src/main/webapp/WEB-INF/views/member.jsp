@@ -24,7 +24,7 @@
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 zero_mp">
 						<div class="address">
 							<i class="fa fa-home floatleft"></i>
-							<p>아아</p>
+							<p>(주)건강하슈-GetHealthy</p>
 						</div>
 					</div>
 					<!--End of col-md-4-->
@@ -72,15 +72,16 @@
 					<div class="collapse navbar-collapse zero_mp"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right main_menu">
-							<li class="active"><a href="index.html">Home <span
-									class="sr-only">(current)</span></a></li>
-							<li><a href="#welcome">about</a></li>
-							<li><a href="#portfolio">project</a></li>
-							<li><a href="#counter">achivment</a></li>
-							<li><a href="#event">event</a></li>
-							<li><a href="#testimonial">testimonial</a></li>
-							<li><a href="#blog">blog</a></li>
-							<li><a href="#contact">contact us</a></li>
+							<li class="active">
+								<a href="http://localhost:8080/health/index">Home
+								 <span class="sr-only">(current)</span></a></li>
+								<li><a href="http://localhost:8080/map">Map</a></li>
+								<li><a href="http://localhost:8080/health/login">Login</a></li>
+								<li><a href="http://localhost:8080/health/join">Join</a></li>
+								<li><a href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Member</a></li>
+								<li><a href="#counter"></a></li>
+								<li><a href="#event"></a></li>
+
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -128,7 +129,7 @@
 			<h2>회원 명단</h2>
 		</div>
 		<div class="member_button">
-
+			
 		</div>
 		<table>
 			<thead>

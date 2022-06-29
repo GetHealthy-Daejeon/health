@@ -75,16 +75,17 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right main_menu">
-                                    <li class="active"><a href="#header">Home <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="#welcome">about</a></li>
-                                    <li><a href="#portfolio">project</a></li>
-                                    <li><a href="#counter">achivment</a></li>
-                                    <li><a href="#event">event</a></li>
-                                    <li><a href="#testimonial">testimonial</a></li>
-                                    <li><a href="#blog">blog</a></li>
-                                    <li><a href="#contact">contact us</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                </ul>
+								<li class="active">
+								<a href="http://localhost:8080/health/index">Home
+								 <span class="sr-only">(current)</span></a></li>
+								<li><a href="http://localhost:8080/map">Map</a></li>
+								<li><a href="http://localhost:8080/health/login">Login</a></li>
+								<li><a href="http://localhost:8080/health/join">Join</a></li>
+								<li><a href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Member</a></li>
+								<li><a href="#counter"></a></li>
+								<li><a href="#event"></a></li>
+
+							</ul>
                             </div>
                             <!-- /.navbar-collapse -->
                         </nav>

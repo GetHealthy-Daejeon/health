@@ -28,6 +28,7 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberservice;
+	
 
 	// 멤버 저장
 	// post는 body로 데이터를 받음

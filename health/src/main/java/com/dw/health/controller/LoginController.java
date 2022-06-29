@@ -21,6 +21,12 @@ public class LoginController {
 
 	@Autowired
 	MemberService memberService;
+	
+	//메인 화면
+	@GetMapping("/index")
+	public String callMainPage() {
+		return "index";
+	}
 
 //로그인 화면
 	@RequestMapping("/login")
@@ -37,10 +43,6 @@ public class LoginController {
 		return "/join";
 	}
 	
-	@GetMapping("home")
-	public String callPage() {
-		return "/member";
-	}
 
 	@GetMapping("/members")
 	public String loadMemberPage(ModelMap map, 
