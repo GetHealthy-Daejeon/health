@@ -63,7 +63,7 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand custom_navbar-brand" href="#"><img
+						<a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index"><img
 							src="/resources/static/img/logo.png" alt=""></a>
 					</div>
 					<!--End of navbar-header-->
@@ -224,10 +224,14 @@
 
 				if (response.length > 0) {
 					for (var i = 0; i < response.list.length; i++) {
-						html += '<tr><td>' + response[i].memberName
-								+ '</td><td>' + response[i].memberId
-								+ '</td><td>' + response[i].memberPassword
-								+ '</td><td>' + response[i].createAt
+						html += '<tr><td>' 
+								+ response[i].memberName
+								+ '</td><td>' 
+								+ response[i].memberId
+								+ '</td><td>' 
+								+ response[i].memberPassword
+								+ '</td><td>' 
+								+ response[i].createAt
 								+ '</td></tr>'
 					}
 				} else {

@@ -1,0 +1,48 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dw.health.mapper.MapMapper">
+
+<select id="selectAllAddrList" resultType="map">
+		SELECT
+			placeNO AS placeNO,
+			gu_code AS gu_code,
+			event_code AS event_code,
+			facName AS facName,
+			addr_road AS addr_road,
+			digit AS digit_number,
+			latitude AS latitude,
+			longitude AS longitude
+		FROM health_addr
+	</select>
+	
+	<select id="selectAddrOne" resultType="MapVO">
+		SELECT 
+			placeNO AS placeNO,
+			gu_code AS gu_code,
+			event_code AS event_code,
+			facName AS facName,
+			addr_road AS addr_road,
+			digit AS digit_number,
+			latitude AS latitude,
+			longitude AS longitude
+		FROM 
+			health_addr
+		WHERE 
+			placeNO = #{placeNO}
+			
+	</select>
+	
+	<update id="updateAddrOne">
+	UPDATE health_addr
+	SET 
+		gu_code = #{gu_code},
+		event_code = #{event_code},
+		facName = #{facName},
+		addr_road = #{addr_road},
+		latitude = #{latitude},
+		longitude = #{longitude},
+		digit = #{digit}
+	WHERE
+		placeNO = #{placeNO}
+	</update>
+
+</mapper>

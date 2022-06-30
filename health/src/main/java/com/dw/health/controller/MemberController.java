@@ -46,15 +46,15 @@ public class MemberController {
 		return isLogin;
 	}
 
-	@CrossOrigin
-	@GetMapping("/member")
-	public PageInfo<Map<String,Object>> callMemberList(@RequestParam("pageNum")int pageNum,
-			@RequestParam("pageSize")int pageSize){
-		
-		List<Map<String, Object>> list = memberservice.getAllMemberList(pageNum,pageSize);
-		
-		return new PageInfo<Map<String,Object>>(list);
-	} 
+//	@CrossOrigin
+//	@GetMapping("/member")
+//	public PageInfo<Map<String,Object>> callMemberList(@RequestParam("pageNum")int pageNum,
+//			@RequestParam("pageSize")int pageSize){
+//		
+//		List<Map<String, Object>> list = memberservice.getAllMemberList(pageNum,pageSize);
+//		
+//		return new PageInfo<Map<String,Object>>(list);
+//	} 
 	 
 	//회원 상세보기 (R)
 	@CrossOrigin

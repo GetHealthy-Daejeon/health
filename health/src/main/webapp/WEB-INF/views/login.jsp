@@ -62,7 +62,7 @@
 								<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 									class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand custom_navbar-brand" href="#"><img
+							<a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index"><img
 								src="/resources/static/img/logo.png" alt=""></a>
 						</div>
 						<!--End of navbar-header-->

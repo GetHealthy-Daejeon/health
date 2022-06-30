@@ -42,9 +42,7 @@
 						</div>
 						<!--End of col-md-4-->
 						<div class="col-md-4">
-							<div class="social_icon text-right">
-								<a href=""><i class="fa fa-facebook"></i></a> <a href=""><i
-									class="fa fa-twitter"></i></a> <a href=""><i
+							<div class="social_icon text-right">									class="fa fa-twitter"></i></a> <a href=""><i
 									class="fa fa-google-plus"></i></a> <a href=""><i
 									class="fa fa-youtube"></i></a>
 							</div>
@@ -70,7 +68,7 @@
 									class="icon-bar"></span> <span class="icon-bar"></span> <span
 									class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand custom_navbar-brand" href="#"><img
+							<a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index"><img
 								src="/resources/static/img/logo.png" alt=""></a>
 						</div>
 						<!--End of navbar-header-->
