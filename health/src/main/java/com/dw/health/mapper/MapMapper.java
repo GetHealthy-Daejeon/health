@@ -18,7 +18,8 @@ public interface MapMapper {
 	 * comment : 모든 주소 조회(주소 보드)
 	 */
 	public List<Map<String,Object>> selectAllAddrList();
-	
-	public MapVO selectAddrOne(int placeNO);
+	public int insertAddr (MapVO vo);
+	public MapVO selectAddrOne(int placeno);
 	public int updateAddrOne(MapVO vo);
+	public int deleteAddr(int placeno);
 }

@@ -7,10 +7,10 @@ import lombok.Setter;
 @Setter
 public class MapVO {
 	
-	private int placeNO;
+	private int place_no;
 	private String gu_code;
 	private String event_code;
-	private String facName;
+	private String fac_name;
 	private String addr_road;
 	private double latitude;
 	private double longitude;

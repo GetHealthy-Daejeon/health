@@ -3,12 +3,12 @@
 
 <select id="selectAllAddrList" resultType="map">
 		SELECT
-			placeNO AS placeNO,
+			place_no AS place_no,
 			gu_code AS gu_code,
 			event_code AS event_code,
-			facName AS facName,
+			fac_name AS fac_name,
 			addr_road AS addr_road,
-			digit AS digit_number,
+			digit AS digit,
 			latitude AS latitude,
 			longitude AS longitude
 		FROM health_addr
@@ -16,18 +16,18 @@
 	
 	<select id="selectAddrOne" resultType="MapVO">
 		SELECT 
-			placeNO AS placeNO,
+			place_no AS place_no,
 			gu_code AS gu_code,
 			event_code AS event_code,
-			facName AS facName,
+			fac_name AS fac_name,
 			addr_road AS addr_road,
-			digit AS digit_number,
+			digit AS digit,
 			latitude AS latitude,
 			longitude AS longitude
 		FROM 
 			health_addr
 		WHERE 
-			placeNO = #{placeNO}
+			place_no = #{place_no}
 			
 	</select>
 	
@@ -36,13 +36,38 @@
 	SET 
 		gu_code = #{gu_code},
 		event_code = #{event_code},
-		facName = #{facName},
+		fac_name = #{fac_name},
 		addr_road = #{addr_road},
 		latitude = #{latitude},
 		longitude = #{longitude},
 		digit = #{digit}
 	WHERE
-		placeNO = #{placeNO}
+		place_no = #{place_no}
 	</update>
+	<insert id="insertAddr">
+	INSERT INTO health_addr
+	(
+	gu_code,
+	event_code,
+	fac_name,
+	addr_road,
+	digit
+	)VALUE
+	(
+	#{gu_code},
+	#{event_code},
+	#{fac_name},
+	#{addr_road},
+	#{digit}
+	)
+	</insert>
+	
+		<!-- 회원 삭제 -->
+	<delete id="deleteAddr">
+		DELETE FROM health_addr
+		WHERE place_no = #{place_no}
+	</delete>
+	
+	
 
 </mapper>

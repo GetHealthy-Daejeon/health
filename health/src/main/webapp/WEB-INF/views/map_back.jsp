@@ -64,7 +64,8 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index"><img
+						<a class="navbar-brand custom_navbar-brand"
+							href="http://localhost:8080/health/index"><img
 							src="/resources/static/img/logo.png" alt=""></a>
 					</div>
 					<!--End of navbar-header-->
@@ -100,29 +101,28 @@
 		<div class="editor">
 			<p class="addr-insert">주소 등록</p>
 			<div class="input-box">
-				<label for="gu-code">구 코드 : </label> <input id="gu-code" type="text"
-					placeholder="구 코드를 입력해주세요" >
+				<label for="gu_code">구 코드 : </label> <input id="gu_code" type="text"
+					placeholder="구 코드를 입력해주세요">
 			</div>
 			<div class="input-box">
-				<label for="event-code">종목 코드 : </label> <input id="event-code"
-					type="text" placeholder="종목 코드를 입력해주세요" >
+				<label for="event_code">종목 코드 : </label> <input id="event_code"
+					type="text" placeholder="종목 코드를 입력해주세요">
 			</div>
 			<div class="input-box">
-				<label for="facName">시설 이름 : </label> <input
-					id="facName" type="text" placeholder="시설 이름을 입력해주세요"
-					readonly>
+				<label for="fac_name">시설 이름 : </label> <input id="fac_name"
+					type="text" placeholder="시설 이름을 입력해주세요">
 			</div>
 			<div class="input-box">
-				<label for="addr-road">도로명주소 : </label> <input id="addr-road"
-					type="text" placeholder="도로명주소를 입력해주세요" >
+				<label for="addr-road">도로명주소 : </label> <input id="addr_road"
+					type="text" placeholder="도로명주소를 입력해주세요">
 			</div>
 			<div class="input-box">
-				<label for="digit">전화번호 : </label> <input id="digit"
-					type="text" placeholder="전화번호를 입력해주세요" >
+				<label for="digit">전화번호 : </label> <input id="digit" type="text"
+					placeholder="전화번호를 입력해주세요">
 			</div>
 			<div class="btn-area">
-				<a href="#" class="btn-cancel">취소</a> <a id="contentSubmit" href="#"
-					class="btn-success">등록</a>
+				<a href="#" class="btn-cancel">취소</a> 
+				<a id="contentSubmit" href="#" class="btn-success" onclick="insert_addr()">등록</a>
 			</div>
 		</div>
 	</div>
@@ -133,30 +133,29 @@
 					<a href="#" class="btn-close">닫기</a>
 				</div>
 				<div class="input-box">
-					<label for="placeNO">구 코드 : </label> <input id="placeNO"
-						type="text" value="${placeNO}" readonly>
-					<%-- <input id="memberHiddenId" type="hidden" value="${memberId}"> --%>
+					<label for="place_no">시설 번호 : </label> <input id="place_no"
+						type="text" value="${place_no}" readonly>
+					
 				</div>
 				<div class="input-box">
-					<label for="gu-code">구 코드 :</label> <input id="gu_code"
-						type="text" placeholder="구 코드를 입력하세요" >
-					<%-- <input id="memberHiddenId" type="hidden" value="${memberId}"> --%>
+					<label for="gu-code">구 코드 :</label> <input id="gu_code" type="text"
+						placeholder="구 코드를 입력하세요">
 				</div>
 				<div class="input-box">
 					<label for="event-code">종목 코드 :</label> <input id="event_code"
 						type="text" placeholder="종목 코드를 입력하세요">
 				</div>
 				<div class="input-box">
-					<label for="facName">시설명 :</label> <input id="facName"
-						type="text" placeholder="시설명을 입력하세요">
+					<label for="fac_name">시설명 :</label> <input id="fac_name" type="text"
+						placeholder="시설명을 입력하세요">
 				</div>
 				<div class="input-box">
 					<label for="addr_road">도로명주소 :</label> <input id="addr_road"
 						type="text" placeholder="도로명주소를 입력하세요">
 				</div>
 				<div class="input-box">
-					<label for="digit">전화번호 :</label> <input id="digit"
-						type="text" placeholder="전화번호를 입력하세요">
+					<label for="digit">전화번호 :</label> <input id="digit" type="text"
+						placeholder="전화번호를 입력하세요">
 				</div>
 
 				<div class="btn-area">
@@ -187,11 +186,11 @@
 				</thead>
 				<tbody id="boardData">
 					<c:forEach items="${pageHelper.list}" var="Addr">
-						<tr onclick="getAddr(${Addr.placeNO})">
-							<td>${Addr.placeNO}</td>
+						<tr onclick="getAddr(${Addr.place_no})">
+							<td>${Addr.place_no}</td>
 							<td>${Addr.gu_code}</td>
 							<td>${Addr.event_code}</td>
-							<td>${Addr.facName}</td>
+							<td>${Addr.fac_name}</td>
 							<td>${Addr.addr_road}</td>
 							<td>${Addr.latitude}</td>
 							<td>${Addr.longitude}</td>
@@ -248,10 +247,6 @@
 
 
 
-
-
-
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
@@ -262,41 +257,11 @@
 
 <script type="text/javascript">
 getPageNum();
-getAddrList(1, 10);
+
 
 function getAddrList(pageNum, pageSize){
-	var addrListUrl = "http://localhost:8080/addr?pageNum="
-		+ pageNum + "&pageSize=" + pageSize;
+	location.href="/addr?pageNum="+pageNum+"&pageSize="+pageSize;    
 	
-    $.ajax({
-        url : addrListUrl,
-        type : 'GET',
-        dataType : 'json',
-        success : function(response){
-
-        if(response.length > 0){
-            for(var i=0; i<response.list.length; i++){
-                html +=
-                    '<tr><td>' 
-                    +response[i].placeNO+
-                    '</td><td>'
-                    +response[i].gu_code+
-                    '</td><td>'
-                    +response[i].event_code+
-                    '</td><td>'
-                    +response[i].facName+
-                    '</td><td>'
-                    +response[i].addr_road+
-                    '</td><td>'
-                    +response[i].latitude+
-                    '</td><td>'
-                    +response[i].longitude+
-                    '</td><td>'
-                    +response[i].digit+
-                    '</td></tr>'
-        }}
-        }
-    })
 }
 
 
@@ -329,20 +294,33 @@ function getPageNum(){
 
 
 /* <!-- 클릭한 주소 확인 --> */
-function getAddr(placeNO){
+function getAddr(place_no){
     $('.update-popup').css('display','block');
     
+    var gu_code = $('#gu_code').val();
+    var event_code = $('#event_code').val();
+    var fac_name = $('#fac_name').val();
+    var addr_road = $('#addr_road').val();
+    var latitude = $('#latitude').val();
+    var longitude = $('#longitude').val();
+    var digit = $('#digit').val();
+    
+    console.log("시설코드 >> "+place_no)
+	console.log("구코드 >> "+gu_code)
+	console.log("종목코드 >> "+event_code)
+	console.log("시설이름 >> "+fac_name)
+	console.log("시설주소 >> "+addr_road)
     $.ajax({
-        url : '/addr/placeNO/'+placeNO,
+        url : '/addr/placeno/'+place_no,
         type : 'GET',
         dataType : 'json',
         success : function(response){
 
-        	$('#placeNO').val(response.placeNO);
-            $('#gu-code').val(response.gu_code);
-            $('#event-code').val(response.event_code);
-            $('#facName').val(response.facName);
-            $('#addr-road').val(response.addr_road);
+        	$('#place_no').val(response.place_no);
+            $('#gu_code').val(response.gu_code);
+            $('#event_code').val(response.event_code);
+            $('#fac_name').val(response.fac_name);
+            $('#addr_road').val(response.addr_road);
             $('#latitude').val(response.latitude);
             $('#longitude').val(response.longitude);
             $('#digit').val(response.digit);
@@ -354,14 +332,14 @@ function getAddr(placeNO){
 //게시물 수정 하는 함수
 $('#contentUpdate').click(function() { 
 	//1. 게시판 번호 확인
-	var placeNO = $('#placeNO').val(); //hidden에 숨겨둔 boardId 가져오기.
+	var place_no = $('#place_no').val(); //hidden에 숨겨둔 boardId 가져오기.
 	//2. JSON 생성
 	var gu_code = $('#gu_code').val();
 	var event_code = $('#event_code').val();
 	var addr_road = $('#addr_road').val();
 	var latitude = $('#latitude').val();
 	var longitude = $('#longitude').val();
-	var facName = $('#facName').val();
+	var fac_name = $('#fac_name').val();
 	var digit = $('#digit').val();
 	
 	
@@ -371,12 +349,13 @@ $('#contentUpdate').click(function() {
 			addr_road: addr_road,
 			latitude: latitude,
 			longitude: longitude,
-			facName: facName,
+			fac_name: fac_name,
 			digit: digit
 	};
+	console.log(fac_name)
 	//3. AJAX를 이용해서 업데이트!
 	$.ajax({
-		url: '/addr/placeNO/' + placeNO,
+		url: '/addr/placeno/' + place_no,
 		type: 'PATCH', //HTTP 메소드는 PATCH
 		contentType: 'application/json', //서버에 json 타입으로 보낼 예정(요청)
 		dataType: 'json', //서버 결과를 json으로 응답받겠다.
@@ -390,6 +369,82 @@ $('#contentUpdate').click(function() {
 		}
 	});//ajax end
 });//end
+</script>
+<script>
+/* 주소 등록작성 함수 */
+	function insert_addr(){
+	
+		var gu_code = $('#gu_code').val();
+		var event_code = $('#event_code').val();
+		var fac_name = $('#fac_name').val();
+		var addr_road = $('#addr_road').val();
+		var digit = $('#digit').val();
+
+		if (gu_code == '') {
+			alert('구 코드를 입력 해주세요');
+			$('#gu_code').focus();
+			return false;
+		}
+		if (event_code == '') {
+			alert('종목 코드를 입력 해주세요');
+			$('#event_code').focus();
+			return false;
+		}
+		if (fac_name == '') {
+			alert('시설 이름을 입력 해주세요');
+			$('#fac_name').focus();
+			return false;
+		}
+		if (addr_road == '') {
+			alert('주소를 작성 해주세요');
+			$('#addr_road').focus();
+			return false;
+		}
+		
+		var jsonData = {
+				gu_code: gu_code,
+				event_code: event_code,
+				fac_name: fac_name,
+				addr_road: addr_road
+		};
+		console.log("구코드"+gu_code)
+		console.log("종목코드"+event_code)
+		console.log("시설이름"+fac_name)
+		console.log("시설주소"+addr_road)
+		$.ajax({
+			url: '/addr',
+			type: 'POST',
+			contentType: 'application/json', //서버에 json 타입으로 보낼 예정(요청)
+			dataType: 'json', //서버 결과를 json으로 응답받겠다.
+			data: JSON.stringify(jsonData),
+			success: function(response) {
+				if (response > 0) {
+					alert('주소 등록이 완료되었습니다.');
+					var pageNum = $('#nowPageNum').val();
+					getAddrList(pageNum, 10);
+				}
+			}
+		});//ajax end
+};
+
+//삭제 함수
+$('.btn-delete').click(function(){
+        
+        // 게시판 번호 확인
+        var place_no = $('#place_no').val();
+        if(confirm('정말 삭제 하시겠습니까?')){
+            $.ajax({
+            url : '/addr/delete/'+place_no,
+            type : 'DELETE',
+            dataType : 'json',
+            success : function(response){
+            	alert('삭제 완료')
+            	var pageNum = $('#nowPageNum').val();
+            	getAddrList(pageNum,10);     
+            }
+          }); //ajax end
+        }
+    })
 </script>
 
 
