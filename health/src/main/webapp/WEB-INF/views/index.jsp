@@ -4,23 +4,20 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-<title>GreenFair</title>
-
-
-<link rel="stylesheet" href="/resources/static/css/style.css" />
-<link href="/resources/static/css/bootstrap.min.css" rel="stylesheet">
-
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	
+	<title>대전시민 모두 건강하슈</title>
+	
+	<link rel="stylesheet" href="/resources/static/css/style.css" />
+	<link href="/resources/static/css/bootstrap.min.css" rel="stylesheet">
+	<!-- fontawesome kit(아이콘) -->
+	<script src="https://kit.fontawesome.com/70d780dcf7.js" crossorigin="anonymous"></script>
 </head>
-
 <body data-spy="scroll" data-target="#header">
-
 	<!--Start Hedaer Section-->
 	<section id="header">
 		<div class="header-area">
@@ -29,22 +26,23 @@
 					<div class="row">
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 zero_mp">
 							<div class="address">
-								<i class="fa fa-home floatleft"></i>
-								<p>Elephant Road, Dhaka 1205, Bangladesh</p>
+								<!-- <i class="fa fa-home floatleft"></i> -->
+								<a href="https://github.com/GetHealthy-Daejeon/GetHealthy"><i class="fa-brands fa-github"></i>Github</a>
 							</div>
 						</div>
 						<!--End of col-md-4-->
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 zero_mp">
-							<div class="phone">
+							<!--<div class="phone">
 								<i class="fa fa-phone floatleft"></i>
 								<p>+ 8801532-987039</p>
-							</div>
+							</div>-->
 						</div>
 						<!--End of col-md-4-->
 						<div class="col-md-4">
-							<div class="social_icon text-right">									class="fa fa-twitter"></i></a> <a href=""><i
-									class="fa fa-google-plus"></i></a> <a href=""><i
-									class="fa fa-youtube"></i></a>
+							<div class="social_icon text-right">									
+								<a href=""><i class="fa fa-twitter"></i></a> 
+								<a href=""><i class="fa fa-google-plus"></i></a>
+								<a href=""><i class="fa fa-youtube"></i></a>
 							</div>
 						</div>
 						<!--End of col-md-4-->
@@ -54,8 +52,7 @@
 				<!--End of container-->
 			</div>
 			<!--End of top header-->
-			<div class="header_menu text-center" data-spy="affix"
-				data-offset-top="50" id="nav">
+			<div class="header_menu text-center" data-spy="affix" data-offset-top="50" id="nav">
 				<div class="container">
 					<nav class="navbar navbar-default zero_mp ">
 						<!-- Brand and toggle get grouped for better mobile display -->
@@ -64,11 +61,11 @@
 								data-toggle="collapse"
 								data-target="#bs-example-navbar-collapse-1"
 								aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
+								<span class="sr-only">Toggle navigation</span> 
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index"><img
+							<a class="navbar-brand custom_navbar-brand" href="/health/index"><img
 								src="/resources/static/img/logo.png" alt=""></a>
 						</div>
 						<!--End of navbar-header-->
@@ -78,15 +75,14 @@
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right main_menu">
 								<li class="active">
-								<a href="http://localhost:8080/health/index">Home
+								<a href="/health/index">Home
 								 <span class="sr-only">(current)</span></a></li>
-								<li><a href="http://localhost:8080/map">Map</a></li>
-								<li><a href="http://localhost:8080/health/login">Login</a></li>
-								<li><a href="http://localhost:8080/health/join">Join</a></li>
-								<li><a href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Member</a></li>
-								<li><a href="#counter"></a></li>
-								<li><a href="#event"></a></li>
-
+								<li><a href="/map">Map</a></li>
+								<li><a href="/health/login">Login</a></li>
+								<li><a href="/health/join">Join</a></li>
+								<li><a href="/health/members?pageNum=1&pageSize=10">Member</a></li>
+								<!-- <li><a href="#counter"></a></li> -->
+								<!-- <li><a href="#event"></a></li> -->
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -100,8 +96,6 @@
 		<!--end of header area-->
 	</section>
 	<!--End of Hedaer Section-->
-
-
 
 	<!--Start of slider section-->
 	<section id="slider">
@@ -178,12 +172,13 @@
 			</div>
 			<!--End of row-->
 			<div class="map-field">
+				<p class="text-map">내 근처의 공공시설을 찾아보세요!</p>
 				<div class="col-md-3">
 					<div class="item">
 						<div class="single_item">
 							<div class="item_list">
 								<div class="welcome_icon">
-									<a href="#" target="_blank"> <img class="daejeon"
+									<a href="/map" target="_blank"> <img class="daejeon"
 										src="/resources/static/img/대전.png" href="http://localhost:8080/map">
 									</a>
 								</div>
@@ -192,22 +187,13 @@
 						</div>
 					</div>
 				</div>
-				<p class="text-map">내 근처의 공공시설을 찾아보세요!</p>
+				
 			</div>
 			<!--End of row-->
 		</div>
 		<!--End of container-->
 	</section>
 	<!--end of welcome section-->
-
-
-
-
-
-
-
-
-
 
 	<!--Start of counter-->
 	<section id="counter">
@@ -216,8 +202,8 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="counter_header">
-							<h2>public facilities in my town</h2>
-							<p>우리동네 공공시설 현황</p>
+							<h2>대전시 건강 현황</h2>
+							<h3>Sports Facilities in Daejeon</h3>
 						</div>
 					</div>
 					<!--End of col-md-12-->
@@ -230,7 +216,7 @@
 								<img src="/resources/static/img/tree.png" alt="">
 								<div class="counter_text">
 									<span class="counter">32</span>
-									<p>nearby park</p>
+									<p>공원</p>
 								</div>
 							</div>
 						</div>
@@ -241,7 +227,7 @@
 								<img src="/resources/static/img/hand.png" alt="">
 								<div class="counter_text">
 									<span class="counter">1458</span>
-									<p>animal lost</p>
+									<p>체육시설</p>
 								</div>
 							</div>
 						</div>
@@ -252,7 +238,7 @@
 								<img src="/resources/static/img/tuhnder.png" alt="">
 								<div class="counter_text">
 									<span class="counter">9854</span>
-									<p>blubs collected</p>
+									<p>타슈</p>
 								</div>
 							</div>
 						</div>
@@ -275,12 +261,6 @@
 		</div>
 	</section>
 	<!--end of counter-->
-
-
-
-
-
-
 
 	<!--Start of testimonial-->
 	<section id="testimonial">
@@ -446,8 +426,6 @@
 	</section>
 	<!--End of market-->
 
-
-
 	<!--Start of contact-->
 	<section id="contact">
 		<div class="container">
@@ -469,16 +447,17 @@
 						</div>
 						<div class="office_location">
 							<div class="address">
-								<i class="fa fa-map-marker"><span>Elephant Road,
-										Dhaka 1205, Bangladesh</span></i>
+								<i class="fa fa-map-marker"><span>대전 중구 중앙로121번길 20 방산빌딩 DW아카데미학원</span></i>
 							</div>
 							<div class="phone">
-								<i class="fa fa-phone"><span>+ 8801532-987039</span></i>
+								<i class="fa fa-phone"><span>042-222-2402</span></i>
 							</div>
 							<div class="email">
-								<i class="fa fa-envelope"><span>youremail@mail.com</span></i>
+								<i class="fa fa-envelope"><span>공사중@mail.com</span></i>
 							</div>
-							<div id="map"></div>
+							<div id="map">
+								<img src="https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=300&h=300&center=127.1054221,37.3591614&level=16&X-NCP-APIGW-API-KEY-ID={bip93kdchz}">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -564,7 +543,6 @@
 	<a href="#" id="back-to-top" title="Back to top">&uarr;</a>
 	<!--End of Scroll to top-->
 
-
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>-->
 	<script src="/resources/static/js/jquery-1.12.3.min.js"></script>
@@ -581,6 +559,7 @@
 			time : 1000
 		});
 	</script>
+
 
 	<!--Gmaps-->
 	<script src="/resources/static/js/gmaps.min.js"></script>
@@ -604,12 +583,12 @@
 			});
 
 			map.addMarker({
-				lat : 23.6911078,
-				lng : 90.5112799,
+				lat : 36.3286904,
+				lng : 127.4229992,
 				title : 'Office',
 				details : {
 					database_id : 42,
-					author : 'Foysal'
+					author : 'joon'
 				},
 				click : function(e) {
 					if (console.log)
