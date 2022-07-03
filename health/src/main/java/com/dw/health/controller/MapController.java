@@ -24,8 +24,29 @@ public class MapController {
 	private MapService mapservice;
 
 	/* @GetMapping("/map") */
-	@RequestMapping(value = "/map", method = { RequestMethod.GET, RequestMethod.POST })
-	public String callMapPage() {
+//	@RequestMapping(value = "/map", method = { RequestMethod.GET, RequestMethod.POST })
+//	public String callMapPage() {
+//		return "map";
+//	}
+	
+	@GetMapping("/map")
+	public String callHomepage(ModelMap map) {
+		List<Map<String, Object>> yuseongList = mapservice.getYuseongFacilityList();
+//		List<Map<String, Object>> list = excelService.getTestList();
+		map.addAttribute("yuseongList", yuseongList);
+		
+		List<Map<String, Object>> daedeokList = mapservice.getDaedeokFacilityList();
+		map.addAttribute("daedeokList", daedeokList);
+		
+		List<Map<String, Object>> dongList = mapservice.getDongFacilityList();
+		map.addAttribute("dongList", dongList);
+		
+		List<Map<String, Object>> jungList = mapservice.getJungFacilityList();
+		map.addAttribute("jungList", jungList);
+
+		List<Map<String, Object>> seoList = mapservice.getSeoFacilityList();
+		map.addAttribute("seoList", seoList);
+		
 		return "map";
 	}
 
@@ -43,7 +64,5 @@ public class MapController {
 
 		return "map_back";
 	}
-	
-	
 
 }

@@ -27,7 +27,7 @@
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 zero_mp">
 							<div class="address">
 								<!-- <i class="fa fa-home floatleft"></i> -->
-								<a href="https://github.com/GetHealthy-Daejeon/GetHealthy"><i class="fa-brands fa-github"></i>Github</a>
+								<a href="https://github.com/GetHealthy-Daejeon/GetHealthy" target="_blank"><i class="fa-brands fa-github"></i>Github</a>
 							</div>
 						</div>
 						<!--End of col-md-4-->

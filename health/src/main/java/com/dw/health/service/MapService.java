@@ -15,14 +15,14 @@ import com.github.pagehelper.PageHelper;
 public class MapService {
 	
 	@Autowired
-	private MapMapper mapmapper;
+	private MapMapper mapMapper;
 	
 	
 	//주소 추가
 	@Transactional(rollbackFor = {Exception.class})
 	public int insertAddr(MapVO vo) {
 		
-		return mapmapper.insertAddr(vo);
+		return mapMapper.insertAddr(vo);
 	}
 	
 	
@@ -30,27 +30,54 @@ public class MapService {
 	@Transactional(rollbackFor = {Exception.class})
 	public List<Map<String,Object>> getAllAddrList(int pageNum, int pageSize){
 		PageHelper.startPage(pageNum, pageSize);
-		return mapmapper.selectAllAddrList();
+		return mapMapper.selectAllAddrList();
 	}
 	
 	//주소 상세 조회(주소 클릭시 조회)
 	@Transactional(rollbackFor = {Exception.class})
 	public MapVO selectAddrOne(int placeno) {
-		return mapmapper.selectAddrOne(placeno);
+		return mapMapper.selectAddrOne(placeno);
 	}
 	
 	//회원 정보 수정
 	@Transactional(rollbackFor = Exception.class)
 	public int updateAddrOne(MapVO vo, int placeno) {
 		vo.setPlace_no(placeno);
-		return mapmapper.updateAddrOne(vo);
+		return mapMapper.updateAddrOne(vo);
 	}
 	//회원 정보 삭제
 	@Transactional(rollbackFor = {Exception.class})
 	public int deleteAddr(int placeno) {
-		return mapmapper.deleteAddr(placeno);
+		return mapMapper.deleteAddr(placeno);
 	}
 	
-	
+	// 구별 데이터 list 가져오기
+	// 유성구
+	public List<Map<String, Object>> getYuseongFacilityList(){
+		return mapMapper.selectYuseong();
+	}
+	public List<Map<String, Object>> getFacilityList(String facilityName){
+		return mapMapper.facilityList(facilityName);
+	}
+	// 대덕구
+	public List<Map<String, Object>> getDaedeokFacilityList(){
+		return mapMapper.selectDaedeok();
+	}
+	// 동구
+	public List<Map<String, Object>> getDongFacilityList(){
+		return mapMapper.selectDong();
+	}
+	// 중구
+	public List<Map<String, Object>> getJungFacilityList(){
+		return mapMapper.selectJung();
+	}
+	// 서구
+	public List<Map<String, Object>> getSeoFacilityList(){
+		return mapMapper.selectSeo();
+	}
+	// 종목코드별 조회
+	public List<Map<String, Object>> getEventCode(String eventCode){
+		return mapMapper.selectEventCode(eventCode);
+	}
 
 }
