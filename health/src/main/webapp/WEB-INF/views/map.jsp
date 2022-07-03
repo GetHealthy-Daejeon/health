@@ -23,11 +23,12 @@
 	        <div class="banner-list">
 				<input type="button" id="T" value="테니스장">
 				<input type="button" id="S" value="수영장">
-				<input type="button" id="P" value="공원">
 				<input type="button" id="B" value="농구장">
 				<input type="button" id="F" value="풋살&축구">
-				<input type="button" id="E" value="기타">
-				<input type="button" id="refresh" value="초기화" onclick="window.location.reload()">
+				<input type="button" id="P" value="공원체육시설">
+				<input type="button" id="E" value="기타체육시설">
+				<input type="button" id="park" value="공원">
+				<input type="button" id="refresh" value="지도초기화" onclick="window.location.reload()">
 	        </div>
 		</div>
 		<div id="map"></div>
@@ -802,5 +803,18 @@
     var zoomControl = new kakao.maps.ZoomControl();
     // 지도 오른쪽에 줌 컨트롤이 표시되도록 지도에 컨트롤을 추가한다.
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+    kakao.maps.event.addListener(map, 'zoom_changed', function() {        
+        // 지도 현재 레벨
+        var level = map.getLevel();
+        console.log('현재 지도 레벨은 ' + level + ' 입니다');
+        if(level == 10){
+        	// 지도레벨이 10이면 커스텀 오버레이 지우는 코드 작성중... 
+        	console.log("테스트")
+        }
+    });
+    var mapTypeControl = new kakao.maps.MapTypeControl();
+	// 지도 오른쪽 위에 지도 타입 컨트롤이 표시되도록 지도에 컨트롤을 추가한다.
+	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
   </script>
+	<script src="/resources/static/js/park.js"></script>
 </html>
