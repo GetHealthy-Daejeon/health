@@ -141,7 +141,10 @@
         yuseongPolygon,
         "click",
         function (mouseEvent) {
-          var level = map.getLevel() - 2;
+            $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+            getParkInfo(name); // name = 유성구
+        	
+        	var level = map.getLevel() - 2;
           // map.setLevel(level, {anchor: centroid(points), animate: {
           map.setLevel(level, {
             anchor: new daum.maps.LatLng(
@@ -236,7 +239,7 @@
 
       // 커스텀 오버레이 내용
       // var content = '<div class ="label"><span class="left"></span><span class="center">유성구</span><span class="right"></span></div>';
-      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">유성구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">'+name+'</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -325,7 +328,10 @@
         daedeokPolygon,
         "click",
         function (mouseEvent) {
-          var level = map.getLevel() - 2;
+            $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+            getParkInfo(name); // name = 대덕구
+        	
+        	var level = map.getLevel() - 2;
           map.setLevel(level, {
             anchor: centroid(points),
             animate: {
@@ -399,7 +405,7 @@
       };
 
       // 커스텀 오버레이 내용
-      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">대덕구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">'+name+'</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -449,7 +455,10 @@
       polygons.push(dongPolygon); // 폴리곤 제거하기 위한 배열
       // 동구 폴리곤을 클릭하면 대덕구 행정동 폴리곤 데이터 가져오기
       kakao.maps.event.addListener(dongPolygon, "click", function (mouseEvent) {
-        var level = map.getLevel() - 2;
+          $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+          getParkInfo(name); // name = 동구
+    	  
+    	  var level = map.getLevel() - 2;
         map.setLevel(level, {
           anchor: centroid(points),
           animate: {
@@ -522,7 +531,7 @@
       };
 
       // 커스텀 오버레이 내용
-      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">동구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">'+name+'</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -572,7 +581,10 @@
       polygons.push(jungPolygon); // 폴리곤 제거하기 위한 배열
       // 중구 폴리곤을 클릭하면 대덕구 행정동 폴리곤 데이터 가져오기
       kakao.maps.event.addListener(jungPolygon, "click", function (mouseEvent) {
-        var level = map.getLevel() - 2;
+          $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+          getParkInfo(name); // name = 중구
+    	  
+    	  var level = map.getLevel() - 2;
         map.setLevel(level, {
           anchor: centroid(points),
           animate: {
@@ -646,7 +658,7 @@
 
       // 커스텀 오버레이 내용
       // var content = '<div class ="label"><span class="left"></span><span class="center">유성구</span><span class="right"></span></div>';
-      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">중구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">'+name+'</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -695,7 +707,10 @@
       polygons.push(seoPolygon); // 폴리곤 제거하기 위한 배열
       // 서구 폴리곤을 클릭하면 대덕구 행정동 폴리곤 데이터 가져오기
       kakao.maps.event.addListener(seoPolygon, "click", function (mouseEvent) {
-        var level = map.getLevel() - 2;
+          $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+          getParkInfo(name); // name = 서구
+    	  
+    	  var level = map.getLevel() - 2;
         map.setLevel(level, {
           anchor: centroid(points),
           animate: {
@@ -769,7 +784,7 @@
       };
 
       // 커스텀 오버레이 내용
-      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">서구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">'+name+'</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
