@@ -18,8 +18,8 @@ function getParkInfo(guName){
               if (status === kakao.maps.services.Status.OK) {
               // 마커 이미지의 이미지 주소입니다
 				var imageSrc;
-				if(response.data[index].비고 == "<조성중>"){
-				  imageSrc = "resources/static/img/under-construction2.png"; 
+				if(response.data[index].비고 == "<조성중>" || response.data[index].비고 == "<미조성>"){
+				  imageSrc = "resources/static/img/under_construction.png"; 
 				}else{
 				  imageSrc = "resources/static/img/park.png"; 
 				} 
@@ -35,7 +35,7 @@ function getParkInfo(guName){
                 });
                 markers.push(marker); // marker를 제거하기 위해 배열에 담음
                 // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-                var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">공원명 :'+response.data[index].공원명+' <br> 주소 :'+ response.data[index].위치+'<br> 종류 :'+response.data[index].공원종류+'<br> 관리청 :'+response.data[index].관리청+'<input id="isComplete" type="hidden" value="'+response.data[index].비고+'"></div>'
+                var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">'+response.data[index].비고 +'<br> 공원명 :'+response.data[index].공원명+' <br> 주소 :'+ response.data[index].위치+'<br> 종류 :'+response.data[index].공원종류+'<br> 관리청 :'+response.data[index].관리청+'<input id="isComplete" type="hidden" value="'+response.data[index].비고+'"></div>'
                 iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
                 // 인포윈도우를 생성합니다
                 var infowindow = new kakao.maps.InfoWindow({
