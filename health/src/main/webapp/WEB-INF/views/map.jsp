@@ -28,6 +28,7 @@
 				<input type="button" id="P" value="공원체육시설">
 				<input type="button" id="E" value="기타체육시설">
 				<input type="button" id="park" value="공원">
+				<input type="button" id="tashu" value="타슈">
 				<input type="button" id="refresh" value="지도초기화" onclick="window.location.reload()">
 	        </div>
 		</div>
@@ -56,39 +57,10 @@
 	// 주소-좌표 변환 객체를 생성
 	var geocoder = new kakao.maps.services.Geocoder();
     
-    // 행정구 이름 표시
-    (customOverlay = new kakao.maps.CustomOverlay({})),
-      (infowindow = new kakao.maps.InfoWindow({ removable: true }));
-    // var markerPosition = new kakao.maps.LatLng(36.3504119, 127.3845475); // 마커 위치
-
-    // 마커 생성
-    var marker = new kakao.maps.Marker({
-      position: markerPosition,
-      clickable: true, // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정
-    });
-    marker.setMap(map); // 마커 표시
-
-    // 마커 제거
-    // marker.setMap(null);
-
-    // 마커 클릭하면 나올 인포윈도우
-    var iwContent =
-        '<div style="padding:10px; font-size: 20px; width: 100%; font-weight: 900" >여기는 대전광역시</div>',
-      iwRemoveable = true; // 인포윈도우를 닫는 x버튼 표시
-
-    // 인포윈도우 생성
-    var infowindow = new kakao.maps.InfoWindow({
-      content: iwContent,
-      removable: iwRemoveable,
-    });
-
-    // 마커 위에 인포윈도우 표시
-    kakao.maps.event.addListener(marker, "click", function () {
-      infowindow.open(map, marker);
-    });
 </script>
 <script>
     var polygons = []; // 폴리곤 지울때 사용하는 배열 담는 변수
+    var markers = []; // 삭제하기 위한 마커 저장
 
     //지도 위 표시되고 있는 폴리곤 제거
     function deletePolygon(polygons) {
@@ -143,6 +115,7 @@
         function (mouseEvent) {
             $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
             getParkInfo(name); // name = 유성구
+            getTashuInfo(name);
         	
         	var level = map.getLevel() - 2;
           // map.setLevel(level, {anchor: centroid(points), animate: {
@@ -185,6 +158,7 @@
 	    		            position: coords,
 	    		          	image : markerImage // 마커 이미지 
 	    		        });
+	    		        markers.push(marker); // marker를 제거하기 위해 배열에 담음
 	  				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
 	    		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;"> 장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>'
 	    		      '<div class="wrap">' + 
@@ -330,6 +304,7 @@
         function (mouseEvent) {
             $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
             getParkInfo(name); // name = 대덕구
+            getTashuInfo(name);
         	
         	var level = map.getLevel() - 2;
           map.setLevel(level, {
@@ -367,6 +342,7 @@
 	  		            position: coords,
 	  		          	image : markerImage // 마커 이미지 
 	  		        });
+  		      		markers.push(marker); // marker를 제거하기 위해 배열에 담음
 					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
 	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
 						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
@@ -457,6 +433,7 @@
       kakao.maps.event.addListener(dongPolygon, "click", function (mouseEvent) {
           $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
           getParkInfo(name); // name = 동구
+          getTashuInfo(name);
     	  
     	  var level = map.getLevel() - 2;
         map.setLevel(level, {
@@ -494,6 +471,7 @@
 	  		            position: coords,
 	  		          	image : markerImage // 마커 이미지 
 	  		        });
+	  		      	markers.push(marker); // marker를 제거하기 위해 배열에 담음
 					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
 	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
 						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
@@ -583,6 +561,7 @@
       kakao.maps.event.addListener(jungPolygon, "click", function (mouseEvent) {
           $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
           getParkInfo(name); // name = 중구
+          getTashuInfo(name);
     	  
     	  var level = map.getLevel() - 2;
         map.setLevel(level, {
@@ -620,6 +599,7 @@
 	  		            position: coords,
 	  		          	image : markerImage // 마커 이미지 
 	  		        });
+	  		      	markers.push(marker); // marker를 제거하기 위해 배열에 담음
 					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
 	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
 						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
@@ -709,6 +689,7 @@
       kakao.maps.event.addListener(seoPolygon, "click", function (mouseEvent) {
           $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
           getParkInfo(name); // name = 서구
+          getTashuInfo(name);
     	  
     	  var level = map.getLevel() - 2;
         map.setLevel(level, {
@@ -747,6 +728,7 @@
 	  		            position: coords,
 	  		          	image : markerImage // 마커 이미지 
 	  		        });
+	  		      	markers.push(marker); // marker를 제거하기 위해 배열에 담음
 					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
 	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
 						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
@@ -832,4 +814,5 @@
 	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
   </script>
 	<script src="/resources/static/js/park.js"></script>
+	<script src="/resources/static/js/tashu.js"></script>
 </html>
