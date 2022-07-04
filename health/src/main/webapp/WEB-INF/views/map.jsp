@@ -115,7 +115,10 @@
         function (mouseEvent) {
             $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
             getParkInfo(name); // name = 유성구
+<<<<<<< Upstream, based on branch 'develop' of https://github.com/GetHealthy-Daejeon/health.git
             getTashuInfo(name);
+=======
+>>>>>>> f06d4b3 feat : 민영
         	
         	var level = map.getLevel() - 2;
           // map.setLevel(level, {anchor: centroid(points), animate: {
@@ -304,7 +307,10 @@
         function (mouseEvent) {
             $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
             getParkInfo(name); // name = 대덕구
+<<<<<<< Upstream, based on branch 'develop' of https://github.com/GetHealthy-Daejeon/health.git
             getTashuInfo(name);
+=======
+>>>>>>> f06d4b3 feat : 민영
         	
         	var level = map.getLevel() - 2;
           map.setLevel(level, {
@@ -433,7 +439,10 @@
       kakao.maps.event.addListener(dongPolygon, "click", function (mouseEvent) {
           $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
           getParkInfo(name); // name = 동구
+<<<<<<< Upstream, based on branch 'develop' of https://github.com/GetHealthy-Daejeon/health.git
           getTashuInfo(name);
+=======
+>>>>>>> f06d4b3 feat : 민영
     	  
     	  var level = map.getLevel() - 2;
         map.setLevel(level, {
@@ -561,7 +570,10 @@
       kakao.maps.event.addListener(jungPolygon, "click", function (mouseEvent) {
           $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
           getParkInfo(name); // name = 중구
+<<<<<<< Upstream, based on branch 'develop' of https://github.com/GetHealthy-Daejeon/health.git
           getTashuInfo(name);
+=======
+>>>>>>> f06d4b3 feat : 민영
     	  
     	  var level = map.getLevel() - 2;
         map.setLevel(level, {
@@ -689,7 +701,10 @@
       kakao.maps.event.addListener(seoPolygon, "click", function (mouseEvent) {
           $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
           getParkInfo(name); // name = 서구
+<<<<<<< Upstream, based on branch 'develop' of https://github.com/GetHealthy-Daejeon/health.git
           getTashuInfo(name);
+=======
+>>>>>>> f06d4b3 feat : 민영
     	  
     	  var level = map.getLevel() - 2;
         map.setLevel(level, {
