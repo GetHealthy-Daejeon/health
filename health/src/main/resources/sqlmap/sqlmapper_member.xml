@@ -45,6 +45,7 @@
 		SELECT
 			member_id AS memberId, 
 			member_name AS memberName,
+			authority AS authority,
 			member_password AS memberPassword
 		FROM
 			membership

@@ -52,6 +52,7 @@ public class MemberService {
 //		}
 		httpSession.setAttribute("memberPassword", member.getMemberPassword());
 		httpSession.setAttribute("memberName", member.getMemberName());
+		httpSession.setAttribute("authority", member.getAuthority());
 
 		return true;
 	}

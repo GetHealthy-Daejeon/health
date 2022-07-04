@@ -24,7 +24,21 @@ public class LoginController {
 	
 	//메인 화면
 	@GetMapping("/index")
-	public String callMainPage() {
+	public String callMainPage(ModelMap map, HttpSession httpSession) {
+		
+		String authority = "";
+		String name = "";
+		if(httpSession.getAttribute("authority") == null) {
+			return "redirect:/health/login";
+		}
+		if(httpSession.getAttribute("authority") != null) {
+			authority = httpSession.getAttribute("authority").toString();
+		}
+		if(httpSession.getAttribute("memberName") != null) {
+			name = httpSession.getAttribute("memberName").toString();
+		}
+		map.put("authority", authority);			
+		map.put("name", name);
 		return "index";
 	}
 
@@ -59,6 +73,15 @@ public class LoginController {
 //		map.addAttribute("memberId", memberId);
 		
 		return "member";
+	}
+	
+	@GetMapping("/logout")
+	public String callLoginout(HttpSession httpSession) {
+		// 세션 remove
+		httpSession.removeAttribute("memberName");
+		httpSession.removeAttribute("memberPassword");
+		httpSession.removeAttribute("authority");
+		return "login";
 	}
 
 }

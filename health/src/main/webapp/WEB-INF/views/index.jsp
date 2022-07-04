@@ -80,9 +80,13 @@
 								<li><a href="/map">Map</a></li>
 								<li><a href="/health/login">Login</a></li>
 								<li><a href="/health/join">Join</a></li>
-								<li><a href="/health/members?pageNum=1&pageSize=10">Member</a></li>
-								<!-- <li><a href="#counter"></a></li> -->
-								<!-- <li><a href="#event"></a></li> -->
+								<li><a href="/health/logout">Logout</a></li>
+								<c:if test="${authority.equals('2')}">
+									<li><a href="/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
+									<li><a href="/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
+								</c:if>
+<%-- 								<h3>이름 : ${memberName}</h3>
+								<h3>권한 : ${authority}</h3> --%>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
