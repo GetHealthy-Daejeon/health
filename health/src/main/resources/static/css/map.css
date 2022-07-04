@@ -14,13 +14,15 @@
 	z-index: 0;
 }
 .banner {
+    visibility: hidden;
 	position: fixed;
-	width: 10%;
-	height: 1065px;
+    width: 0%;
+    height: 98%;
 	background-color: rgb(255, 255, 255);
 	border-right: 1px solid gray;
 	box-shadow: 1px 1px 5px gray;
 	z-index: 1;
+    transition: 0.5s;
 }
 .banner-list {
 	display: block;

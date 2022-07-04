@@ -64,5 +64,4 @@ public class MapController {
 
 		return "map_back";
 	}
-
 }
