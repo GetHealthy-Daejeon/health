@@ -72,4 +72,6 @@ public interface MapMapper {
 	 * comment : 운동 종목 카테고리별 조회
 	 */
 	public List<Map<String, Object>> selectEventCode(String eventCode);
+	
+	public List<Map<String, Object>> selectSearchBoardList(String fac_name);
 }

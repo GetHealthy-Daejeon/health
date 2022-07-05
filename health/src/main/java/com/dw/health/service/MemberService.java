@@ -58,13 +58,6 @@ public class MemberService {
 	}
 
 	
-	//회원 전체 조회 
-	@Transactional(rollbackFor = {Exception.class})
-	public List<Map<String,Object>> getAllMemberList(int pageNum, int pageSize){
-		PageHelper.startPage(pageNum, pageSize);
-		return membermapper.selectAllMemberList();
-	}
-	
 	//회원 상세 조회
 	public MemberVO getMember(int memberId) {
 		return membermapper.selectMemberOne(memberId);
@@ -83,4 +76,19 @@ public class MemberService {
 	public int deleteMember(int memberId) {
 		return membermapper.deleteMember(memberId);
 	}
+	
+	// 학생이름 검색
+	public List<Map<String, Object>> memberSearchList(int pageNum, int pageSize, String name){
+		PageHelper.startPage(pageNum, pageSize);
+		return membermapper.memberSearchList(name);
+	}
+	
+	//회원 전체 조회 
+	@Transactional(rollbackFor = {Exception.class})
+	public List<Map<String,Object>> getAllMemberList(int pageNum, int pageSize){
+		PageHelper.startPage(pageNum, pageSize);
+		return membermapper.selectAllMemberList();
+	}
+	
+	
 }
