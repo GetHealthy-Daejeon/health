@@ -14,25 +14,24 @@
 </head>
 <body>
 	<div class="container">
-		<div class="banner">
-			<div class="logo">
-				<a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index">
-				<img src="/resources/static/img/logo.png" alt=""></a>
-			</div>
-			<!-- <div class="btn"></div> -->
-	        <div class="banner-list">
-				<input type="button" id="T" value="테니스장">
-				<input type="button" id="S" value="수영장">
-				<input type="button" id="B" value="농구장">
-				<input type="button" id="F" value="풋살&축구">
-				<input type="button" id="P" value="공원체육시설">
-				<input type="button" id="E" value="기타체육시설">
-				<input type="button" id="park" value="공원">
-				<input type="button" id="tashu" value="타슈">
-				<input type="button" id="deleteMarker" value="마크제거(테스트용)" onclick="deletePolygon(markers)">
-				<input type="button" id="refresh" value="지도초기화" onclick="window.location.reload()">
-	        </div>
-		</div>
+       <div class="banner">
+          <div class="banner-list">
+            <input type="button" id="T" value="테니스장">
+            <input type="button" id="S" value="수영장">
+            <input type="button" id="B" value="농구장">
+            <input type="button" id="F" value="풋살&축구">
+            <input type="button" id="P" value="공원체육시설">
+            <input type="button" id="E" value="기타체육시설">
+            <hr width="90%" color="#000" noshade />
+            <input type="button" id="park" value="공원">
+            <input type="button" id="tashu" value="타슈">
+            <input type="button" id="deleteMarker" value="마크제거(테스트용)" onclick="deletePolygon(markers)">
+            <input type="button" id="refresh" value="지도초기화" onclick="window.location.reload()">
+          </div>
+          <div class="text-box">
+            구&nbsp;&nbsp;를&nbsp;&nbsp;&nbsp;&nbsp;선&nbsp;&nbsp;택&nbsp;&nbsp;해&nbsp;&nbsp;&nbsp;&nbsp;주&nbsp;&nbsp;세&nbsp;&nbsp;요&nbsp;&nbsp;
+          </div>
+        </div>
 		<div id="map"></div>
 	</div>
 </body>
@@ -114,7 +113,9 @@
         yuseongPolygon,
         "click",
         function (mouseEvent) {
-            $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+            $(".text-box").css({"visibility":"hidden"}) // 구 클릭하면 텍스트박스 사라짐
+            $(".banner").css({"visibility":"visible", "max-width":"10%"}) // 구 클릭하면 배너가 옆으로 나오는 이벤트
+            $(".banner-list").css({"visibility":"visible","width":"100%"}) // 구 클릭하면 리스트가 옆으로 나오는 이벤트
             getParkInfo(name); // name = 유성구
             getTashuInfo(name);
         	
@@ -303,7 +304,9 @@
         daedeokPolygon,
         "click",
         function (mouseEvent) {
-            $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+            $(".text-box").css({"visibility":"hidden"})
+            $(".banner").css({"visibility":"visible", "max-width":"10%"})
+            $(".banner-list").css({"visibility":"visible","width":"100%"})
             getParkInfo(name); // name = 대덕구
             getTashuInfo(name);
         	
@@ -432,7 +435,9 @@
       polygons.push(dongPolygon); // 폴리곤 제거하기 위한 배열
       // 동구 폴리곤을 클릭하면 대덕구 행정동 폴리곤 데이터 가져오기
       kakao.maps.event.addListener(dongPolygon, "click", function (mouseEvent) {
-          $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+          $(".text-box").css({"visibility":"hidden"})
+          $(".banner").css({"visibility":"visible", "max-width":"10%"})
+          $(".banner-list").css({"visibility":"visible","width":"100%"})
           getParkInfo(name); // name = 동구
           getTashuInfo(name);
 
@@ -560,7 +565,9 @@
       polygons.push(jungPolygon); // 폴리곤 제거하기 위한 배열
       // 중구 폴리곤을 클릭하면 대덕구 행정동 폴리곤 데이터 가져오기
       kakao.maps.event.addListener(jungPolygon, "click", function (mouseEvent) {
-          $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+          $(".text-box").css({"visibility":"hidden"})
+          $(".banner").css({"visibility":"visible", "max-width":"10%"})
+          $(".banner-list").css({"visibility":"visible","width":"100%"})
           getParkInfo(name); // name = 중구
           getTashuInfo(name);
 
@@ -688,7 +695,9 @@
       polygons.push(seoPolygon); // 폴리곤 제거하기 위한 배열
       // 서구 폴리곤을 클릭하면 대덕구 행정동 폴리곤 데이터 가져오기
       kakao.maps.event.addListener(seoPolygon, "click", function (mouseEvent) {
-          $(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+          $(".text-box").css({"visibility":"hidden"})
+          $(".banner").css({"visibility":"visible", "max-width":"10%"})
+          $(".banner-list").css({"visibility":"visible","width":"100%"})
           getParkInfo(name); // name = 서구
           getTashuInfo(name);
     	  
