@@ -29,6 +29,7 @@
 				<input type="button" id="E" value="기타체육시설">
 				<input type="button" id="park" value="공원">
 				<input type="button" id="tashu" value="타슈">
+				<input type="button" id="deleteMarker" value="마크제거(테스트용)" onclick="deletePolygon(markers)">
 				<input type="button" id="refresh" value="지도초기화" onclick="window.location.reload()">
 	        </div>
 		</div>

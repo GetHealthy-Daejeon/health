@@ -1,9 +1,12 @@
-var markers = []; // 삭제하기 위한 마커 저장
-
 function getTashuInfo(guName){
+  var TashuMarkers = [];
   $('#tashu').click(function(){
-    deletePolygon(markers);
-    $.ajax({
+    if($(this).hasClass("active")){
+      $(this).removeClass("active");
+      deletePolygon(TashuMarkers);
+    }else{
+      $(this).addClass("active");
+      $.ajax({
       url : "https://api.odcloud.kr/api/15062798/v1/uddi:cd8c82d9-b88c-42b0-bedd-a8b4b919732b?perPage=1000&serviceKey=eQZma%2BIrvJVJ%2FoYjIe5wYTnAwUZYZNAM5v%2BtmC8hutkmQ%2BFFsfQt5gbWiZ0FNXRs3LK%2BHxQ3oLQji3lZ%2BiLgKA%3D%3D",
       type : "GET",
       dataType : "json", // 서버 결과를 json으로 응답받겠다.
@@ -13,13 +16,12 @@ function getTashuInfo(guName){
         // console.log(response.data[100].위치.substring(6,9).replace(" ",""))
         // 사용할 데이터 : Station 스테이션/성명, 시군구명, 위치
         response.data.forEach(function(test, index){
-          console.log(response.data[index].위치)
+          // console.log(response.data[index].위치)
         // for문으로 response.data 불러올 시 geocoder 비동기작업으로 인해 한번에 진행되므로 제대로 값을 불러올 수 없음. 그래서 forEach 사용함
           if(response.data[index].위치.substring(6,9).replace(" ","") == guName){
             geocoder.addressSearch(response.data[index].위치, function(result, status) {
               // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
               if (status === kakao.maps.services.Status.OK) {
-                console.log(result)
               // 마커 이미지의 이미지 주소입니다
                 var imageSrc = "resources/static/img/bike.png"; 
                 var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
@@ -32,6 +34,7 @@ function getTashuInfo(guName){
                   position: coords,
                   image : markerImage // 마커 이미지 
                 });
+                TashuMarkers.push(marker); // 타슈만 제거하기 위한 배열
                 markers.push(marker); // marker를 제거하기 위해 배열에 담음
                 // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
                 var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">정류장명 :'+response.data[index]['Station 스테이션/성명']+' <br> 위치 :'+response.data[index].위치+'</div>'
@@ -52,5 +55,6 @@ function getTashuInfo(guName){
         })
       }
     });
+    }
   });
 }

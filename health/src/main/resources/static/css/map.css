@@ -47,6 +47,11 @@
 	color: #ffffff;
 }
 
+.banner-list .active {
+  background-color: rgba(0, 148, 0, 0.623);
+  color: #ffffff;
+}
+
 .logo {
 	margin: 15px;
 	border-bottom: 1px solid;
