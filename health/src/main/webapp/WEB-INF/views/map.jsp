@@ -61,7 +61,7 @@
 </script>
 <script>
     var polygons = []; // 폴리곤 지울때 사용하는 배열 담는 변수
-    var markers = []; // 삭제하기 위한 마커 저장
+    var markers = []; // 마커 전체 제거하기 위한 배열
 
     //지도 위 표시되고 있는 폴리곤 제거
     function deletePolygon(polygons) {
