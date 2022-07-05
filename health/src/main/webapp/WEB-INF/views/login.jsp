@@ -72,12 +72,12 @@
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right main_menu">
 								<li class="active">
-								<a href="http://localhost:8080/health/index">Home
+								<a href="/health/index">Home
 								 <span class="sr-only">(current)</span></a></li>
-								<li><a href="http://localhost:8080/map">Map</a></li>
-								<li><a href="http://localhost:8080/health/login">Login</a></li>
-								<li><a href="http://localhost:8080/health/join">Join</a></li>
-								<li><a href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Member</a></li>
+								<li><a href="/map">Map</a></li>
+								<li><a href="/health/login">Login</a></li>
+								<li><a href="/health/join">Join</a></li>
+								<li><a href="/health/members?pageNum=1&pageSize=10">Member</a></li>
 								<li><a href="#counter"></a></li>
 								<li><a href="#event"></a></li>
 
@@ -160,6 +160,18 @@
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 		crossorigin="anonymous"></script>
 	<script>
+		// 엔터 누르면 로그인 실행되게
+		$('#userId').keyup(function(key){
+	        if(key.keyCode == 13){
+				login();
+	        }
+	    })
+	    $('#userPassword').keyup(function(key){
+	        if(key.keyCode == 13){
+				login();
+	        }
+	    })
+	    
 		function login() {
 			var userId = $('#userId').val();
 			var userPassword = $('#userPassword').val();
