@@ -1,7 +1,7 @@
 function getParkInfo(guName){
   var parkMarkers = [];
-  $('#park').click(function(){
-    if($(this).hasClass("active")){ // if면 active 클래스 지우기
+  $('#park').click(function(){ //park 버튼 클릭했을 때 
+    if($(this).hasClass("active")){ // if(active가 있다면)면 active 클래스 지우기
       $(this).removeClass("active");
       deletePolygon(parkMarkers);
     }else{
