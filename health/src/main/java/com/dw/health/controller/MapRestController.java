@@ -1,5 +1,8 @@
 package com.dw.health.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dw.health.service.MapService;
 import com.dw.health.vo.MapVO;
+import com.github.pagehelper.PageInfo;
 
 @RequestMapping("/addr")
 @RestController
@@ -54,6 +58,16 @@ public class MapRestController {
 		return mapservice.deleteAddr(placeno);
 	}
 	
+	
+	@CrossOrigin
+	@GetMapping("/search")
+	public PageInfo<Map<String, Object>> callBoardSearch(@RequestParam("writer") String writer,
+			@RequestParam("pageNum") int pageNum, 
+			@RequestParam("pageSize") int pageSize){
+		
+		List<Map<String, Object>> list = mapservice.getSearchBoardList(writer, pageNum, pageSize);
+		return new PageInfo<Map<String, Object>>(list);
+	}
 
 
 }

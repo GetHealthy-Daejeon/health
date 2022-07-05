@@ -97,9 +97,18 @@
 </section>
 <!--End of Hedaer Section-->
 <section id="member">
+
+			<div class="search">
+				<label> 
+					<input id="searchBar" type="text" placeholder="작성자를 검색하세요..."> 
+					<input id="keyword" type="hidden" value="null">
+				</label>
+			</div>
 	<div class="write-popup">
 		<div class="editor">
+			
 			<p class="addr-insert">주소 등록</p>
+
 			<div class="input-box">
 				<label for="gu_code">구 코드 : </label> <input id="gu_code" type="text"
 					placeholder="구 코드를 입력해주세요">
@@ -121,8 +130,8 @@
 					placeholder="전화번호를 입력해주세요">
 			</div>
 			<div class="btn-area">
-				<a href="#" class="btn-cancel">취소</a> 
-				<a id="contentSubmit" href="#" class="btn-success" onclick="insert_addr()">등록</a>
+				<a href="#" class="btn-cancel">취소</a> <a id="contentSubmit" href="#"
+					class="btn-success" onclick="insert_addr()">등록</a>
 			</div>
 		</div>
 	</div>
@@ -135,7 +144,7 @@
 				<div class="input-box">
 					<label for="place_no">시설 번호 : </label> <input id="place_no"
 						type="text" value="${place_no}" readonly>
-					
+
 				</div>
 				<div class="input-box">
 					<label for="gu-code">구 코드 :</label> <input id="gu_code" type="text"
@@ -146,8 +155,8 @@
 						type="text" placeholder="종목 코드를 입력하세요">
 				</div>
 				<div class="input-box">
-					<label for="fac_name">시설명 :</label> <input id="fac_name" type="text"
-						placeholder="시설명을 입력하세요">
+					<label for="fac_name">시설명 :</label> <input id="fac_name"
+						type="text" placeholder="시설명을 입력하세요">
 				</div>
 				<div class="input-box">
 					<label for="addr_road">도로명주소 :</label> <input id="addr_road"
@@ -200,6 +209,7 @@
 				</tbody>
 			</table>
 			<div class="pagination">
+				<a onclick="getAddrList(1,10)"> ← </a>
 				<c:if test="${pageHelper.hasPreviousPage}">
 					<a onclick="getAddrList(${pageHelper.pageNum-1},10)">Previous</a>
 				</c:if>
@@ -210,6 +220,7 @@
 				<c:if test="${pageHelper.hasNextPage}">
 					<a onclick="getAddrList(${pageHelper.pageNum+1},10)">Next</a>
 				</c:if>
+				<a onclick="getAddrList(${pageHelper.total},10)"> → </a>
 			</div>
 			<input id="nowPageNum" type="hidden" value="${pageHelper.pageNum}">
 		</div>
@@ -271,6 +282,18 @@ function getPageNum(){
 	$('#pageNum'+pageNum).css('backgroundColor','#287bff'); // id가 pageNum + pageNumber 문자를 합친거
 	$('#pageNum'+pageNum).css('color','#fff');
 }
+
+
+$('#searchBar').keyup(function(key) {
+	var pageSize = 10;
+	var pageNum = 1;
+	if (key.keyCode == 13) {
+		var search = $('#searchBar').val().trim();//input에 작성한 작성자를 가져옴
+		if (search != '') {
+			location.href = "/addr/search?writer=" + search + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
+		}
+	}
+});
 
 </script>
 <script>

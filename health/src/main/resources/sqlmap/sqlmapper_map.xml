@@ -8,9 +8,7 @@
 			event_code AS event_code,
 			fac_name AS fac_name,
 			addr_road AS addr_road,
-			digit AS digit,
-			latitude AS latitude,
-			longitude AS longitude
+			digit AS digit
 		FROM health_addr
 	</select>
 	
@@ -21,9 +19,7 @@
 			event_code AS event_code,
 			fac_name AS fac_name,
 			addr_road AS addr_road,
-			digit AS digit,
-			latitude AS latitude,
-			longitude AS longitude
+			digit AS digit
 		FROM 
 			health_addr
 		WHERE 
@@ -38,8 +34,6 @@
 		event_code = #{event_code},
 		fac_name = #{fac_name},
 		addr_road = #{addr_road},
-		latitude = #{latitude},
-		longitude = #{longitude},
 		digit = #{digit}
 	WHERE
 		place_no = #{place_no}
@@ -109,6 +103,18 @@
 		SELECT * 
 		from health_addr
 		WHERE event_code = #{eventCode}
+	</select>
+	
+	<select id="selectSearchBoardList" resultType="map">
+		SELECT
+			place_no AS place_no,
+			gu_code AS gu_code,
+			event_code AS event_code,
+			fac_name AS fac_name,
+			addr_road AS addr_road,
+			digit AS digit
+		FROM health_addr
+		WHERE fac_name LIKE CONCAT('%',#{fac_name},'%')
 	</select>
 
 </mapper>

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.dw.health.vo.MemberVO;
 
@@ -60,6 +61,7 @@ public interface MemberMapper {
 	 */
 	public int deleteMember(int memberId);
 	
+	public List<Map<String,Object>> memberSearchList(@Param("memberName") String memberName);
 	
 
 

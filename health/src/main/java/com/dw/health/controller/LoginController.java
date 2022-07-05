@@ -58,22 +58,6 @@ public class LoginController {
 	}
 	
 
-	@GetMapping("/members")
-	public String loadMemberPage(ModelMap map, 
-			@RequestParam("pageNum") int pageNum,
-			@RequestParam("pageSize") int pageSize,
-			HttpSession session) {
-
-		List<Map<String, Object>> list = memberService.getAllMemberList(pageNum, pageSize);
-
-		PageInfo<Map<String, Object>> pageInfo = new PageInfo<Map<String, Object>>(list);
-		map.addAttribute("pageHelper", pageInfo);
-
-//		int memberId = (int) session.getAttribute("memberId");
-//		map.addAttribute("memberId", memberId);
-		
-		return "member";
-	}
 	
 	@GetMapping("/logout")
 	public String callLoginout(HttpSession httpSession) {

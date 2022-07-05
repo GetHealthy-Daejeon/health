@@ -125,8 +125,14 @@
 	</div>
 
 	<div class="member_list">
+	
 		<div class="cardHeader">
 			<h2>회원 명단</h2>
+			<div class="search">
+                <label>
+                    <input id="searchBar" type="text" placeholder="회원을 검색하세요..." >
+                </label>
+            </div>
 		</div>
 		<div class="member_button">
 			
@@ -152,6 +158,7 @@
 			</tbody>
 		</table>
 		<div class="pagination">
+		<a onclick="getMemberList(1,10)"> ← </a>
 			<c:if test="${pageHelper.hasPreviousPage}">
 				<a onclick="getMemberList(${pageHelper.pageNum-1},10)">Previous</a>
 			</c:if>
@@ -162,6 +169,7 @@
 			<c:if test="${pageHelper.hasNextPage}">
 				<a onclick="getMemberList(${pageHelper.pageNum+1},10)">Next</a>
 			</c:if>
+			<input id="nowPageNum" type="hidden" value="${pageHelper.pageNum}">
 		</div>
 	</div>
 
@@ -202,8 +210,6 @@
 	
 
 <script type="text/javascript">
-	getPageNum();//페이지 번호 알아내는 함수 호출
-	getMemberList(1, 10);
 
 	function getPageNum() {
 		var pageNum = $('#nowPageNum').val();
@@ -211,37 +217,23 @@
 		$('#pageNum' + pageNum).css('color', '#fff');
 	}
 
-	function getMemberList(pageNum, pageSize) {
-		var memberListUrl = "http://localhost:8080/health/members?pageNum="
-				+ pageNum + "&pageSize=" + pageSize;
 
-		$.ajax({
-			url : memberListUrl,
-			type : 'GET',
-			dataType : 'json',
-			success : function(response) {
-				console.log(response);
+</script>
 
-				if (response.length > 0) {
-					for (var i = 0; i < response.list.length; i++) {
-						html += '<tr><td>' 
-								+ response[i].memberName
-								+ '</td><td>' 
-								+ response[i].memberId
-								+ '</td><td>' 
-								+ response[i].memberPassword
-								+ '</td><td>' 
-								+ response[i].createAt
-								+ '</td></tr>'
-					}
-				} else {
-					//게시글 없음 로직 구현
+<script type="text/javascript">
+getPageNum();//페이지 번호 알아내는 함수 호출
 
-				}
-		/* 		$('#data').append(html); //tbody에 json데이터 렌더링 */
-			}
-		})
-	}
+//페이지 번호 알아내는 함수
+function getPageNum(){
+	var pageNum = $('#nowPageNum').val();
+	$('#pageNum'+pageNum).css('backgroundColor','#287bff'); // id가 pageNum + pageNumber 문자를 합친거
+	$('#pageNum'+pageNum).css('color','#fff');
+}
+
+function getMemberList(pageNum, pageSize){
+	location.href="/health/members?pageNum="+pageNum+"&pageSize="+pageSize;    
+	
+}
 </script>
 <script>
 function getMember(memberId) {//클릭한 게시물 확인하는 함수 
@@ -286,6 +278,7 @@ function getMember(memberId) {//클릭한 게시물 확인하는 함수
    
     //end
 </script>
+
 <script>
 //게시물 삭제 하는 함수
 $('#contentDelete').click(function() {
@@ -335,6 +328,21 @@ $('#contentUpdate').click(function() {
 		}
 	});//ajax end
 });//end
+</script>
+
+<!-- 검색 함수 -->
+<script type="text/javascript">
+$('#searchBar').keyup(function(key){
+    //13은 엔터를 의미
+    var pageNum = 1;
+    var pageSize = 10;
+    if(key.keyCode == 13){
+        var search = $('#searchBar').val().trim();
+        if(search !=''){
+        	location.href="/health/search?name="+search+"&pageNum="+pageNum+"&pageSize="+pageSize;
+        }
+    }
+});
 </script>
 
 

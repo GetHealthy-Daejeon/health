@@ -104,7 +104,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2 class="purches_title">Lets-Health Login Page</h2>
+                        <h2 class="purches_title">Lets-Health Join Page</h2>
                     </div>
                     <div class="col-md-2 col-md-offset-4">
                         <!-- 검은색 창 위 -->
@@ -124,39 +124,6 @@
                 <input type="text" id="userName" required />
                 <label>성명</label>
             </div>
-            <label id="birth">생년월일</label><br>
-            <div class="birth">
-                <div class="year-field">
-                <input type="text" id="birth-year" required />년
-            </div>
-            <div class="selectBox">
-                <select class="select">
-                    <option value="1" selected>1</option>
-                    <option value="2">2
-                    <option value="3">3
-                    <option value="4">4
-                    <option value="5">5
-                    <option value="6">6
-                    <option value="7">7
-                    <option value="8">8
-                    <option value="9">9
-                    <option value="10">10
-                    <option value="11">11
-                    <option value="12">12                            
-                    </select>
-                    
-                </div>
-                <input type="text" id="birth-day" required />일
-            </div>
-            <!-- <label for="gender">성별</label>
-            <select name="gender" id="gender">
-                <option value="N" selected>성별</option>
-                <option value="M">남자</option>
-                <option value="G">여자</option>
-            </select> -->
-            </div>
-            
-            
             <div class="txt-field">
                 <input type="text" id="userId" required />
                 <label>아이디</label>
@@ -208,20 +175,11 @@
             var rePassword = $('#userRePassword').val().trim();
             var userName = $('#userName').val();
             var userId = $('#userId').val();
-            var birth_year = $('#birth-year').val();
-            var birth_month = $('.selectBox').val();
-            var birth_day = $('#birth-day').val()
             var pass_len = password.length;
 
           //빈칸 체크
             if(password == '' || rePassword == '' || userName == ''){
                 alert('양식을 모두 작성하세요')
-                return false;
-            }
-          //생년월일 체크
-            if(birth_year == ''|| birth_day ==''){
-                alert('생년월일을 기입해주세요.');
-                $('#birth-year').focus();
                 return false;
             }
 
@@ -244,14 +202,6 @@
         }else{
           alert("성명은 한글만 입력해주세요.")
           $("#userName").focus();
-          return false;
-        }
-
-        //생년월일 숫자 정규화 필터
-
-        if(!checkNumber(birth_year)||!checkNumber(birth_day)){
-          alert("생년원일은 숫자만 입력해주세요")
-          $('#birth-year').focus();
           return false;
         }
 

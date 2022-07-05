@@ -10,6 +10,7 @@ import lombok.Setter;
 @Component
 public class PageHandler {
 
+	
 	private int total; //전체 게시물 수
 	private int pageNum; //현재 페이지
 	private int pageSize; //1페이지에 몇개 게시물 표시할지
@@ -20,6 +21,7 @@ public class PageHandler {
 	private int nowBlock; //현재 블록
 	private int lastBlock; //마지막 블록
 	private int navigatePages; //블록에 페이지 몇개 표시할지 (ex 1블록 : 1,2,3,4,5)
+	private int lastPage; //마지막 페이지
 
 	
 	/**
@@ -33,6 +35,8 @@ public class PageHandler {
 		if(total % pageSize > 0) ++pages;
 		return pages;
 	}
+	
+
 	
 	/**
 	 * 
@@ -54,6 +58,17 @@ public class PageHandler {
 	public void setLastBlock(int total) {
 		this.lastBlock = total / (this.navigatePages * this.pageSize);
 		if(total % (this.navigatePages * this.pageSize) > 0) this.lastBlock++;
+	}
+	
+	/**
+	 * @param lastPage
+	 * @author : Minyoung Kim
+	 * @date : 2022. 7. 5.
+	 * comment : 전체의 마지막 페이지 알아내기
+	 */
+	public void setLastPage(int lastPage) {
+		this.lastPage = (total / pageSize);
+		if((total%pageSize)>0) this.lastPage++;
 	}
 	
 	//현재 블록의 처음 페이지

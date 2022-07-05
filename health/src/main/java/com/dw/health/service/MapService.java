@@ -79,5 +79,11 @@ public class MapService {
 	public List<Map<String, Object>> getEventCode(String eventCode){
 		return mapMapper.selectEventCode(eventCode);
 	}
+	
+	//주소 검색 조회
+	public List<Map<String, Object>> getSearchBoardList(String fac_name,int pageNum, int pageSize){
+		PageHelper.startPage(pageNum, pageSize);
+		return mapMapper.selectSearchBoardList(fac_name);
+	}
 
 }

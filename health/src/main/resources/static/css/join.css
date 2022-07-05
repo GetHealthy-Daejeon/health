@@ -316,67 +316,9 @@ div#market-place {
 /* login */
 
 section#login{
-    padding: 8% 35%;
+    padding: 3% 35%;
     
 }
-#birth-year{
-    background-color: #ffffff;
-    width: 60px;
-    border-radius: 5px;
-    border: 1px solid gray;
-    width: 100px;
-    height: 30px;
-}
-
-#birth-day{
-    background-color: #ffffff;
-    width: 60px;
-    border-radius: 5px;
-    border: 1px solid gray;
-    width: 100px;
-    height: 30px;
-}
-.birth{
-    display: flex;
-    justify-content: left;
-}
-
-#birth{
-
-    color: rgb(155, 155, 155);
-}
-.selectBox{
-    background: #ffffff;
-    width: 100px;
-    height: 30px;
-    border-radius: 4px;
-    border: 2px solid rgb(173, 173, 173);
-    margin: 0 10px;
-    /* flex: 1; */
-    
-}
-
-.selectBox .select {
-    width: inherit;
-    height: inherit;
-    background: transparent;
-    border: 0 none;
-    outline: 0 none;
-    padding: 0 5px;
-    position: relative;
-    z-index: 3;
-  }
-
-  .selectBox .select option {
-    background: gray;
-    color: #fff;
-    padding: 3px 0;
-    font-size: 16px;
-  }
-
-
-.year-field{
-  }
 
 .txt-field {
     position: relative;
