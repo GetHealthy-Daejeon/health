@@ -18,24 +18,24 @@
 		  <a class="navbar-brand custom_navbar-brand" href="/health/index">
 		  <img src="./resources/static/img/logo.png" alt=""></a>
 		</div>
-       <div class="banner">
-          <div class="banner-list">
-            <input type="button" id="T" value="테니스장">
-            <input type="button" id="S" value="수영장">
-            <input type="button" id="B" value="농구장">
-            <input type="button" id="F" value="풋살&축구">
-            <input type="button" id="P" value="공원체육시설">
-            <input type="button" id="E" value="기타체육시설">
-            <hr width="90%" color="#000" noshade />
-            <input type="button" id="park" value="공원">
-            <input type="button" id="tashu" value="타슈">
-            <input type="button" id="deleteMarker" value="마크제거(테스트용)" onclick="deletePolygon(markers)">
-            <input type="button" id="refresh" value="지도초기화" onclick="window.location.reload()">
-          </div>
-          <div class="text-box">
-            구&nbsp;&nbsp;를&nbsp;&nbsp;&nbsp;&nbsp;선&nbsp;&nbsp;택&nbsp;&nbsp;해&nbsp;&nbsp;&nbsp;&nbsp;주&nbsp;&nbsp;세&nbsp;&nbsp;요&nbsp;&nbsp;
-          </div>
-        </div>
+		<div class="banner">
+			<div class="banner-list">
+				<input type="button" id="T" value="테니스장">
+				<input type="button" id="S" value="수영장">
+				<input type="button" id="B" value="농구장">
+				<input type="button" id="F" value="풋살&축구">
+				<input type="button" id="P" value="공원체육시설">
+				<input type="button" id="E" value="기타체육시설">
+				<hr width="90%" color="#000" noshade />
+				<input type="button" id="park" value="공원">
+				<input type="button" id="tashu" value="타슈">
+				<input type="button" id="deleteMarker" value="마크제거(테스트용)" onclick="deletePolygon(markers)">
+				<input type="button" id="refresh" value="지도초기화" onclick="window.location.reload()">
+			</div>
+			<div class="text-box">
+				구&nbsp;&nbsp;를&nbsp;&nbsp;&nbsp;&nbsp;선&nbsp;&nbsp;택&nbsp;&nbsp;해&nbsp;&nbsp;&nbsp;&nbsp;주&nbsp;&nbsp;세&nbsp;&nbsp;요&nbsp;&nbsp;
+			</div>
+		 </div>
 		<div id="map"></div>
 	</div>
 </body>
