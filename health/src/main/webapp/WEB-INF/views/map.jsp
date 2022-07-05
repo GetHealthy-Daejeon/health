@@ -14,6 +14,10 @@
 </head>
 <body>
 	<div class="container">
+		<div class="logo">
+		  <a class="navbar-brand custom_navbar-brand" href="/health/index">
+		  <img src="./resources/static/img/logo.png" alt=""></a>
+		</div>
        <div class="banner">
           <div class="banner-list">
             <input type="button" id="T" value="테니스장">
