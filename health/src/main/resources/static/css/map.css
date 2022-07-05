@@ -34,8 +34,8 @@
     transition: 2s;
 }
 .logo {
-    margin: 15px;
-    border-bottom: 1px solid;
+	width: 7%;
+    margin: 15px 0;
     position: fixed;
     z-index: 1;
 }
@@ -47,7 +47,7 @@
     z-index: 1;
     width: 0%; /* 처음에 0이었다가 구 클릭하면 커질예정 */
     margin: 10% auto;
-    transition: 0.7s;
+    /* transition: 0.7s; */
     /* position: fixed; */
     /* visibility: hidden; */
     /* margin-top: 100px; */
@@ -57,14 +57,14 @@
     display: flex;
     flex-direction: row;
     position: fixed;
-    max-width: 2%;
+    max-width: 1.5%;
     height: 80%;
     margin-top: 7%;
     background-color: rgba(255, 255, 255, 0.7);
     border-right: 1px solid gray;
     box-shadow: 1px 1px 5px gray;
     z-index: 1;
-    transition: 0.5s;
+    transition: 1s;
 }
 
 /* .logo {
@@ -91,7 +91,7 @@
 .banner-list input {
 	width: 80%;
 	height: 50px;
-	margin: 5px 15px;
+	margin: 5px 0;
 	border-radius: 10%;
 	border-color: rgb(156, 156, 156);
 	cursor: pointer;
