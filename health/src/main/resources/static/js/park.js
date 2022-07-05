@@ -1,12 +1,12 @@
 function getParkInfo(guName){
   var parkMarkers = [];
   $('#park').click(function(){
-    if($(this).hasClass("active")){
+    if($(this).hasClass("active")){ // if면 active 클래스 지우기
       $(this).removeClass("active");
       deletePolygon(parkMarkers);
     }else{
-      $(this).addClass("active");
-      $.ajax({
+      $(this).addClass("active"); // else면 active 클래스 생성 
+      $.ajax({ // 아작스 실행하면서 마커 찍기
       url : "https://api.odcloud.kr/api/15073859/v1/uddi:7789cfce-8a83-482e-a47d-8b7da41406ec?perPage=1000&serviceKey=eQZma%2BIrvJVJ%2FoYjIe5wYTnAwUZYZNAM5v%2BtmC8hutkmQ%2BFFsfQt5gbWiZ0FNXRs3LK%2BHxQ3oLQji3lZ%2BiLgKA%3D%3D",
       type : "GET",
       dataType : "json", // 서버 결과를 json으로 응답받겠다.
