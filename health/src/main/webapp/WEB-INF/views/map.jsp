@@ -73,7 +73,7 @@
 
     // 유성구
     // 유성구 폴리곤 데이터 갖고오기
-    $.getJSON("resources/static/json/yuseong.json", function (geojson) {
+    $.getJSON("resources/static/구별json/yuseong.json", function (geojson) {
         var data = geojson.features;
         var coordinates = []; // 좌표 저장
         var name = ""; // 구 이름
@@ -129,7 +129,7 @@
               duration: 350, // 확대 애니메이션 시간
             },
           });
-		$.getJSON("resources/static/행정동json/yuseong-gu.json", function (geojson) {
+		$.getJSON("resources/static/구별json/yuseong.json", function (geojson) {
 			var data = geojson.features;
 			var coordinates = []; // 좌표 저장
 			var dongName = ""; // 동 이름
@@ -237,10 +237,10 @@
         map: map, // 다각형을 표시할 지도 객체
         path: yuseong_dong_PolygonPath, // 좌표 배열
         strokeWeight: 2, // 선 두께
-        strokeColor: "#004c80", // 선 색깔
+        strokeColor: "#00ff0000", // 선 색깔
         strokeOpacity: 0.8, // 선 불투명도
         fillColor: "#6ADF35", // 채우기 색깔
-        fillOpacity: 0.5, // 채우기 불투명도
+        fillOpacity: 0.2, // 채우기 불투명도
       });
 
       // 행정동 클릭 이벤트
@@ -314,7 +314,7 @@
               duration: 350, // 확대 애니메이션 시간
             },
           });
-          $.getJSON("resources/static/행정동json/daedeok-gu.json", function (geojson) {
+          $.getJSON("resources/static/구별json/daedeok.json", function (geojson) {
             var data = geojson.features;
             var coordinates = [];
             var dongName = "";
@@ -443,7 +443,7 @@
             duration: 350, // 확대 애니메이션 시간
           },
         });
-        $.getJSON("resources/static/행정동json/dong-gu.json", function (geojson) {
+        $.getJSON("resources/static/구별json/dong.json", function (geojson) {
           var data = geojson.features;
           var coordinates = [];
           var dongName = "";
@@ -571,7 +571,7 @@
             duration: 350, // 확대 애니메이션 시간
           },
         });
-        $.getJSON("resources/static/행정동json/jung-gu.json", function (geojson) {
+        $.getJSON("resources/static/구별json/jung.json", function (geojson) {
           var data = geojson.features;
           var coordinates = [];
           var dongName = "";
@@ -699,7 +699,7 @@
             duration: 350,
           },
         });
-        $.getJSON("resources/static/행정동json/seo-gu.json", function (geojson) {
+        $.getJSON("resources/static/구별json/seo.json", function (geojson) {
           var data = geojson.features;
           var coordinates = [];
           var dongName = "";
