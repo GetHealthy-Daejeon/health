@@ -141,7 +141,8 @@
 			$.each(data, function (index, val) {
 			  coordinates = val.geometry.coordinates;
 			  name = val.properties.SGG_NM;
-			  displayYuseong_dong(coordinates, name);
+			  var color = "#6ADF35";
+			  displayYuseong_dong(coordinates, name, color);
 			});
            });
            deletePolygon(polygons); //폴리곤 제거
@@ -231,7 +232,7 @@
       customOverlay.setMap(map);
     }
     // 유성구 행정동 폴리곤 만들기
-    function displayYuseong_dong(coordinates, name) {
+    function displayYuseong_dong(coordinates, name, color) {
       var yuseong_dong_PolygonPath = [];
       $.each(coordinates[0], function (index, coordinate) {
         yuseong_dong_PolygonPath.push(
@@ -244,7 +245,7 @@
         strokeWeight: 2, // 선 두께
         strokeColor: "#00ff0000", // 선 색깔
         strokeOpacity: 0.8, // 선 불투명도
-        fillColor: "#6ADF35", // 채우기 색깔
+        fillColor: color, // 채우기 색깔
         fillOpacity: 0.2, // 채우기 불투명도
       });
 
@@ -325,10 +326,11 @@
             var data = geojson.features;
             var coordinates = [];
             var dongName = "";
+            var color = "#FFD700";
             $.each(data, function (index, val) {
               coordinates = val.geometry.coordinates;
               name = val.properties.SGG_NM;
-              displayYuseong_dong(coordinates, name); // 행정동 폴리곤 만들기 공동사용
+              displayYuseong_dong(coordinates, name, color); // 행정동 폴리곤 만들기 공동사용
             });
           });
           deletePolygon(polygons);
@@ -456,10 +458,11 @@
           var data = geojson.features;
           var coordinates = [];
           var dongName = "";
+          var color = "#09f";
           $.each(data, function (index, val) {
             coordinates = val.geometry.coordinates;
             name = val.properties.SGG_NM;
-            displayYuseong_dong(coordinates, name);
+            displayYuseong_dong(coordinates, name, color);
           });
         });
         deletePolygon(polygons);
@@ -532,7 +535,7 @@
     }
 
     // 중구
-    // 중구
+    // 중구 -- 옥계동 멀티폴리곤 수정 필요
     $.getJSON("resources/static/구별json/jung.json", function (geojson) {
       var data = geojson.features;
       var coordinates = []; // 좌표 저장
@@ -586,10 +589,11 @@
           var data = geojson.features;
           var coordinates = [];
           var dongName = "";
+          var color = "#FF4500";
           $.each(data, function (index, val) {
             coordinates = val.geometry.coordinates;
             name = val.properties.SGG_NM;
-            displayYuseong_dong(coordinates, name);
+            displayYuseong_dong(coordinates, name, color);
           });
         });
         deletePolygon(polygons);
@@ -716,10 +720,11 @@
           var data = geojson.features;
           var coordinates = [];
           var dongName = "";
+          var color = "#F08080";
           $.each(data, function (index, val) {
             coordinates = val.geometry.coordinates;
             name = val.properties.SGG_NM;
-            displayYuseong_dong(coordinates, name);
+            displayYuseong_dong(coordinates, name, color);
             // setZoomable(false) // 클릭시 마우스 휠 작동 off
           });
         });
