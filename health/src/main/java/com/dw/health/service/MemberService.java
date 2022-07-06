@@ -25,10 +25,6 @@ public class MemberService {
 	//멤버 저장
 	@Transactional(rollbackFor = { Exception.class })
 	public int doJoin(MemberVO vo) {
-//		// 학생 비밀번호 암호화
-//		String password = vo.getMemberPassword();
-//		password = passwordEncoder.encode(password);
-//		vo.setMemberPassword(password);
 		return membermapper.doJoin(vo);
 	}
 
@@ -45,11 +41,7 @@ public class MemberService {
 		String inputPassword = vo.getMemberPassword(); // HTML에 입력된 패스워드
 		String password = member.getMemberPassword(); // DB에서 가져온 진짜 패스워드
 
-//		 passwordEncoder클래스에서 사용할 수 있는 method matches
-//		 괄호안에 두 값이 암호화 된 상태인데 서로 같은지를 비교해줌
-//		if (!passwordEncoder.matches(inputPassword, password)) { // 비밀번호 체크
-//			return false;
-//		}
+
 		httpSession.setAttribute("memberPassword", member.getMemberPassword());
 		httpSession.setAttribute("memberName", member.getMemberName());
 		httpSession.setAttribute("authority", member.getAuthority());
@@ -76,18 +68,18 @@ public class MemberService {
 	public int deleteMember(int memberId) {
 		return membermapper.deleteMember(memberId);
 	}
-	
-	// 학생이름 검색
-	public List<Map<String, Object>> memberSearchList(int pageNum, int pageSize, String name){
-		PageHelper.startPage(pageNum, pageSize);
-		return membermapper.memberSearchList(name);
-	}
-	
+
 	//회원 전체 조회 
-	@Transactional(rollbackFor = {Exception.class})
 	public List<Map<String,Object>> getAllMemberList(int pageNum, int pageSize){
 		PageHelper.startPage(pageNum, pageSize);
 		return membermapper.selectAllMemberList();
+	}
+	
+	
+	// 회원이름 검색
+	public List<Map<String, Object>> memberSearchList(int pageNum, int pageSize, String name){
+		PageHelper.startPage(pageNum, pageSize);
+		return membermapper.memberSearchList(name);
 	}
 	
 	

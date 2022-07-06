@@ -78,13 +78,8 @@
 								<li class="active">
 								<a href="http://localhost:8080/health/index">Home
 								 <span class="sr-only">(current)</span></a></li>
-								<li><a href="http://localhost:8080/map">Map</a></li>
 								<li><a href="http://localhost:8080/health/login">Login</a></li>
 								<li><a href="http://localhost:8080/health/join">Join</a></li>
-								<li><a href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Member</a></li>
-								<li><a href="#counter"></a></li>
-								<li><a href="#event"></a></li>
-
 							</ul>
                             </div>
                             <!-- /.navbar-collapse -->
@@ -232,7 +227,7 @@
           success : function(response){
 	            if(response>0){
 	              alert('회원가입이 완료되었습니다.');
-	              /* location.href = "/login"; */
+	              location.href = 'http://localhost:8080/health/index';
 	            }
           	}
         });

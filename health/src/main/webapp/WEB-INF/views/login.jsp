@@ -74,12 +74,8 @@
 								<li class="active">
 								<a href="/health/index">Home
 								 <span class="sr-only">(current)</span></a></li>
-								<li><a href="/map">Map</a></li>
 								<li><a href="/health/login">Login</a></li>
 								<li><a href="/health/join">Join</a></li>
-								<li><a href="/health/members?pageNum=1&pageSize=10">Member</a></li>
-								<li><a href="#counter"></a></li>
-								<li><a href="#event"></a></li>
 
 							</ul>
 						</div>

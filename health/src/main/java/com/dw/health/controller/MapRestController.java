@@ -58,7 +58,7 @@ public class MapRestController {
 		return mapservice.deleteAddr(placeno);
 	}
 	
-	
+	//주소 검색
 	@CrossOrigin
 	@GetMapping("/search")
 	public PageInfo<Map<String, Object>> callBoardSearch(@RequestParam("writer") String writer,

@@ -9,7 +9,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="/resources/static/css/member.css" />
+<link rel="stylesheet" href="/resources/static/css/board.css" />
 <link href="/resources/static/css/bootstrap.min.css" rel="stylesheet">
 
 <title>건강하슈 관리자페이지</title>
@@ -63,7 +63,8 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index"><img
+						<a class="navbar-brand custom_navbar-brand"
+							href="http://localhost:8080/health/index"><img
 							src="/resources/static/img/logo.png" alt=""></a>
 					</div>
 					<!--End of navbar-header-->
@@ -72,14 +73,16 @@
 					<div class="collapse navbar-collapse zero_mp"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right main_menu">
-							<li class="active">
-								<a href="http://localhost:8080/health/index">Home
-								 <span class="sr-only">(current)</span></a></li>
-								<li><a href="http://localhost:8080/map">Map</a></li>
-								<li><a href="http://localhost:8080/health/login">Login</a></li>
-								<li><a href="http://localhost:8080/health/join">Join</a></li>
-								<li><a href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
-								<li><a href="http://localhost:8080/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
+							<li class="active"><a
+								href="http://localhost:8080/health/index">Home <span
+									class="sr-only">(current)</span></a></li>
+							<li><a href="http://localhost:8080/map">Map</a></li>
+							<li><a href="http://localhost:8080/health/login">Login</a></li>
+							<li><a href="http://localhost:8080/health/join">Join</a></li>
+							<li><a
+								href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
+							<li><a
+								href="http://localhost:8080/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
 
 
 						</ul>
@@ -103,77 +106,86 @@
 				<a href="#" class="btn-close">닫기</a>
 			</div>
 			<div class="input-box">
-				<label for="memberName">회원 아이디 : </label> 
-				<input id="memberId" type="text"  value="${memberId}" readonly>
+				<label for="memberName">회원 아이디 : </label> <input id="memberId"
+					type="text" value="${memberId}" readonly>
 				<%-- <input id="memberHiddenId" type="hidden" value="${memberId}"> --%>
 			</div>
 			<div class="input-box">
-				<label for="memberName">회원 이름 : </label> 
-				<input id="memberName" type="text" placeholder="회원의 이름을 입력하세요" >
+				<label for="memberName">회원 이름 : </label> <input id="memberName"
+					type="text" placeholder="회원의 이름을 입력하세요">
 			</div>
 			<div class="input-box">
 				<label for="title">비밀번호 </label> <input id="memberPassword"
 					type="password" placeholder="비밀번호를 입력하세요...">
 			</div>
 			<div class="input-box">
-				<label for="authority">회원 권한 : </label> 
-				<input id="authority" type="text" value="${authority}" placeholder="회원의 권한을 입력하세요" >
+				<label for="authority">회원 권한 : </label> <input id="authority"
+					type="text" placeholder="회원의 권한을 입력하세요">
 			</div>
 
 			<div class="btn-area">
-				<input id="boardIdHidden" type="hidden"> 
-				<a id="contentUpdate" href="#" type="button" class="btn-update">수정</a>
+				<input id="boardIdHidden" type="hidden"> <a
+					id="contentUpdate" href="#" type="button" class="btn-update">수정</a>
 				<a id="contentDelete" href="#" type="button" class="btn-delete">삭제</a>
 			</div>
 		</div>
 	</div>
 
 	<div class="member_list">
-	
+
 		<div class="cardHeader">
 			<h2>회원 명단</h2>
 			<div class="search">
-                <label>
-                    <input id="searchBar" type="text" placeholder="회원을 검색하세요..." >
-                </label>
-            </div>
+				<label> <input id="searchBar" type="text"
+					placeholder="회원을 검색하세요...">
+				</label>
+			</div>
 		</div>
-		<div class="member_button">
-			
-		</div>
+		<div class="member_button"></div>
 		<table>
 			<thead>
 				<tr>
-					<th>멤버 아이디넘버</th>
-					<th>멤버 이름</th>
-					<th>비밀번호</th>
-					<th>권한</th>
-					<th>가입 날짜</th>
+					<th>게시판 번호</th>
+					<th>작성자</th>
+					<th>제목</th>
+					<th>내용</th>
+					<th>수정 날짜</th>
+					<th>작성 날짜</th>
 				</tr>
 			</thead>
 			<tbody id="boardData">
-				<c:forEach items="${pageHelper.list}" var="item">
-					<tr onclick="getMember(${item.memberId})">
-						<td>${item.memberId}</td>
-						<td>${item.memberName}</td>
-						<td>${item.memberPassword}</td>
-						<td>${item.authority}</td>
-						<td>${item.createAt}</td>
-					</tr>
-				</c:forEach>
+				<c:choose>
+					<c:when test="${fn:length(pageHelper.list) > 0 }">
+						<c:forEach items="${pageHelper.list}" var="item">
+							<tr onclick="getMember(${item.boardId})">
+								<td>${item.boardId}</td>
+								<td>${item.memberId}</td>
+								<td>${item.title}</td>
+								<td>${item.content}</td>
+								<td>${item.updateAt}</td>
+								<td>${item.createAt}</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan=6 style="text-align: center;">게시글이 없습니다.</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
 			</tbody>
 		</table>
 		<div class="pagination">
-		<a onclick="getMemberList(1,10)"> ← </a>
+			<a onclick="getBoardList(1,10)"> ← </a>
 			<c:if test="${pageHelper.hasPreviousPage}">
-				<a onclick="getMemberList(${pageHelper.pageNum-1},10)">Previous</a>
+				<a onclick="getBoardList(${pageHelper.pageNum-1},10)">Previous</a>
 			</c:if>
 			<c:forEach begin="${pageHelper.navigateFirstPage}"
 				end="${pageHelper.navigateLastPage}" var="pageNum">
-				<a id="pageNum${pageNum}" onclick="getMemberList(${pageNum},10)">${pageNum}</a>
+				<a id="pageNum${pageNum}" onclick="getBoardList(${pageNum},10)">${pageNum}</a>
 			</c:forEach>
 			<c:if test="${pageHelper.hasNextPage}">
-				<a onclick="getMemberList(${pageHelper.pageNum+1},10)">Next</a>
+				<a onclick="getBoardList(${pageHelper.pageNum+1},10)">Next</a>
 			</c:if>
 			<input id="nowPageNum" type="hidden" value="${pageHelper.pageNum}">
 		</div>
@@ -212,8 +224,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
-	
-	
+
+
 
 <script type="text/javascript">
 
@@ -236,7 +248,7 @@ function getPageNum(){
 	$('#pageNum'+pageNum).css('color','#fff');
 }
 
-function getMemberList(pageNum, pageSize){
+function getBoardList(pageNum, pageSize){
 	location.href="/health/members?pageNum="+pageNum+"&pageSize="+pageSize;    
 	
 }
@@ -298,7 +310,7 @@ $('#contentDelete').click(function() {
 				if (response > 0) {
 					alert('삭제완료');
  					/* var pageNum = $('#nowPageNum').val();
- 					getMemberList(pageNum, 10);  */
+ 					getBoardList(pageNum, 10);  */
 				}
 			}
 		});
@@ -330,7 +342,7 @@ $('#contentUpdate').click(function() {
 			if (response > 0) {
 				alert('수정완료');
 /* 				var pageNum = $('#nowPageNum').val();
-				getMemberList(pageNum, 10); */
+				getBoardList(pageNum, 10); */
 			}
 		}
 	});//ajax end
@@ -346,9 +358,7 @@ $('#searchBar').keyup(function(key){
     if(key.keyCode == 13){
         var search = $('#searchBar').val().trim();
         if(search !=''){
-        	location.href="/members/search?name="+search+"&pageNum="+pageNum+"&pageSize="+pageSize; 
-        }else{
-        	alert("검색어를 입력해주세요.")
+        	location.href="/health/search?name="+search+"&pageNum="+pageNum+"&pageSize="+pageSize;
         }
     }
 });
