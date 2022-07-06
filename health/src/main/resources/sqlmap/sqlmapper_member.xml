@@ -24,6 +24,7 @@
 		member_id AS
 		memberId,
 		member_name AS memberName,
+		authority AS authority,
 		member_password AS memberPassword,
 		create_at AS createAt
 		FROM membership
@@ -88,13 +89,13 @@
 
 	<select id="memberSearchList" resultType="map">
 		SELECT
-		member_id AS memberId,
-		member_name AS memberName,
-		member_password AS memberPassword,
-		create_at AS createAt
+			member_id AS memberId,
+			member_name AS memberName,
+			member_password AS memberPassword,
+			authority AS authority,
+			create_at AS createAt
 		FROM membership
-		WHERE member_name LIKE
-		CONCAT('%',#{memberName},'%')
+			WHERE member_name LIKE CONCAT('%',#{memberName},'%')
 	</select>
 
 

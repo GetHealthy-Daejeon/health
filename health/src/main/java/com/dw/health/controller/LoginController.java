@@ -28,9 +28,10 @@ public class LoginController {
 		
 		String authority = "";
 		String name = "";
-		if(httpSession.getAttribute("authority") == null) {
-			return "redirect:/health/login";
-		}
+		//세션이 null일때 바로 로그인으로 가게 하는 로직
+//		if(httpSession.getAttribute("authority") == null) {
+//			return "redirect:/health/login";
+//		}
 		if(httpSession.getAttribute("authority") != null) {
 			authority = httpSession.getAttribute("authority").toString();
 		}

@@ -74,15 +74,14 @@
 					<div class="collapse navbar-collapse zero_mp"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right main_menu">
-							<li class="active"><a href="#header">Home <span
-									class="sr-only">(current)</span></a></li>
-							<li><a href="#welcome">about</a></li>
-							<li><a href="#portfolio">project</a></li>
-							<li><a href="#counter">achivment</a></li>
-							<li><a href="#event">event</a></li>
-							<li><a href="#testimonial">testimonial</a></li>
-							<li><a href="#blog">blog</a></li>
-							<li><a href="#contact">contact us</a></li>
+							<li class="active">
+								<a href="http://localhost:8080/health/index">Home
+								 <span class="sr-only">(current)</span></a></li>
+								<li><a href="http://localhost:8080/map">Map</a></li>
+								<li><a href="http://localhost:8080/health/login">Login</a></li>
+								<li><a href="http://localhost:8080/health/join">Join</a></li>
+								<li><a href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
+								<li><a href="http://localhost:8080/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -98,15 +97,15 @@
 <!--End of Hedaer Section-->
 <section id="member">
 
-			<div class="search">
-				<label> 
-					<input id="searchBar" type="text" placeholder="작성자를 검색하세요..."> 
-					<input id="keyword" type="hidden" value="null">
-				</label>
-			</div>
+	<div class="search">
+		<label> <input id="searchBar" type="text"
+			placeholder="작성자를 검색하세요..."> <input id="keyword"
+			type="hidden" value="null">
+		</label>
+	</div>
 	<div class="write-popup">
 		<div class="editor">
-			
+
 			<p class="addr-insert">주소 등록</p>
 
 			<div class="input-box">

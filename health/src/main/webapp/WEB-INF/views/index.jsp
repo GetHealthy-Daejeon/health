@@ -5,17 +5,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	
-	<title>대전시민 모두 건강하슈</title>
-	
-	<link rel="stylesheet" href="/resources/static/css/style.css" />
-	<link href="/resources/static/css/bootstrap.min.css" rel="stylesheet">
-	<!-- fontawesome kit(아이콘) -->
-	<script src="https://kit.fontawesome.com/70d780dcf7.js" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<title>대전시민 모두 건강하슈</title>
+
+<link rel="stylesheet" href="/resources/static/css/style.css" />
+<link href="/resources/static/css/bootstrap.min.css" rel="stylesheet">
+<!-- fontawesome kit(아이콘) -->
+<script src="https://kit.fontawesome.com/70d780dcf7.js"
+	crossorigin="anonymous"></script>
 </head>
 <body data-spy="scroll" data-target="#header">
 	<!--Start Hedaer Section-->
@@ -27,7 +28,8 @@
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 zero_mp">
 							<div class="address">
 								<!-- <i class="fa fa-home floatleft"></i> -->
-								<a href="https://github.com/GetHealthy-Daejeon/GetHealthy" target="_blank"><i class="fa-brands fa-github"></i>Github</a>
+								<a href="https://github.com/GetHealthy-Daejeon/GetHealthy"
+									target="_blank"><i class="fa-brands fa-github"></i>Github</a>
 							</div>
 						</div>
 						<!--End of col-md-4-->
@@ -39,10 +41,10 @@
 						</div>
 						<!--End of col-md-4-->
 						<div class="col-md-4">
-							<div class="social_icon text-right">									
-								<a href=""><i class="fa fa-twitter"></i></a> 
-								<a href=""><i class="fa fa-google-plus"></i></a>
-								<a href=""><i class="fa fa-youtube"></i></a>
+							<div class="social_icon text-right">
+								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
+									class="fa fa-google-plus"></i></a> <a href=""><i
+									class="fa fa-youtube"></i></a>
 							</div>
 						</div>
 						<!--End of col-md-4-->
@@ -52,7 +54,8 @@
 				<!--End of container-->
 			</div>
 			<!--End of top header-->
-			<div class="header_menu text-center" data-spy="affix" data-offset-top="50" id="nav">
+			<div class="header_menu text-center" data-spy="affix"
+				data-offset-top="50" id="nav">
 				<div class="container">
 					<nav class="navbar navbar-default zero_mp ">
 						<!-- Brand and toggle get grouped for better mobile display -->
@@ -61,9 +64,9 @@
 								data-toggle="collapse"
 								data-target="#bs-example-navbar-collapse-1"
 								aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span> 
-								<span class="icon-bar"></span> <span class="icon-bar"></span>
-								<span class="icon-bar"></span>
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
 							</button>
 							<a class="navbar-brand custom_navbar-brand" href="/health/index"><img
 								src="/resources/static/img/logo.png" alt=""></a>
@@ -74,19 +77,40 @@
 						<div class="collapse navbar-collapse zero_mp"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right main_menu">
-								<li class="active">
-								<a href="/health/index">Home
-								 <span class="sr-only">(current)</span></a></li>
-								<li><a href="/map">Map</a></li>
-								<li><a href="/health/login">Login</a></li>
-								<li><a href="/health/join">Join</a></li>
-								<li><a href="/health/logout">Logout</a></li>
-								<c:if test="${authority.equals('2')}">
+
+								<c:if
+									test="${authority != '1' && authority !='2' && authority !='3'}">
+									<li class="active"><a href="/health/index">Home <span
+											class="sr-only">(current)</span></a></li>
+									<li><a href="/health/login">Login</a></li>
+									<li><a href="/health/join">Join</a></li>
+								</c:if>
+								<!-- 일반회원에게 보이는 메뉴 -->
+								<c:if test="${1 eq authority}">
+									<li class="active"><a href="/health/index">Home <span
+											class="sr-only">(current)</span></a></li>
+									<li><a href="/map">Map</a></li>
+									<li><a href="/health/logout">Logout</a></li>
+								</c:if>
+
+								<!-- 관리자에게 보이는 메뉴 -->
+								<c:if test="${2 eq authority}">
+									<li class="active"><a href="/health/index">Home <span
+											class="sr-only">(current)</span></a></li>
+									<li><a href="/map">Map</a></li>
 									<li><a href="/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
 									<li><a href="/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
+									<li><a href="/health/logout">Logout</a></li>
 								</c:if>
-<%-- 								<h3>이름 : ${memberName}</h3>
-								<h3>권한 : ${authority}</h3> --%>
+
+								<!-- 정지회원에게 보이는 메뉴 -->
+								<c:if test="${3 eq authority}">
+									<p>정지된 회원이기에 아무것도 이용할 수 없습니다.</p>
+									<li><a href="/health/logout">Logout</a></li>
+								</c:if>
+								<div class="welcome_name">
+									<p>${memberName}님환영합니다</p>
+								</div>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -182,16 +206,35 @@
 						<div class="single_item">
 							<div class="item_list">
 								<div class="welcome_icon">
-									<a href="/map" target="_blank"> <img class="daejeon"
-										src="/resources/static/img/대전.png" href="http://localhost:8080/map">
-									</a>
+									<!-- 일반 회원 -->
+									<c:if test="${authority eq '1'}">
+										<a href="http://localhost:8080/map" target="_blank"> <img class="daejeon"
+											src="/resources/static/img/대전.png"
+											href="http://localhost:8080/map">
+											<h3 class="t1"><< 이미지를 클릭하여 지도로 이동하기 >></h3>
+										</a>
+									</c:if>
+									<!-- 관리자 -->
+									<c:if test="${authority eq '2'}">
+										<a href="http://localhost:8080/map" target="_blank"> <img class="daejeon"
+											src="/resources/static/img/대전.png"
+											href="http://localhost:8080/map">
+											<h3 class="t1"><< 이미지를 클릭하여 지도로 이동하기 >></h3>
+										</a>
+									</c:if>
+									<!-- 정지 회원 -->
+									<c:if test="${authority eq '3'}">
+										<a target="_blank"> 
+										<img class="ban_daejeon" src="/resources/static/img/대전.png">
+											<h3 class="t1">정지회원은 이용할 수 없습니다.</h3>
+										</a>
+									</c:if>
 								</div>
-								<h3 class="t1"><< 이미지를 클릭하여 지도로 이동하기 >></h3>
 							</div>
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 			<!--End of row-->
 		</div>
@@ -230,7 +273,7 @@
 							<div class="sigle_counter_item">
 								<img src="/resources/static/img/hand.png" alt="">
 								<div class="counter_text">
-									<span class="counter">1458</span>
+									<span class="counter">264</span>
 									<p>체육시설</p>
 								</div>
 							</div>
@@ -241,7 +284,7 @@
 							<div class="sigle_counter_item">
 								<img src="/resources/static/img/tuhnder.png" alt="">
 								<div class="counter_text">
-									<span class="counter">9854</span>
+									<span class="counter">135</span>
 									<p>타슈</p>
 								</div>
 							</div>
@@ -451,7 +494,8 @@
 						</div>
 						<div class="office_location">
 							<div class="address">
-								<i class="fa fa-map-marker"><span>대전 중구 중앙로121번길 20 방산빌딩 DW아카데미학원</span></i>
+								<i class="fa fa-map-marker"><span>대전 중구 중앙로121번길 20
+										방산빌딩 DW아카데미학원</span></i>
 							</div>
 							<div class="phone">
 								<i class="fa fa-phone"><span>042-222-2402</span></i>
@@ -460,7 +504,8 @@
 								<i class="fa fa-envelope"><span>공사중@mail.com</span></i>
 							</div>
 							<div id="map">
-								<img src="https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=300&h=300&center=127.1054221,37.3591614&level=16&X-NCP-APIGW-API-KEY-ID={bip93kdchz}">
+								<img
+									src="https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=300&h=300&center=127.1054221,37.3591614&level=16&X-NCP-APIGW-API-KEY-ID={bip93kdchz}">
 							</div>
 						</div>
 					</div>
@@ -562,6 +607,11 @@
 			delay : 10,
 			time : 1000
 		});
+		
+		
+		$('.ban_daejeon').click(function(){
+			alert("정지회원은 사용하실 수 없습니다.")
+		})
 	</script>
 
 
@@ -610,7 +660,6 @@
 	<!--Google Maps API-->
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjxvF9oTfcziZWw--3phPVx1ztAsyhXL4"></script>
-
 
 
 

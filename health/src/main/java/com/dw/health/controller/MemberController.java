@@ -18,8 +18,7 @@ import com.github.pagehelper.PageInfo;
 public class MemberController {
 	@Autowired
 	private MemberService memberservice;
-	
-	
+
 	@GetMapping("/health/members")
 	public String loadMemberPage(ModelMap map, 
 			@RequestParam("pageNum") int pageNum,
@@ -33,18 +32,20 @@ public class MemberController {
 		
 		return "member";
 	}
-	
-	@GetMapping("/member/search")
+
+	@GetMapping("/members/search")
 	public String callBoardSearch(ModelMap map,
 			@RequestParam("name") String name,
 			@RequestParam("pageNum")int pageNum,
-			@RequestParam("pageSize")int pageSize){
+			@RequestParam("pageSize")int pageSize
+			){
 		List<Map<String,Object>> list = memberservice.getAllMemberList(pageNum, pageSize);
 		PageInfo<Map<String,Object>> pageInfo = new PageInfo<Map<String,Object>>(list);
-		
 		map.addAttribute("pageHelper", pageInfo);
+	
 		
 		return "member";
 	}
 
+	
 }

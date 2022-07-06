@@ -31,6 +31,7 @@ public interface MemberMapper {
 	 * comment : 회원 조회
 	 */
 	public List<Map<String,Object>> selectAllMemberList();
+	public List<Map<String,Object>> memberSearchList(@Param("memberName") String memberName);
 	
 	/**
 	 * @param memberId
@@ -61,7 +62,6 @@ public interface MemberMapper {
 	 */
 	public int deleteMember(int memberId);
 	
-	public List<Map<String,Object>> memberSearchList(@Param("memberName") String memberName);
 	
 
 

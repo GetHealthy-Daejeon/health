@@ -1220,3 +1220,7 @@ ul.entry-meta {
 .main-content.blog-w.rap,.main-content.container.blog-wrap.single-blog {
     margin-top: 80px;
 }
+
+.welcome_name p{
+	margin-top: 50px;
+}
