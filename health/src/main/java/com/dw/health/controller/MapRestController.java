@@ -33,7 +33,6 @@ public class MapRestController {
 		return mapservice.insertAddr(vo);
 	}
 	
-	
 //	주소 상세 조회
 	@CrossOrigin
 	@GetMapping("/placeno/{place_no}")
@@ -68,6 +67,5 @@ public class MapRestController {
 		List<Map<String, Object>> list = mapservice.getSearchBoardList(writer, pageNum, pageSize);
 		return new PageInfo<Map<String, Object>>(list);
 	}
-
 
 }
