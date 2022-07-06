@@ -68,10 +68,6 @@
 		from health_addr
 		WHERE gu_code = "유성구"
 	</select>
-		
-	<select id="facilityList" resultType="map">
-	
-	</select>
 	
 	<select id="selectDaedeok" resultType="map">
 		SELECT * 
