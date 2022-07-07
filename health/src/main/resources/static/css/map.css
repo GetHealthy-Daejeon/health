@@ -35,10 +35,48 @@
     transition: 2s;
 }
 .logo {
-	width: 7%;
-    margin: 15px 0;
+	display: flex;
+	width: 100%;
     position: fixed;
     z-index: 1;
+}
+.logo .navbar-brand{
+	margin-top: 10px
+}
+.side-button{
+	padding: 0;
+}
+.side-button ul{
+	padding: 0;
+	background-color: white;
+	display: flex;
+	align-content: center;
+	list-style: none;
+	text-align: center;
+	box-shadow: 1px 1px 1px gray;
+	border-radius: 5px;
+}
+.side-button ul li button{
+	border-radius: 5px;
+	padding: 15px;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 20px;
+	font-weight: 600;
+	border: 0;
+	cursor: pointer;
+}
+.side-button ul li button:hover{
+	color: #4169E1;
+}
+.side-button ul li button.active{
+	color: #4169E1;
+}
+.side-button ul li button img{
+	vertical-align: middle;
+	width: 20px;
+}
+.navbar-brand img{
+	width: 80%
 }
 .banner-list {
     display: flex;
@@ -110,9 +148,6 @@
 .banner-list .active {
   background-color: rgba(0, 148, 0, 0.623);
   color: #ffffff;
-}
-.navbar-brand img{
-	width: 100%
 }
 .banner-list input#T{
 	background-image:url(/resources/static/img/marker_img/tennis.png);
@@ -218,4 +253,23 @@
 	background-repeat: no-repeat;
 	background-position: 5px center;
 	padding-left: 30px;
+}
+
+
+@keyframes blink-effect {
+	0% {opacity: 0.2;}
+	25% {opacity: 0.5;}
+	50% {opacity: 0.8;}
+	75% {opacity: 1;}
+	100% {opacity: 1;}
+}
+.gps img{
+	width: 35px;
+  	animation: blink-effect 1s ease infinite;
+	/*
+	animation-name: blink-effect;
+	animation-duration: 1s;
+	animation-iteration-count:infinite;
+	animation-timing-function:ease;
+	*/
 }
