@@ -71,26 +71,28 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=053fa1a57cda6a2315480dc66ba2a3ec&libraries=services"></script>
 <script>
-    // 스크롤 컨트롤 기능 함수
-    function setZoomable(zoomable) {
-      // 마우스 휠로 지도 확대,축소 가능여부를 설정하는 함수
-    	map.setZoomable(zoomable);
-    }
-    var mapContainer = document.getElementById("map"), // 지도를 div
-      mapOption = {
-        center: new kakao.maps.LatLng(36.3504119, 127.3845475), // 중심좌표
-        level: 8,
-      };
-    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도 생성
+	// 지도 설정
+	var mapContainer = document.getElementById("map"), // 지도를 div
+	mapOption = {
+	  center: new kakao.maps.LatLng(36.3504119, 127.3845475), // 중심좌표
+	  level: 8,
+	};
+	
+	// 지도 생성
+    var map = new kakao.maps.Map(mapContainer, mapOption); 
     
 	// 주소-좌표 변환 객체를 생성
 	var geocoder = new kakao.maps.services.Geocoder();
+    
+	// 지도 오른쪽 위에 지도 타입 컨트롤 추가
+    var mapTypeControl = new kakao.maps.MapTypeControl();
+	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 </script>
 <script>
-    var polygons = []; // 폴리곤 지울때 사용하는 배열 담는 변수
+    var polygons = []; // 폴리곤 제거하기 위한 배열
     var markers = []; // 마커 전체 제거하기 위한 배열
 
-    //지도 위 표시되고 있는 폴리곤 제거
+    // 폴리곤(또는 마커) 제거 함수
     function deletePolygon(polygons) {
       for (var i = 0; i < polygons.length; i++) {
         polygons[i].setMap(null);
@@ -193,7 +195,7 @@
 	    		        });
 	    		        markers.push(marker); // marker를 제거하기 위해 배열에 담음
 	  				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-	    		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;"> 장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>'
+	    		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;"> 장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>'+
 	    		      '<div class="wrap">' + 
 	                '<div class="info">' + 
 	                '        <div class="title">' + 
@@ -865,14 +867,11 @@
         // 지도 현재 레벨
         var level = map.getLevel();
         console.log('현재 지도 레벨은 ' + level + ' 입니다');
-        if(level == 10){
+        if(level >= 10){
         	// 지도레벨이 10이면 커스텀 오버레이 지우는 코드 작성중... 
-        	console.log("테스트")
+			$('.label').remove();
         }
     });
-    var mapTypeControl = new kakao.maps.MapTypeControl();
-	// 지도 오른쪽 위에 지도 타입 컨트롤이 표시되도록 지도에 컨트롤을 추가한다.
-	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 	</script>
 	<script src="/resources/static/js/park.js"></script>
 	<script src="/resources/static/js/tashu.js"></script>
