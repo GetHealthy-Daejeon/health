@@ -5,6 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+
+</style>
 	<meta charset="utf-8" />
 	<title>건강하슈</title>
 	<link href="/resources/static/css/map.css" rel="stylesheet">
@@ -13,11 +16,26 @@
 	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Orbitron:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-
 	<div class="container">
 		<div class="logo">
 		  <a class="navbar-brand custom_navbar-brand" href="/health/index">
-		  <img src="./resources/static/img/logo.png" alt=""></a>
+		  	<img src="./resources/static/img/logo.png" alt="">
+		  </a>
+		  <div class="side-button">
+		  	<ul>
+			  	<li>
+			  		<div class="location_btn">
+			  			<button><img src="./resources/static/img/gps.png" alt="">내 위치</button>
+			  		</div>
+			  	</li>
+			  	<li>
+			  		<div class="test_btn">
+			  		<!-- style="display: none" -->
+				  		<button><img src="./resources/static/img/gps.png" alt="">테스트</button>		  		
+			  		</div>
+			  	</li>
+		  	</ul>
+		  </div>
 		</div>
 		<div class="banner">
 			<div class="banner-list">
@@ -126,22 +144,22 @@
             $(".text-box").css({"visibility":"hidden"}) // 구 클릭하면 텍스트박스 사라짐
             $(".banner").css({"visibility":"visible", "max-width":"10%"}) // 구 클릭하면 배너가 옆으로 나오는 이벤트
             $(".banner-list").css({"visibility":"visible","width":"100%"}) // 구 클릭하면 리스트가 옆으로 나오는 이벤트
-            getParkInfo(name); // name = 유성구
-            getTashuInfo(name);
-            getFacilityInfo('${yuseongList}');
-
-        	
-        	var level = map.getLevel() - 2;
-          // map.setLevel(level, {anchor: centroid(points), animate: {
-          map.setLevel(level, {
-            anchor: new daum.maps.LatLng(
-              mouseEvent.latLng.getLat(),
-              mouseEvent.latLng.getLng()
-            ),
-            animate: {
-              duration: 350, // 확대 애니메이션 시간
+            getParkInfo(name); // name = 유성구, 공원정보
+            getTashuInfo(name); // 타슈정보
+            getFacilityInfo('${yuseongList}'); // 시설정보
+			
+            // 클릭한 위치에서 확대
+			var level = map.getLevel() - 2;
+			// 클릭한 지도의 중앙으로 이동 : map.setLevel(level, {anchor: centroid(points), animate: {
+			map.setLevel(level, {
+				anchor: new daum.maps.LatLng(
+					mouseEvent.latLng.getLat(),
+					mouseEvent.latLng.getLng()
+				),
+			animate: {
+				duration: 350, // 확대 애니메이션 시간
             },
-          });
+		});
 		$.getJSON("resources/static/구별json/yuseong.json", function (geojson) {
 			var data = geojson.features;
 			var coordinates = []; // 좌표 저장
@@ -324,11 +342,14 @@
             getTashuInfo(name);
             getFacilityInfo('${daedeokList}');
         	
-        	var level = map.getLevel() - 2;
-            map.setLevel(level, {
-            anchor: centroid(points),
-            animate: {
-            	duration: 350, // 확대 애니메이션 시간
+			var level = map.getLevel() - 2;
+			map.setLevel(level, {
+				anchor: new daum.maps.LatLng(
+					mouseEvent.latLng.getLat(),
+					mouseEvent.latLng.getLng()
+				),
+			animate: {
+				duration: 350, // 확대 애니메이션 시간
             },
           });
           $.getJSON("resources/static/구별json/daedeok.json", function (geojson) {
@@ -459,10 +480,13 @@
 
 			var level = map.getLevel() - 2;
 			map.setLevel(level, {
-			anchor: centroid(points),
+				anchor: new daum.maps.LatLng(
+					mouseEvent.latLng.getLat(),
+					mouseEvent.latLng.getLng()
+				),
 			animate: {
-			  duration: 350, // 확대 애니메이션 시간
-			},
+				duration: 350, // 확대 애니메이션 시간
+            },
         });
         $.getJSON("resources/static/구별json/dong.json", function (geojson) {
           var data = geojson.features;
@@ -589,13 +613,16 @@
 		getTashuInfo(name);
 		getFacilityInfo('${jungList}');
 
-    	  var level = map.getLevel() - 2;
-        map.setLevel(level, {
-          anchor: centroid(points),
-          animate: {
-            duration: 350, // 확대 애니메이션 시간
-          },
-        });
+		var level = map.getLevel() - 2;
+		map.setLevel(level, {
+			anchor: new daum.maps.LatLng(
+				mouseEvent.latLng.getLat(),
+				mouseEvent.latLng.getLng()
+			),
+		animate: {
+			duration: 350, // 확대 애니메이션 시간
+        },
+	});
         $.getJSON("resources/static/구별json/jung.json", function (geojson) {
           var data = geojson.features;
           var coordinates = [];
@@ -720,14 +747,17 @@
 		getParkInfo(name); // name = 서구
 		getTashuInfo(name);
 		getFacilityInfo('${seoList}');
-    	  
-    	  var level = map.getLevel() - 2;
-        map.setLevel(level, {
-          anchor: centroid(points),
-          animate: {
-            duration: 350,
-          },
-        });
+    	
+		var level = map.getLevel() - 2;
+		map.setLevel(level, {
+			anchor: new daum.maps.LatLng(
+				mouseEvent.latLng.getLat(),
+				mouseEvent.latLng.getLng()
+			),
+		animate: {
+			duration: 350, // 확대 애니메이션 시간
+        },
+	});
         $.getJSON("resources/static/구별json/seo.json", function (geojson) {
           var data = geojson.features;
           var coordinates = [];
@@ -843,8 +873,12 @@
     var mapTypeControl = new kakao.maps.MapTypeControl();
 	// 지도 오른쪽 위에 지도 타입 컨트롤이 표시되도록 지도에 컨트롤을 추가한다.
 	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-  </script>
+	</script>
 	<script src="/resources/static/js/park.js"></script>
 	<script src="/resources/static/js/tashu.js"></script>
 	<script src="/resources/static/js/facility.js"></script>
+	<script src="/resources/static/js/getGps.js"></script>
+<script type="text/javascript">
+
+</script>
 </html>
