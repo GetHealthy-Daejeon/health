@@ -4,6 +4,7 @@
  		overlay.setMap(null);   
     }
 
+
 function getParkInfo(guName){
   var parkMarkers = [];
   $('#park').click(function(){ //park 버튼 클릭했을 때 
@@ -44,7 +45,7 @@ function getParkInfo(guName){
                 parkMarkers.push(marker); // 공원만 제거하기 위한 배열
                 markers.push(marker); // marker를 제거하기 위해 배열에 담음
                 // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-                
+                	console.log(response.data[index].공원명)
                 	var content = 
  		      		'<div class="wrap">' + 
  		            '    <div class="info">' + 
@@ -59,7 +60,7 @@ function getParkInfo(guName){
  		            '            <div class="desc">' + 
  		            '                <div class="ellipsis">'+ response.data[index].위치 +'</div>' + 
  		            '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
- 		            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+ 		            '                  <div><a href="https://map.kakao.com/link/to/'+response.data[index].공원명+','+ result[0].y+','+result[0].x+'" target="_blank" class="link">길찾기</a></div>' + 
  		            '            </div>' + 
  		            '        </div>' + 
  		            '    </div>' +    
