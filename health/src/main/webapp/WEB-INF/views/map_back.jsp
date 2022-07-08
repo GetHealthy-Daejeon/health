@@ -25,14 +25,14 @@
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 zero_mp">
 						<div class="address">
 							<i class="fa fa-home floatleft"></i>
-							<p>Elephant Road, Dhaka 1205, Bangladesh</p>
+							<p>(주)건강하슈-GetHealthy</p>
 						</div>
 					</div>
 					<!--End of col-md-4-->
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 zero_mp">
 						<div class="phone">
 							<i class="fa fa-phone floatleft"></i>
-							<p>+ 8801532-987039</p>
+							<p></p>
 						</div>
 					</div>
 					<!--End of col-md-4-->
@@ -245,7 +245,7 @@
 				<c:if test="${pageHelper.hasNextPage}">
 					<a onclick="getAddrList(${pageHelper.pageNum+1},10)">Next</a>
 				</c:if>
-				<a onclick="getAddrList(${pageHelper.total},10)"> → </a>
+				<a onclick="getAddrList(${pageHelper.pages},10)"> → </a>
 			</div>
 			<input id="nowPageNum" type="hidden" value="${pageHelper.pageNum}">
 		</div>
