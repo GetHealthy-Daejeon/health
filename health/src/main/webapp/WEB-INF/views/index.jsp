@@ -149,7 +149,7 @@
 								<br>
 								<h4>대전 시민 건강증진을 위해 대전시에 위치한 공공 체육시설을 안내하는 지도 서비스</h2>
 								<p></p>
- 								<a href="" class="custom_btn">살펴보기</a>
+ 								<a href="#welcome" id ="moreView" class="custom_btn" name="scroll_move">살펴보기</a>
  							</div>
 						</div>
 					</div>
@@ -200,6 +200,7 @@
 				</div>
 			</div>
 			<!--End of row-->
+			 <section class='section' id="arrivalSection"></section>
 			<div class="map-field">
 				<p class="text-map">내 근처의 공공시설을 찾아보세요!</p>
 				<div class="col-md-3">
@@ -691,5 +692,13 @@
 			time : 1000
 		});
 	</script>
+	<script>
+		//버튼 누르면 스크롤 내려지는 로직 (22.07.08 양다은)
+		$('a[name="scroll_move"]').on('click',function(event){
+        event.preventDefault(); //a태그에서 기본으로 정의된 이벤트 작동 막기
+        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+      	});
+	</script>
+	
 </body>
 </html>
