@@ -75,11 +75,7 @@ public interface MapMapper {
 	 */
 	public List<Map<String, Object>> selectEventCode(String eventCode);
 	
-<<<<<<< Upstream, based on branch 'develop' of https://github.com/GetHealthy-Daejeon/health.git
 	public List<Map<String, Object>> selectSearchBoardList(@Param("fac_name") String fac_name);
-	
-=======
-	public List<Map<String, Object>> selectSearchBoardList(String fac_name);
 	
 	/**
 	 * @return
@@ -88,5 +84,4 @@ public interface MapMapper {
 	 * comment : 전체 시설 수 조회
 	 */
 	public Map<String, Object> selectAllFacility();
->>>>>>> c887c60 fix : 메인페이지 수정, 통계기능 추가
 }
