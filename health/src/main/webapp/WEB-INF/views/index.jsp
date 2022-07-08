@@ -445,26 +445,22 @@
 						<div class="row">
 							<div class="col-md-3">
 								<div class="market_logo">
-									<a href=""><img src="/resources/static/img/audiojungle.png"
-										alt=""></a>
+									<a href="https://www.daejeon.go.kr/"><img src="/resources/static/img/banner_img/banner_daejeon.jpg" alt=""></a>
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="market_logo">
-									<a href=""><img src="/resources/static/img/codecanyon.png"
-										alt=""></a>
+									<a href="https://www.donggu.go.kr/dg/kor"><img src="/resources/static/img/banner_img/banner_dongGu.jpg" alt=""></a>
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="market_logo">
-									<a href=""><img
-										src="/resources/static/img/graphicriver.png" alt=""></a>
+									<a href="https://www.seogu.go.kr/kor/main.do"><img	src="/resources/static/img/banner_img/banner_seoGu.jpg" alt=""></a>
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="market_logo">
-									<a href=""><img src="/resources/static/img/audiojungle.png"
-										alt=""></a>
+									<a href="https://www.djjunggu.go.kr/kr/index.do"><img src="/resources/static/img/banner_img/banner_jungGu.jpg" alt=""></a>
 								</div>
 							</div>
 						</div>
@@ -487,8 +483,7 @@
 				<div class="colmd-12">
 					<div class="contact_area text-center">
 						<h3>get in touch</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<p>문의사항은 메세지로 남겨주세요^^</p>
 					</div>
 				</div>
 			</div>
