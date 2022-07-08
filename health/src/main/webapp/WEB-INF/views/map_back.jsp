@@ -74,14 +74,16 @@
 					<div class="collapse navbar-collapse zero_mp"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right main_menu">
-							<li class="active">
-								<a href="http://localhost:8080/health/index">Home
-								 <span class="sr-only">(current)</span></a></li>
-								<li><a href="http://localhost:8080/map">Map</a></li>
-								<li><a href="http://localhost:8080/health/login">Login</a></li>
-								<li><a href="http://localhost:8080/health/join">Join</a></li>
-								<li><a href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
-								<li><a href="http://localhost:8080/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
+							<li class="active"><a
+								href="http://localhost:8080/health/index">Home <span
+									class="sr-only">(current)</span></a></li>
+							<li><a href="http://localhost:8080/map">Map</a></li>
+							<li><a href="http://localhost:8080/health/login">Login</a></li>
+							<li><a href="http://localhost:8080/health/join">Join</a></li>
+							<li><a
+								href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
+							<li><a
+								href="http://localhost:8080/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -99,7 +101,7 @@
 
 	<div class="search">
 		<label> <input id="searchBar" type="text"
-			placeholder="작성자를 검색하세요..."> <input id="keyword"
+			placeholder="시설명을 검색하세요..."> <input id="keyword"
 			type="hidden" value="null">
 		</label>
 	</div>
@@ -284,12 +286,14 @@ function getPageNum(){
 
 
 $('#searchBar').keyup(function(key) {
-	var pageSize = 10;
 	var pageNum = 1;
+	var pageSize = 10;
 	if (key.keyCode == 13) {
 		var search = $('#searchBar').val().trim();//input에 작성한 작성자를 가져옴
 		if (search != '') {
-			location.href = "/addr/search?writer=" + search + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
+			location.href = "/addr/search?name=" + search + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
+		}else{
+			alert("검색어를 입력해주세요.")
 		}
 	}
 });
@@ -317,8 +321,7 @@ $('#searchBar').keyup(function(key) {
 
 /* <!-- 클릭한 주소 확인 --> */
 function getAddr(place_no){
-    $('.update-popup').css('display','block');
-    
+	
     var gu_code = $('#gu_code').val();
     var event_code = $('#event_code').val();
     var fac_name = $('#fac_name').val();
@@ -327,11 +330,8 @@ function getAddr(place_no){
     var longitude = $('#longitude').val();
     var digit = $('#digit').val();
     
-    console.log("시설코드 >> "+place_no)
-	console.log("구코드 >> "+gu_code)
-	console.log("종목코드 >> "+event_code)
-	console.log("시설이름 >> "+fac_name)
-	console.log("시설주소 >> "+addr_road)
+    $('.update-popup').css('display','block');
+    
     $.ajax({
         url : '/addr/placeno/'+place_no,
         type : 'GET',
@@ -343,8 +343,6 @@ function getAddr(place_no){
             $('#event_code').val(response.event_code);
             $('#fac_name').val(response.fac_name);
             $('#addr_road').val(response.addr_road);
-            $('#latitude').val(response.latitude);
-            $('#longitude').val(response.longitude);
             $('#digit').val(response.digit);
         }
         });
@@ -356,25 +354,22 @@ $('#contentUpdate').click(function() {
 	//1. 게시판 번호 확인
 	var place_no = $('#place_no').val(); //hidden에 숨겨둔 boardId 가져오기.
 	//2. JSON 생성
-	var gu_code = $('#gu_code').val();
-	var event_code = $('#event_code').val();
-	var addr_road = $('#addr_road').val();
+	var guCode = $('#gu_code').val();
+	var eventCode = $('#event_code').val();
+	var addrRoad = $('#addr_road').val();
 	var latitude = $('#latitude').val();
 	var longitude = $('#longitude').val();
-	var fac_name = $('#fac_name').val();
-	var digit = $('#digit').val();
+	var facName = $('#fac_name').val();
+	var diGit = $('#digit').val();
 	
 	
 	var jsonData = {
-			gu_code: gu_code,
-			event_code: event_code,
-			addr_road: addr_road,
-			latitude: latitude,
-			longitude: longitude,
-			fac_name: fac_name,
-			digit: digit
+			gu_code: guCode,
+			event_code: eventCode,
+			addr_road: addrRoad,
+			fac_name: facName,
+			digit: diGit
 	};
-	console.log(fac_name)
 	//3. AJAX를 이용해서 업데이트!
 	$.ajax({
 		url: '/addr/placeno/' + place_no,

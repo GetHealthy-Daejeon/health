@@ -35,6 +35,8 @@
 		SELECT
 		member_id AS memberId,
 		member_name AS memberName,
+		member_password AS memberPassword,
+		authority AS authority,
 		create_at AS createAt
 		FROM
 		membership
@@ -63,7 +65,8 @@
 	<update id="updateMember">
 		UPDATE membership
 		SET
-		member_name = #{memberName}
+		member_name = #{memberName},
+		authority = #{authority}
 
 		WHERE member_id = #{memberId}
 	</update>
