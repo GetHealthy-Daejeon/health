@@ -31,7 +31,7 @@
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 zero_mp">
 						<div class="phone">
 							<i class="fa fa-phone floatleft"></i>
-							<p>+ 8801532-987039</p>
+							<p></p>
 						</div>
 					</div>
 					<!--End of col-md-4-->
@@ -63,7 +63,7 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index"><img
+						<a class="navbar-brand custom_navbar-brand" href="/health/index"><img
 							src="/resources/static/img/logo.png" alt=""></a>
 					</div>
 					<!--End of navbar-header-->
@@ -212,14 +212,14 @@
 			<div class="col-md-6">
 				<div class="copyright">
 					<p>
-						@ 2016 - Design By <span><a href="">&#9798;</a></span>
+						@ 2022 - Design By 건강하슈 
 					</p>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="designer">
 					<p>
-						A Design By <a href="#">XpeedStudio</a>
+						A Design By XpeedStudio
 					</p>
 				</div>
 			</div>

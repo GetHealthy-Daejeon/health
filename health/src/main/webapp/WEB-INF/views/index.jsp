@@ -578,7 +578,7 @@
 				<div class="col-md-6">
 					<div class="designer">
 						<p>
-							A Design By <a href="#">XpeedStudio</a>
+							A Design By XpeedStudio
 						</p>
 					</div>
 				</div>
