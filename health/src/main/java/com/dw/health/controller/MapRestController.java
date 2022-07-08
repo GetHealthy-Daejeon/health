@@ -68,4 +68,10 @@ public class MapRestController {
 		return new PageInfo<Map<String, Object>>(list);
 	}
 
+// 통계
+	@CrossOrigin
+	@GetMapping("/FacilityStatistics")
+	public Map<String, Object> callAllFacilityCount(){
+		return mapservice.getAllFacilityCount();
+	}
 }
