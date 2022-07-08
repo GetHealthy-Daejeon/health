@@ -74,7 +74,7 @@ public class MemberRestController {
 	
 	//회원 검색
 	@CrossOrigin
-	@GetMapping("/search")
+	@GetMapping("/members/search")
 	public PageInfo<Map<String,Object>> callMemberList(@RequestParam("name") String name,
 			@RequestParam("pageNum")int pageNum,
 			@RequestParam("pageSize")int pageSize){

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.dw.health.vo.MapVO;
 
@@ -17,6 +18,7 @@ public interface MapMapper {
 	 * comment : 모든 주소 조회(주소 보드)
 	 */
 	public List<Map<String,Object>> selectAllAddrList();
+	
 	public int insertAddr (MapVO vo);
 	public MapVO selectAddrOne(int placeno);
 	public int updateAddrOne(MapVO vo);
@@ -73,5 +75,6 @@ public interface MapMapper {
 	 */
 	public List<Map<String, Object>> selectEventCode(String eventCode);
 	
-	public List<Map<String, Object>> selectSearchBoardList(String fac_name);
+	public List<Map<String, Object>> selectSearchBoardList(@Param("fac_name") String fac_name);
+	
 }

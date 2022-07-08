@@ -206,6 +206,13 @@
 						<div class="single_item">
 							<div class="item_list">
 								<div class="welcome_icon">
+								<c:if test="${authority != '1' && authority !='2' && authority !='3'}">
+								<a target="_blank"> 
+										<img class="nonmember" src="/resources/static/img/대전.png">
+											<h3 class="t1">로그인 후 이용 가능합니다.</h3>
+										</a>
+									
+									</c:if>
 									<!-- 일반 회원 -->
 									<c:if test="${authority eq '1'}">
 										<a href="http://localhost:8080/map" target="_blank"> <img class="daejeon"
@@ -611,6 +618,10 @@
 		
 		$('.ban_daejeon').click(function(){
 			alert("정지회원은 사용하실 수 없습니다.")
+		})
+		
+		$('.nonmember').click(function(){
+			alert("로그인 후 이용 가능합니다.")
 		})
 	</script>
 

@@ -81,9 +81,9 @@ public class MapService {
 	}
 	
 	//주소 검색 조회
-	public List<Map<String, Object>> getSearchBoardList(String fac_name,int pageNum, int pageSize){
+	public List<Map<String, Object>> getSearchBoardList(String name,int pageNum, int pageSize){
 		PageHelper.startPage(pageNum, pageSize);
-		return mapMapper.selectSearchBoardList(fac_name);
+		return mapMapper.selectSearchBoardList(name);
 	}
 
 }

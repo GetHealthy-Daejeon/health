@@ -59,12 +59,12 @@ public class MapRestController {
 	
 	//주소 검색
 	@CrossOrigin
-	@GetMapping("/search")
-	public PageInfo<Map<String, Object>> callBoardSearch(@RequestParam("writer") String writer,
+	@GetMapping("/map/search")
+	public PageInfo<Map<String, Object>> callBoardSearch(@RequestParam("name") String name,
 			@RequestParam("pageNum") int pageNum, 
 			@RequestParam("pageSize") int pageSize){
 		
-		List<Map<String, Object>> list = mapservice.getSearchBoardList(writer, pageNum, pageSize);
+		List<Map<String, Object>> list = mapservice.getSearchBoardList(name, pageNum, pageSize);
 		return new PageInfo<Map<String, Object>>(list);
 	}
 

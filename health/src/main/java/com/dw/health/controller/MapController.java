@@ -65,6 +65,20 @@ public class MapController {
 		return "map_back";
 	}
 	
+	@GetMapping("/addr/search")
+	public String callBoardSearch(ModelMap map,
+			@RequestParam("name") String name,
+			@RequestParam("pageNum")int pageNum,
+			@RequestParam("pageSize")int pageSize
+			){
+		List<Map<String,Object>> list = mapservice.getAllAddrList(pageNum, pageSize);
+		PageInfo<Map<String,Object>> pageInfo = new PageInfo<Map<String,Object>>(list);
+		map.addAttribute("pageHelper", pageInfo);
+	
+		
+		return "map_back";
+	}
+	
 	
 
 }

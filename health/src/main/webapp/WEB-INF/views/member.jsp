@@ -117,7 +117,7 @@
 			</div>
 			<div class="input-box">
 				<label for="authority">회원 권한 : </label> 
-				<input id="authority" type="text" value="${authority}" placeholder="회원의 권한을 입력하세요" >
+				<input id="authority" type="text" placeholder="회원의 권한을 입력하세요" >
 			</div>
 
 			<div class="btn-area">
@@ -312,6 +312,7 @@ $('#contentUpdate').click(function() {
 	//2. JSON 생성
 	var memberName = $('#memberName').val();
 	var memberPassword = $('#memberPassword').val();
+	var authority = $('#authority').val();
 	
 	var jsonData = {
 			memberName: memberName,
@@ -346,7 +347,8 @@ $('#searchBar').keyup(function(key){
     if(key.keyCode == 13){
         var search = $('#searchBar').val().trim();
         if(search !=''){
-        	location.href="/members/search?name="+search+"&pageNum="+pageNum+"&pageSize="+pageSize; 
+        	location.href="/members/search?name="+search+"&pageNum="+pageNum+"&pageSize="+pageSize;
+        	console.log(search)
         }else{
         	alert("검색어를 입력해주세요.")
         }

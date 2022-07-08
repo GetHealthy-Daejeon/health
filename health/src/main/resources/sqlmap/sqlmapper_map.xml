@@ -38,6 +38,7 @@
 	WHERE
 		place_no = #{place_no}
 	</update>
+	
 	<insert id="insertAddr">
 	INSERT INTO health_addr
 	(
