@@ -74,17 +74,41 @@
 					<div class="collapse navbar-collapse zero_mp"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right main_menu">
-							<li class="active"><a
-								href="http://localhost:8080/health/index">Home <span
-									class="sr-only">(current)</span></a></li>
-							<li><a href="http://localhost:8080/map">Map</a></li>
-							<li><a href="http://localhost:8080/health/login">Login</a></li>
-							<li><a href="http://localhost:8080/health/join">Join</a></li>
-							<li><a
-								href="http://localhost:8080/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
-							<li><a
-								href="http://localhost:8080/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
-						</ul>
+
+								<c:if
+									test="${authority != '1' && authority !='2' && authority !='3'}">
+									<li class="active"><a href="/health/index">Home <span
+											class="sr-only">(current)</span></a></li>
+									<li><a href="/health/login">Login</a></li>
+									<li><a href="/health/join">Join</a></li>
+								</c:if>
+								<!-- 일반회원에게 보이는 메뉴 -->
+								<c:if test="${1 eq authority}">
+									<li class="active"><a href="/health/index">Home <span
+											class="sr-only">(current)</span></a></li>
+									<li><a href="/map">Map</a></li>
+									<li><a href="/health/logout">Logout</a></li>
+								</c:if>
+
+								<!-- 관리자에게 보이는 메뉴 -->
+								<c:if test="${2 eq authority}">
+									<li class="active"><a href="/health/index">Home <span
+											class="sr-only">(current)</span></a></li>
+									<li><a href="/map">Map</a></li>
+									<li><a href="/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
+									<li><a href="/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
+									<li><a href="/health/logout">Logout</a></li>
+								</c:if>
+
+								<!-- 정지회원에게 보이는 메뉴 -->
+								<c:if test="${3 eq authority}">
+									<p>정지된 회원이기에 아무것도 이용할 수 없습니다.</p>
+									<li><a href="/health/logout">Logout</a></li>
+								</c:if>
+								<div class="welcome_name">
+									<p>${memberName}님환영합니다</p>
+								</div>
+							</ul>
 					</div>
 					<!-- /.navbar-collapse -->
 				</nav>
