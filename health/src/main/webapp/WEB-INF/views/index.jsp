@@ -145,11 +145,12 @@
 						<img src="/resources/static/img/img1.jpg" alt="...">
 						<div class="carousel-caption">
 							<div class="slider_text">
-								<h3>OUR PAGE`s UPDATE 1</h3>
-								<h2>UPDATES</h2>
-								<p>@@산책로에 살고있는 다람쥐</p>
-								<a href="" class="custom_btn">Read More</a>
-							</div>
+								<h3>Get Healthy</h3>
+								<br>
+								<h4>대전 시민 건강증진을 위해 대전시에 위치한 공공 체육시설을 안내하는 지도 서비스</h2>
+								<p></p>
+ 								<a href="" class="custom_btn">살펴보기</a>
+ 							</div>
 						</div>
 					</div>
 				</div>
@@ -302,7 +303,7 @@
 							<div class="sigle_counter_item">
 								<img src="/resources/static/img/people.png" alt="">
 								<div class="counter_text">
-									<span class="counter" id="tashu">1,448,401</span>
+									<span class="counter">1,448,401</span>
 									<p>대전시 총 인구</p>
 								</div>
 							</div>
@@ -323,8 +324,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="testimonial_header text-center">
-							<h2>Let's say something</h2>
-							<p>대충 운동의 중요성을 알리는 문구들 | 혹은 홈페이지 업데이트 사항</p>
+							<h2>대전시 건강 소식</h2>
 						</div>
 					</div>
 				</div>
@@ -601,10 +601,9 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>-->
 	<script src="/resources/static/js/jquery-1.12.3.min.js"></script>
-<<<<<<< Upstream, based on branch 'develop' of https://github.com/GetHealthy-Daejeon/health.git
 
 	<!--Counter UP Waypoint-->
-	<script src="/resources/static/js/waypoints.min.js"></script>
+	<!-- <script src="/resources/static/js/waypoints.min.js"></script> -->
 	<!--Counter UP-->
 	<script src="/resources/static/js/jquery.counterup.min.js"></script>
 
@@ -626,8 +625,6 @@
 	</script>
 
 
-=======
->>>>>>> c887c60 fix : 메인페이지 수정, 통계기능 추가
 	<!--Gmaps-->
 	<script src="/resources/static/js/gmaps.min.js"></script>
 	<script type="text/javascript">
