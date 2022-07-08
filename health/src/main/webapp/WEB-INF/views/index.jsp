@@ -267,9 +267,9 @@
 					<div class="col-md-3">
 						<div class="counter_item text-center">
 							<div class="sigle_counter_item">
-								<img src="/resources/static/img/tree.png" alt="">
+								<img src="/resources/static/img/main_park.png" alt="">
 								<div class="counter_text">
-									<span class="counter">32</span>
+									<span class="counter" id="park">&nbsp;</span>
 									<p>공원</p>
 								</div>
 							</div>
@@ -278,10 +278,10 @@
 					<div class="col-md-3">
 						<div class="counter_item text-center">
 							<div class="sigle_counter_item">
-								<img src="/resources/static/img/hand.png" alt="">
+								<img src="/resources/static/img/weightlifter.png" alt="">
 								<div class="counter_text">
-									<span class="counter">264</span>
-									<p>체육시설</p>
+									<span class="counter" id="facility">&nbsp;</span>
+									<p>공공 체육시설</p>
 								</div>
 							</div>
 						</div>
@@ -289,10 +289,10 @@
 					<div class="col-md-3">
 						<div class="counter_item text-center">
 							<div class="sigle_counter_item">
-								<img src="/resources/static/img/tuhnder.png" alt="">
+								<img src="/resources/static/img/bicycle.png" alt="">
 								<div class="counter_text">
-									<span class="counter">135</span>
-									<p>타슈</p>
+									<span class="counter" id="tashu">&nbsp;</span>
+									<p>타슈 정류장</p>
 								</div>
 							</div>
 						</div>
@@ -300,10 +300,10 @@
 					<div class="col-md-3">
 						<div class="counter_item text-center">
 							<div class="sigle_counter_item">
-								<img src="/resources/static/img/cloud.png" alt="">
+								<img src="/resources/static/img/people.png" alt="">
 								<div class="counter_text">
-									<span class="counter">5412</span>
-									<p>water level</p>
+									<span class="counter" id="tashu">1,448,401</span>
+									<p>대전시 총 인구</p>
 								</div>
 							</div>
 						</div>
@@ -598,10 +598,10 @@
 	<!--Scroll to top-->
 	<a href="#" id="back-to-top" title="Back to top">&uarr;</a>
 	<!--End of Scroll to top-->
-
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>-->
 	<script src="/resources/static/js/jquery-1.12.3.min.js"></script>
+<<<<<<< Upstream, based on branch 'develop' of https://github.com/GetHealthy-Daejeon/health.git
 
 	<!--Counter UP Waypoint-->
 	<script src="/resources/static/js/waypoints.min.js"></script>
@@ -626,11 +626,13 @@
 	</script>
 
 
+=======
+>>>>>>> c887c60 fix : 메인페이지 수정, 통계기능 추가
 	<!--Gmaps-->
 	<script src="/resources/static/js/gmaps.min.js"></script>
 	<script type="text/javascript">
 		var map;
-		$(document).ready(function() {
+		$(document).ready(function() { //$(document).ready : 웹 사이트 처음 켰을 때 바로 실행
 			map = new GMaps({
 				el : '#map',
 				lat : 23.6911078,
@@ -667,13 +669,9 @@
 			});
 		});
 	</script>
-
 	<!--Google Maps API-->
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjxvF9oTfcziZWw--3phPVx1ztAsyhXL4"></script>
-
-
-
 	<!--Back To Top-->
 	<script src="/resources/static/js/backtotop.js"></script>
 
@@ -685,8 +683,21 @@
 	<!--WOW Activated-->
 	<script>
 		new WOW().init();
+		$('.ban_daejeon').click(function(){
+			alert("정지회원은 사용하실 수 없습니다.");
+		})
 	</script>
-
+	<script src="/resources/static/js/statistics.js"></script>
+	<script src="/resources/static/js/jquery.counterup.min.js"></script>
+	<!--Counter UP Waypoint-->
+	<!-- <script src="/resources/static/js/waypoints.min.js"></script> -->
+	<!--Counter UP-->
+	<script>
+		//for counter up
+		$('.counter').counterUp({
+			delay : 10,
+			time : 1000
+		});
+	</script>
 </body>
-
 </html>

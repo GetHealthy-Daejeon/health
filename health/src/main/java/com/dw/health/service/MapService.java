@@ -85,5 +85,8 @@ public class MapService {
 		PageHelper.startPage(pageNum, pageSize);
 		return mapMapper.selectSearchBoardList(name);
 	}
-
+	
+	public Map<String,Object> getAllFacilityCount(){
+		return mapMapper.selectAllFacility();
+	}
 }

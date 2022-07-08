@@ -113,5 +113,10 @@
 		FROM health_addr
 		WHERE fac_name LIKE CONCAT('%',#{fac_name},'%')
 	</select>
-
+	
+	<!-- 대전시 공공체육시설 조회 -->
+	<select id="selectAllFacility" resultType="map">
+		SELECT COUNT(*) as count
+		FROM dw.health_addr	
+	</select>
 </mapper>
