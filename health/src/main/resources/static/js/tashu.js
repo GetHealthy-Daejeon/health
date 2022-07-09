@@ -1,9 +1,7 @@
- var overlay = null; 
-    
- 	function closeOverlay(){ //닫기 버튼 누르면 실행하는 함수
- 		overlay.setMap(null);   
-    }
-
+var clickedOverlay = null; 
+function closeOverlay(){ //닫기 버튼 누르면 실행하는 함수
+	overlay.setMap(null);   
+}
 
 function getTashuInfo(guName){
   var TashuMarkers = [];
@@ -16,14 +14,10 @@ function getTashuInfo(guName){
       $.ajax({
       url : "https://api.odcloud.kr/api/15062798/v1/uddi:cd8c82d9-b88c-42b0-bedd-a8b4b919732b?perPage=1000&serviceKey=eQZma%2BIrvJVJ%2FoYjIe5wYTnAwUZYZNAM5v%2BtmC8hutkmQ%2BFFsfQt5gbWiZ0FNXRs3LK%2BHxQ3oLQji3lZ%2BiLgKA%3D%3D",
       type : "GET",
-      dataType : "json", // 서버 결과를 json으로 응답받겠다.
+      dataType : "json",
       success : function(response){
-        // console.log(response.data)
-        // console.log(response.data[0]['Station 스테이션/성명'])
-        // console.log(response.data[100].위치.substring(6,9).replace(" ",""))
         // 사용할 데이터 : Station 스테이션/성명, 시군구명, 위치
         response.data.forEach(function(test, index){
-          // console.log(response.data[index].위치)
         // for문으로 response.data 불러올 시 geocoder 비동기작업으로 인해 한번에 진행되므로 제대로 값을 불러올 수 없음. 그래서 forEach 사용함
           if(response.data[index].위치.substring(6,9).replace(" ","") == guName){
             geocoder.addressSearch(response.data[index].위치, function(result, status) {
@@ -45,7 +39,6 @@ function getTashuInfo(guName){
                 markers.push(marker); // marker를 제거하기 위해 배열에 담음
                 // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
                 JSON.stringify(response.data[index].value)
-                console.log(response.data[index])
               	var content = 
  		      		'<div class="wrap">' + 
  		            '    <div class="info">' + 
@@ -65,14 +58,18 @@ function getTashuInfo(guName){
  		            '        </div>' + 
  		            '    </div>' +    
  		            '</div>',
-				iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다				
+				iwRemoveable = true; // true 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다			
 				kakao.maps.event.addListener(marker, 'click', function() { // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-					overlay = new kakao.maps.CustomOverlay({
+					overlay = new kakao.maps.CustomOverlay({ // overlay에 클릭한 마커 정보 담음
 					    content: content,
 					    map: map,
 					    position: marker.getPosition()       
 					});
-					overlay.setMap(map); 
+					if(clickedOverlay){ // clickedOverlay가 비어있지 않다면!! (비어있는 문자열을 제외한 모든 문자열은 논리 평가시 true를 반환함)
+						clickedOverlay.setMap(null); // clickedOverlay를 지도에서 지운다.
+					}
+					overlay.setMap(map); // 클릭한 overlay를 지도에 넣는다. 
+					clickedOverlay = overlay; // 생성된 overlay를 clickedOverlay로 넘겨주면서 다음 클릭시 사라지게 만듦.
                 });
               }
             });

@@ -77,14 +77,14 @@
 
 								<c:if
 									test="${authority != '1' && authority !='2' && authority !='3'}">
-									<li class="active"><a href="/health/index">Home <span
+									<li><a href="/health/index">Home <span
 											class="sr-only">(current)</span></a></li>
 									<li><a href="/health/login">Login</a></li>
 									<li><a href="/health/join">Join</a></li>
 								</c:if>
 								<!-- 일반회원에게 보이는 메뉴 -->
 								<c:if test="${1 eq authority}">
-									<li class="active"><a href="/health/index">Home <span
+									<li><a href="/health/index">Home <span
 											class="sr-only">(current)</span></a></li>
 									<li><a href="/map">Map</a></li>
 									<li><a href="/health/logout">Logout</a></li>
@@ -92,11 +92,11 @@
 
 								<!-- 관리자에게 보이는 메뉴 -->
 								<c:if test="${2 eq authority}">
-									<li class="active"><a href="/health/index">Home <span
+									<li><a href="/health/index">Home <span
 											class="sr-only">(current)</span></a></li>
 									<li><a href="/map">Map</a></li>
-									<li><a href="/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
-									<li><a href="/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
+									<li><a href="/admin/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
+									<li class="active"><a href="/admin/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
 									<li><a href="/health/logout">Logout</a></li>
 								</c:if>
 
@@ -106,7 +106,7 @@
 									<li><a href="/health/logout">Logout</a></li>
 								</c:if>
 								<div class="welcome_name">
-									<p>${memberName}님환영합니다</p>
+									<p>${memberName}님 환영합니다</p>
 								</div>
 							</ul>
 					</div>
@@ -194,12 +194,10 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="member_list">
 			<div class="cardHeader">
 				<input type="button" class="btn-addr" value="주소 등록">
 			</div>
-
 			<table>
 				<thead>
 					<tr>
@@ -238,7 +236,7 @@
 				</tbody>
 			</table>
 			<div class="pagination">
-				<c:if test="${path eq '/addr'}">
+				<c:if test="${path eq '/admin/addr'}">
 					<c:if test="${pageHelper.hasPreviousPage}">
 						<a onclick="getAddrList(1,10)">←</a>
 						<a onclick="getAddrList(${pageHelper.pageNum-1},10)">이전</a>
@@ -252,7 +250,7 @@
 						<a onclick="getAddrList(${pageHelper.pages},10)">→</a>
 					</c:if>
 				</c:if>
-				<c:if test="${path eq '/addr/search' && fn:length(pageHelper.list) > 0}">
+				<c:if test="${path eq '/admin/addr/search' && fn:length(pageHelper.list) > 0}">
 					<c:if test="${pageHelper.hasPreviousPage}">
 						<a onclick="getSearchedAddrList(1,10,'${param.facName}')">←</a>
 						<a onclick="getSearchedAddrList(${pageHelper.pageNum-1},10,'${param.facName}')">이전</a>
@@ -337,7 +335,7 @@
 <script>
 // 주소 리스트 조회
 function getAddrList(pageNum, pageSize){
-	location.href="/addr?pageNum="+pageNum+"&pageSize="+pageSize;    
+	location.href="/admin/addr?pageNum="+pageNum+"&pageSize="+pageSize;    
 }
 
 //페이지 번호 색칠하는 함수
@@ -355,7 +353,7 @@ $('#searchBar').keyup(function(key) {
 	if (key.keyCode == 13) {
 		var search = $('#searchBar').val().trim();//input에 작성한 작성자를 가져옴
 		if (search != '') {
-			location.href = "/addr/search?facName=" + search + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
+			location.href = "/admin/addr/search?facName=" + search + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
 		}else{
 			alert("검색어를 입력해주세요.")
 		}
@@ -363,7 +361,7 @@ $('#searchBar').keyup(function(key) {
 });
 // 검색된 주소의 페이지 리스트에 사용할 함수
 function getSearchedAddrList(pageNum, pageSize, facName){
-	location.href = "/addr/search?facName=" + facName + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
+	location.href = "/admin/addr/search?facName=" + facName + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
 }
 
 // 클릭한 주소 확인

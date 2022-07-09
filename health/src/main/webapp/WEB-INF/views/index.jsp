@@ -92,6 +92,9 @@
 											class="sr-only">(current)</span></a></li>
 									<li><a href="/map">Map</a></li>
 									<li><a href="/health/logout">Logout</a></li>
+									<div class="welcome_name">
+										<p>${memberName}님환영합니다</p>
+									</div>
 								</c:if>
 
 								<!-- 관리자에게 보이는 메뉴 -->
@@ -99,19 +102,22 @@
 									<li class="active"><a href="/health/index">Home <span
 											class="sr-only">(current)</span></a></li>
 									<li><a href="/map">Map</a></li>
-									<li><a href="/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
-									<li><a href="/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
+									<li><a href="/admin/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
+									<li><a href="/admin/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
 									<li><a href="/health/logout">Logout</a></li>
+									<div class="welcome_name">
+										<p>${memberName}님 환영합니다</p>
+									</div>
 								</c:if>
 
 								<!-- 정지회원에게 보이는 메뉴 -->
 								<c:if test="${3 eq authority}">
 									<p>정지된 회원이기에 아무것도 이용할 수 없습니다.</p>
-									<li><a href="/health/logout">Logout</a></li>
+									<li style="position:absolute; right:0;"><a href="/health/logout">Logout</a></li>
+									<div class="welcome_name">
+										<p>${memberName}님환영합니다</p>
+									</div>
 								</c:if>
-								<div class="welcome_name">
-									<p>${memberName}님환영합니다</p>
-								</div>
 							</ul>
 						</div>
 						<!-- /.navbar-collapse -->
@@ -543,31 +549,6 @@
 										</div>
 									</div>
 								</form>
-								<!-- <form action="scripts/contact.php" class="form-horizontal contact-1" role="form" name="contactform" id="contactform">
-									<div class="form-group">
-										<div class="col-sm-6">
-											<input type="text" class="form-control" name="name" id="name"
-												placeholder="Name">
-										</div>
-										<div class="col-sm-6">
-											<input type="text" class="form-control" name="email"
-												id="email" placeholder="Email">
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="col-sm-12">
-											<input type="subject" class="form-control" id="subject"
-												placeholder="Subject *">
-											<div class="text_area">
-												<textarea name="contact-message" id="msg"
-													class="form-control" cols="30" rows="8"
-													placeholder="Message"></textarea>
-											</div>
-											<button type="submit" class="btn custom-btn"
-												data-loading-text="Loading...">Send</button>
-										</div>
-									</div>
-								</form> -->
 							</div>
 						</div>
 					</div>
@@ -579,8 +560,6 @@
 		<!--End of container-->
 	</section>
 	<!--End of contact-->
-
-
 
 	<!--Start of footer-->
 	<section id="footer">
@@ -607,8 +586,6 @@
 	</section>
 	<!--End of footer-->
 
-
-
 	<!--Scroll to top-->
 	<a href="#" id="back-to-top" title="Back to top">&uarr;</a>
 	<!--End of Scroll to top-->
@@ -627,17 +604,13 @@
 			delay : 10,
 			time : 1000
 		});
-		
-		
 		$('.ban_daejeon').click(function(){
 			alert("정지회원은 사용하실 수 없습니다.")
 		})
-		
 		$('.nonmember').click(function(){
 			alert("로그인 후 이용 가능합니다.")
 		})
 	</script>
-
 
 	<!--Gmaps-->
 	<script src="/resources/static/js/gmaps.min.js"></script>
@@ -719,6 +692,5 @@
         $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
       	});
 	</script>
-	
 </body>
 </html>

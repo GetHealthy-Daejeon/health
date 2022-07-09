@@ -56,7 +56,7 @@
 				<hr width="90%" color="#000" noshade />
 				<input type="button" id="park" value="공원">
 				<input type="button" id="tashu" value="타슈">
-				<input type="button" id="deleteMarker" value="마크제거(테스트용)" onclick="deletePolygon(markers)">
+				<input type="button" id="deleteMarker" value="마커지우기" onclick="deletePolygon(markers)">
 				<input type="button" id="refresh" value="지도초기화" onclick="window.location.reload()">
 			</div>
 			<div class="text-box">
@@ -72,34 +72,59 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=053fa1a57cda6a2315480dc66ba2a3ec&libraries=services"></script>
 <script>
-	// 지도 설정
+// 지도 설정
 	var mapContainer = document.getElementById("map"), // 지도를 div
 	mapOption = {
 	  center: new kakao.maps.LatLng(36.3504119, 127.3845475), // 중심좌표
 	  level: 8,
 	};
-	
-	// 지도 생성
+// 지도 생성
     var map = new kakao.maps.Map(mapContainer, mapOption); 
-    
-	// 주소-좌표 변환 객체를 생성
+// 주소-좌표 변환 객체를 생성
 	var geocoder = new kakao.maps.services.Geocoder();
     
-	// 지도 오른쪽 위에 지도 타입 컨트롤 추가
+// 지도 오른쪽 위에 지도 타입 컨트롤 추가
     var mapTypeControl = new kakao.maps.MapTypeControl();
 	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+// 지도 오른쪽에 줌 컨트롤 추가
+    var zoomControl = new kakao.maps.ZoomControl();
+    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+    kakao.maps.event.addListener(map, 'zoom_changed', function() {        
+        // 지도 현재 레벨
+        var level = map.getLevel();
+        console.log('현재 지도 레벨은 ' + level + ' 입니다');
+        if(level >= 10){
+        	// 지도레벨이 10이면 커스텀 오버레이 지우는 코드...? 
+			$('.label').remove();
+        }
+    });
+</script>
+<script>
+// 폴리곤(또는 마커) 제거 함수
+	function deletePolygon(polygons) {
+	  for (var i = 0; i < polygons.length; i++) {
+	    polygons[i].setMap(null);
+	  }
+	  polygons = [];
+	}
+//centroid 알고리즘 (폴리곤 중심좌표 구하기)
+    function centroid(points) {
+      var i, j, len, p1, p2, f, area, x, y;
+      area = x = y = 0;
+      for (i = 0, len = points.length, j = len - 1; i < len; j = i++) {
+        p1 = points[i];
+        p2 = points[j];
+        f = p1.y * p2.x - p2.y * p1.x;
+        x += (p1.x + p2.x) * f;
+        y += (p1.y + p2.y) * f;
+        area += f * 3;
+      }
+      return new daum.maps.LatLng(x / area, y / area);
+    }
 </script>
 <script>
     var polygons = []; // 폴리곤 제거하기 위한 배열
     var markers = []; // 마커 전체 제거하기 위한 배열
-
-    // 폴리곤(또는 마커) 제거 함수
-    function deletePolygon(polygons) {
-      for (var i = 0; i < polygons.length; i++) {
-        polygons[i].setMap(null);
-      }
-      polygons = [];
-    }
 
     // 유성구
     // 유성구 폴리곤 데이터 갖고오기
@@ -647,34 +672,6 @@
       // 커스텀 오버레이를 지도에 표시
       customOverlay.setMap(map);
     }
-
-    //centroid 알고리즘 (폴리곤 중심좌표 구하기 위함)
-    function centroid(points) {
-      var i, j, len, p1, p2, f, area, x, y;
-      area = x = y = 0;
-      for (i = 0, len = points.length, j = len - 1; i < len; j = i++) {
-        p1 = points[i];
-        p2 = points[j];
-        f = p1.y * p2.x - p2.y * p1.x;
-        x += (p1.x + p2.x) * f;
-        y += (p1.y + p2.y) * f;
-        area += f * 3;
-      }
-      return new daum.maps.LatLng(x / area, y / area);
-    }
-
-    // 지도 오른쪽에 줌 컨트롤 추가
-    var zoomControl = new kakao.maps.ZoomControl();
-    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-    kakao.maps.event.addListener(map, 'zoom_changed', function() {        
-        // 지도 현재 레벨
-        var level = map.getLevel();
-        console.log('현재 지도 레벨은 ' + level + ' 입니다');
-        if(level >= 10){
-        	// 지도레벨이 10이면 커스텀 오버레이 지우는 코드...? 
-			$('.label').remove();
-        }
-    });
 	</script>
 	<script src="/resources/static/js/park.js"></script>
 	<script src="/resources/static/js/tashu.js"></script>

@@ -52,6 +52,13 @@ public class MemberRestController {
 		return memberservice.getMember(memberId);
 	}
 	
+	// 회원 등록
+	@CrossOrigin
+	@PostMapping("/member")
+	public int callSaveMemberByAdmin(@RequestBody MemberVO vo) {
+		return memberservice.setMember(vo);
+	}
+	
 	//회원 수정 (U)
 	/* @PatchMapping("/member/{id}") */
 	@CrossOrigin

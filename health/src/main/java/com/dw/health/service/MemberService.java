@@ -27,6 +27,10 @@ public class MemberService {
 	public int doJoin(MemberVO vo) {
 		return membermapper.doJoin(vo);
 	}
+	// 관리자페이지에서 멤버 등록
+	public int setMember(MemberVO vo) {
+		return membermapper.saveMemberByAdmin(vo);
+	}
 	
 	// 가입된 학생인지 아닌지 체크
 	@Transactional(rollbackFor = { Exception.class })

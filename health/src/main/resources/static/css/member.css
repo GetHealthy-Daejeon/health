@@ -540,7 +540,7 @@ ul.entry-meta {
     margin : 40px auto;
     width: 700px;
     height: 500px;
-    background-color:var(--grey);
+    background-color: #ffffff;
     box-shadow: 0 7px 25px rgba(0,0,0,0.3);
     border-radius: 5px;
 }
@@ -580,6 +580,7 @@ ul.entry-meta {
 }
 
 .btn-area{
+	margin-top: 35px;
     text-align: center;
 }
 
@@ -693,4 +694,29 @@ ul.entry-meta {
     outline: none;
     border: 1px solid black;
 }
-
+.btn-mem{
+	position: absolute;
+	right: 100px;
+	top: 100px;
+    text-align: center;   
+    border: 1px solid;
+    border-radius: 10px;
+    width: 100px;
+    padding: 0.6%;
+    height: 50px;
+    background-color: #ffffff;
+    color: #747b81;
+    font-size: 16px;
+    font-weight: 600;
+}
+.btn-mem:hover{
+    background-color: #43A906;
+    color: #ffffff;
+}
+.mem-insert{
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 3px solid gainsboro;
+    margin: 30px 0;
+}

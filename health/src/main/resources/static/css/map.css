@@ -255,7 +255,20 @@
 	background-position: 5px center;
 	padding-left: 30px;
 }
-
+.banner-list input#deleteMarker{
+	background-image:url(/resources/static/img/delete.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#refresh{
+	background-image:url(/resources/static/img/refresh.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
 
 @keyframes blink-effect {
 	0% {opacity: 0.2;}

@@ -50,8 +50,6 @@ public interface MemberMapper {
 	 */
 	public int updateMember(MemberVO vo);
 	
-	
-	
 	/**
 	 * @param memberId
 	 * @return
@@ -61,7 +59,10 @@ public interface MemberMapper {
 	 */
 	public int deleteMember(int memberId);
 	
-	
-
-
+	/**
+	 * @author JOON
+	 * @date 2022. 7. 10.
+	 * @comment 관리자페이지의 회원 등록버튼
+	 */
+	public int saveMemberByAdmin(MemberVO vo);
 }

@@ -31,14 +31,14 @@
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 zero_mp">
                                 <div class="address">
                                     <i class="fa fa-home floatleft"></i>
-                                    <p>Elephant Road, Dhaka 1205, Bangladesh</p>
+                                    <p></p>
                                 </div>
                             </div>
                             <!--End of col-md-4-->
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 zero_mp">
                                 <div class="phone">
                                     <i class="fa fa-phone floatleft"></i>
-                                    <p>+82-5390-2530</p>
+                                    <p></p>
                                 </div>
                             </div>
                             <!--End of col-md-4-->
@@ -75,11 +75,9 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right main_menu">
-								<li class="active">
-								<a href="http://localhost:8080/health/index">Home
-								 <span class="sr-only">(current)</span></a></li>
-								<li><a href="http://localhost:8080/health/login">Login</a></li>
-								<li><a href="http://localhost:8080/health/join">Join</a></li>
+								<li><a href="/health/index">Home<span class="sr-only">(current)</span></a></li>
+								<li><a href="/health/login">Login</a></li>
+								<li class="active"><a href="http://localhost:8080/health/join">Join</a></li>
 							</ul>
                             </div>
                             <!-- /.navbar-collapse -->
@@ -155,9 +153,6 @@
             <!--End of container-->
         </section>
         <!--End of footer-->
-        <!--Scroll to top-->
-        <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
-        <!--End of Scroll to top-->
 
         <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
