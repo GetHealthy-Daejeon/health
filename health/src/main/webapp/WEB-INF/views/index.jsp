@@ -504,7 +504,7 @@
 								<i class="fa fa-phone"><span>042-222-2402</span></i>
 							</div>
 							<div class="email">
-								<i class="fa fa-envelope"><span>공사중@mail.com</span></i>
+								<i class="fa fa-envelope"><span>cozy2402@gmail.com</span></i>
 							</div>
 							<div id="map">
 								<img
@@ -523,9 +523,26 @@
 							<div class="contact-form wow fadeIn animated"
 								data-wow-offset="10" data-wow-duration="1.5s">
 								<div id="message"></div>
-								<form action="scripts/contact.php"
-									class="form-horizontal contact-1" role="form"
-									name="contactform" id="contactform">
+								<form class="gform" method="POST" action="https://script.google.com/macros/s/AKfycbwRzx1orraJZucktfL2AzNpwyAgIvD0_KNsPKd9ow/exec">
+									<div class="form-group">
+										<div class="col-sm-6">
+											<input type="text" class="form-control" name="name" id="name" placeholder="이름" required>
+										</div>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" name="email" id="email" placeholder="이메일" required>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-12">
+											<div class="text_area">
+												<textarea name="message" id="msg" class="form-control" cols="30" rows="8" placeholder="문의하실 내용을 적어주세요." required></textarea>
+											</div>
+											<button type="submit" class="btn custom-btn" data-loading-text="Loading...">보내기</button>
+											<div style="display:none" class="thankyou_message">전송되었습니다!</div>
+										</div>
+									</div>
+								</form>
+								<!-- <form action="scripts/contact.php" class="form-horizontal contact-1" role="form" name="contactform" id="contactform">
 									<div class="form-group">
 										<div class="col-sm-6">
 											<input type="text" class="form-control" name="name" id="name"
@@ -549,7 +566,7 @@
 												data-loading-text="Loading...">Send</button>
 										</div>
 									</div>
-								</form>
+								</form> -->
 							</div>
 						</div>
 					</div>
@@ -662,6 +679,8 @@
 			});
 		});
 	</script>
+	<!-- 문의하기(get in touch) 버튼 클릭 결과를 메세지로 변경 -->
+	<script data-cfasync="false" type="text/javascript" src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
 	<!--Google Maps API-->
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjxvF9oTfcziZWw--3phPVx1ztAsyhXL4"></script>
