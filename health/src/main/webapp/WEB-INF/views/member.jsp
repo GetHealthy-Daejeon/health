@@ -174,18 +174,28 @@
 				</tr>
 			</thead>
 			<tbody id="boardData">
-				<c:forEach items="${pageHelper.list}" var="item">
-					<tr onclick="getMember(${item.memberId})">
-						<td>${item.memberId}</td>
-						<td>${item.memberName}</td>
-						<td>${item.memberPassword}</td>
-						<td>${item.authority}</td>
-						<td>${item.createAt}</td>
-					</tr>
-				</c:forEach>
+				<c:choose>
+					<c:when test="${fn:length(pageHelper.list) > 0}">
+						<c:forEach items="${pageHelper.list}" var="item">
+							<tr onclick="getMember(${item.memberId})">
+								<td>${item.memberId}</td>
+								<td>${item.memberName}</td>
+								<td>${item.memberPassword}</td>
+								<td>${item.authority}</td>
+								<td>${item.createAt}</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan="5" style="text-align:center;">회원이 없습니다.</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
 			</tbody>
 		</table>
 		<div class="pagination">
+		<c:if test="${fn:length(pageHelper.list) > 0}">
 			<c:if test="${pageHelper.hasPreviousPage}">
 				<a onclick="getAddrList(1,10)">←</a>
 				<a onclick="getMemberList(${pageHelper.pageNum-1},10)">이전</a>
@@ -199,6 +209,7 @@
 				<a onclick="getAddrList(${pageHelper.pages},10)">→</a>
 			</c:if>
 			<input id="nowPageNum" type="hidden" value="${pageHelper.pageNum}">
+		</c:if>
 		</div>
 	</div>
 
@@ -353,7 +364,6 @@ $('#contentUpdate').click(function() {
 
 // 검색 함수
 $('#searchBar').keyup(function(key){
-    //13은 엔터를 의미
     var pageNum = 1;
     var pageSize = 10;
     if(key.keyCode == 13){

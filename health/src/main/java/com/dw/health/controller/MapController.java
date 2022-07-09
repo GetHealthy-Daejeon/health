@@ -65,11 +65,11 @@ public class MapController {
 	
 	@GetMapping("/addr/search")
 	public String callBoardSearch(ModelMap map,
-			@RequestParam("name") String name,
+			@RequestParam("facName") String facName,
 			@RequestParam("pageNum")int pageNum,
 			@RequestParam("pageSize")int pageSize
 			){
-		List<Map<String,Object>> list = mapservice.getAllAddrList(pageNum, pageSize);
+		List<Map<String,Object>> list = mapservice.getSearchBoardList(facName, pageNum, pageSize);
 		PageInfo<Map<String,Object>> pageInfo = new PageInfo<Map<String,Object>>(list);
 		map.addAttribute("pageHelper", pageInfo);
 		return "map_back";

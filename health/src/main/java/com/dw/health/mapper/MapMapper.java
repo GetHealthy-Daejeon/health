@@ -75,7 +75,7 @@ public interface MapMapper {
 	 */
 	public List<Map<String, Object>> selectEventCode(String eventCode);
 	
-	public List<Map<String, Object>> selectSearchBoardList(@Param("fac_name") String fac_name);
+	public List<Map<String, Object>> selectSearchBoardList(@Param("facName") String facName);
 	
 	/**
 	 * @return

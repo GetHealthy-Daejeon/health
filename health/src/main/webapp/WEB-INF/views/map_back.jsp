@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="path" value="${requestScope['javax.servlet.forward.servlet_path']}"/> 
+<!-- path에 요청한 페이지주소 저장 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -206,38 +208,63 @@
 						<th>종목코드</th>
 						<th>시설명</th>
 						<th>소재지도로명주소</th>
-						<th>위도</th>
-						<th>경도</th>
+						<!-- <th>위도</th>
+						<th>경도</th> -->
 						<th>전화번호</th>
 					</tr>
 				</thead>
 				<tbody id="boardData">
-					<c:forEach items="${pageHelper.list}" var="Addr">
-						<tr onclick="getAddr(${Addr.place_no})">
-							<td>${Addr.place_no}</td>
-							<td>${Addr.gu_code}</td>
-							<td>${Addr.event_code}</td>
-							<td>${Addr.fac_name}</td>
-							<td>${Addr.addr_road}</td>
-							<td>${Addr.latitude}</td>
-							<td>${Addr.longitude}</td>
-							<td>${Addr.digit}</td>
-						</tr>
-					</c:forEach>
+					<c:choose>
+						<c:when test="${fn:length(pageHelper.list) > 0}">
+							<c:forEach items="${pageHelper.list}" var="Addr">
+								<tr onclick="getAddr(${Addr.placeNo})">
+									<td>${Addr.placeNo}</td>
+									<td>${Addr.guCode}</td>
+									<td>${Addr.eventCode}</td>
+									<td>${Addr.facName}</td>
+									<td>${Addr.addrRoad}</td>
+									<%-- <td>${Addr.latitude}</td>
+									<td>${Addr.longitude}</td> --%>
+									<td>${Addr.digit}</td>
+								</tr>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td colspan="7" style="text-align:center;">주소가 없습니다.</td>
+							</tr>
+						</c:otherwise>
+					</c:choose>
 				</tbody>
 			</table>
 			<div class="pagination">
-				<c:if test="${pageHelper.hasPreviousPage}">
-					<a onclick="getAddrList(1,10)">←</a>
-					<a onclick="getAddrList(${pageHelper.pageNum-1},10)">이전</a>
+				<c:if test="${path eq '/addr'}">
+					<c:if test="${pageHelper.hasPreviousPage}">
+						<a onclick="getAddrList(1,10)">←</a>
+						<a onclick="getAddrList(${pageHelper.pageNum-1},10)">이전</a>
+					</c:if>
+					<c:forEach begin="${pageHelper.navigateFirstPage}"
+						end="${pageHelper.navigateLastPage}" var="pageNum">
+						<a id="pageNum${pageNum}" onclick="getAddrList(${pageNum},10)">${pageNum}</a>
+					</c:forEach>
+					<c:if test="${pageHelper.hasNextPage}">
+						<a onclick="getAddrList(${pageHelper.pageNum+1},10)">다음</a>
+						<a onclick="getAddrList(${pageHelper.pages},10)">→</a>
+					</c:if>
 				</c:if>
-				<c:forEach begin="${pageHelper.navigateFirstPage}"
-					end="${pageHelper.navigateLastPage}" var="pageNum">
-					<a id="pageNum${pageNum}" onclick="getAddrList(${pageNum},10)">${pageNum}</a>
-				</c:forEach>
-				<c:if test="${pageHelper.hasNextPage}">
-					<a onclick="getAddrList(${pageHelper.pageNum+1},10)">다음</a>
-					<a onclick="getAddrList(${pageHelper.pages},10)">→</a>
+				<c:if test="${path eq '/addr/search' && fn:length(pageHelper.list) > 0}">
+					<c:if test="${pageHelper.hasPreviousPage}">
+						<a onclick="getSearchedAddrList(1,10,'${param.facName}')">←</a>
+						<a onclick="getSearchedAddrList(${pageHelper.pageNum-1},10,'${param.facName}')">이전</a>
+					</c:if>
+					<c:forEach begin="${pageHelper.navigateFirstPage}"
+						end="${pageHelper.navigateLastPage}" var="pageNum">
+						<a id="pageNum${pageNum}" onclick="getSearchedAddrList(${pageNum},10,'${param.facName}')">${pageNum}</a>
+					</c:forEach>
+					<c:if test="${pageHelper.hasNextPage}">
+						<a onclick="getSearchedAddrList(${pageHelper.pageNum+1},10,'${param.facName}')">다음</a>
+						<a onclick="getSearchedAddrList(${pageHelper.pages},10,'${param.facName}')">→</a>
+					</c:if>
 				</c:if>
 			</div>
 			<input id="nowPageNum" type="hidden" value="${pageHelper.pageNum}">
@@ -308,33 +335,37 @@
     })
 </script>
 <script>
-getPageNum();
-
+// 주소 리스트 조회
 function getAddrList(pageNum, pageSize){
 	location.href="/addr?pageNum="+pageNum+"&pageSize="+pageSize;    
 }
 
 //페이지 번호 색칠하는 함수
+getPageNum();
 function getPageNum(){
 	var pageNum = $('#nowPageNum').val();
 	$('#pageNum'+pageNum).css('backgroundColor','#287bff'); // id가 pageNum + pageNumber 문자를 합친거
 	$('#pageNum'+pageNum).css('color','#fff');
 }
 
+// 주소 검색 함수
 $('#searchBar').keyup(function(key) {
 	var pageNum = 1;
 	var pageSize = 10;
 	if (key.keyCode == 13) {
 		var search = $('#searchBar').val().trim();//input에 작성한 작성자를 가져옴
 		if (search != '') {
-			location.href = "/addr/search?name=" + search + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
+			location.href = "/addr/search?facName=" + search + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
 		}else{
 			alert("검색어를 입력해주세요.")
 		}
 	}
 });
-</script>
-<script>
+// 검색된 주소의 페이지 리스트에 사용할 함수
+function getSearchedAddrList(pageNum, pageSize, facName){
+	location.href = "/addr/search?facName=" + facName + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
+}
+
 // 클릭한 주소 확인
 function getAddr(placeNo){
     $('.update-popup').css('display','block');
