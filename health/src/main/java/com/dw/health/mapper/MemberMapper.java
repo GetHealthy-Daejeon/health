@@ -23,7 +23,6 @@ public interface MemberMapper {
 	public MemberVO selectMemberOne(MemberVO vo);
 	public MemberVO selectLoginOne(MemberVO vo);
 	
-	
 	/**
 	 * @return
 	 * @author : Minyoung Kim

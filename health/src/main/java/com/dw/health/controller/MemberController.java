@@ -39,13 +39,9 @@ public class MemberController {
 			@RequestParam("pageNum")int pageNum,
 			@RequestParam("pageSize")int pageSize
 			){
-		List<Map<String,Object>> list = memberservice.getAllMemberList(pageNum, pageSize);
+		List<Map<String,Object>> list = memberservice.memberSearchList(pageNum, pageSize, name);
 		PageInfo<Map<String,Object>> pageInfo = new PageInfo<Map<String,Object>>(list);
 		map.addAttribute("pageHelper", pageInfo);
-	
-		
 		return "member";
 	}
-
-	
 }

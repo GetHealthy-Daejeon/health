@@ -27,7 +27,6 @@ public class MemberService {
 	public int doJoin(MemberVO vo) {
 		return membermapper.doJoin(vo);
 	}
-
 	
 	// 가입된 학생인지 아닌지 체크
 	@Transactional(rollbackFor = { Exception.class })
@@ -49,12 +48,10 @@ public class MemberService {
 		return true;
 	}
 
-	
 	//회원 상세 조회
 	public MemberVO getMember(int memberId) {
 		return membermapper.selectMemberOne(memberId);
 	}
-	
 	
 	//회원 정보 수정
 	@Transactional(rollbackFor = Exception.class)
@@ -75,12 +72,9 @@ public class MemberService {
 		return membermapper.selectAllMemberList();
 	}
 	
-	
 	// 회원이름 검색
 	public List<Map<String, Object>> memberSearchList(int pageNum, int pageSize, String name){
 		PageHelper.startPage(pageNum, pageSize);
 		return membermapper.memberSearchList(name);
 	}
-	
-	
 }
