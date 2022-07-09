@@ -49,7 +49,7 @@ public class MapController {
 		return "map";
 	}
 
-	@GetMapping("/addr")
+	@GetMapping("/admin/addr")
 	public String loadMemberPage(
 			ModelMap map, 
 			@RequestParam("pageNum") int pageNum,
@@ -63,7 +63,7 @@ public class MapController {
 		return "map_back";
 	}
 	
-	@GetMapping("/addr/search")
+	@GetMapping("/admin/addr/search")
 	public String callBoardSearch(ModelMap map,
 			@RequestParam("facName") String facName,
 			@RequestParam("pageNum")int pageNum,

@@ -75,14 +75,14 @@
 
 								<c:if
 									test="${authority != '1' && authority !='2' && authority !='3'}">
-									<li class="active"><a href="/health/index">Home <span
+									<li><a href="/health/index">Home <span
 											class="sr-only">(current)</span></a></li>
 									<li><a href="/health/login">Login</a></li>
 									<li><a href="/health/join">Join</a></li>
 								</c:if>
 								<!-- 일반회원에게 보이는 메뉴 -->
 								<c:if test="${1 eq authority}">
-									<li class="active"><a href="/health/index">Home <span
+									<li><a href="/health/index">Home <span
 											class="sr-only">(current)</span></a></li>
 									<li><a href="/map">Map</a></li>
 									<li><a href="/health/logout">Logout</a></li>
@@ -90,11 +90,11 @@
 
 								<!-- 관리자에게 보이는 메뉴 -->
 								<c:if test="${2 eq authority}">
-									<li class="active"><a href="/health/index">Home <span
+									<li><a href="/health/index">Home <span
 											class="sr-only">(current)</span></a></li>
 									<li><a href="/map">Map</a></li>
-									<li><a href="/health/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
-									<li><a href="/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
+									<li class="active"><a href="/admin/members?pageNum=1&pageSize=10">Mem-Manage</a></li>
+									<li><a href="/admin/addr?pageNum=1&pageSize=10">Map-Manage</a></li>
 									<li><a href="/health/logout">Logout</a></li>
 								</c:if>
 
@@ -104,7 +104,7 @@
 									<li><a href="/health/logout">Logout</a></li>
 								</c:if>
 								<div class="welcome_name">
-									<p>${memberName}님환영합니다</p>
+									<p>${memberName}님 환영합니다</p>
 								</div>
 							</ul>
 					</div>
@@ -120,7 +120,29 @@
 </section>
 <!--End of Hedaer Section-->
 <section id="member">
-	<!-- 글 작성 수정 -->
+	<!-- 학생 추가 팝업 -->
+	<div class="write-popup">
+	    <div class="editor">
+	    	<p class="mem-insert">회원 등록</p>
+	        <div class="input-box">
+	            <label for="memberName">이름 : </label>
+	            <input id="insertMemberName" type="text" placeholder="이름">
+	        </div>
+	        <div class="input-box">
+	            <label for="memberPassword">비밀번호 : </label>
+	            <input id="insertMemberPassword" type="text" placeholder="비밀번호">
+	        </div>
+	        <div class="input-box">
+	            <label for="memberAuthority">권한 : </label>
+	            <input id="insertMemberAuthority" type="text" placeholder="기본값 : 1">
+	        </div>
+	        <div class="btn-area">
+	            <a id="contentSubmit" href="#" class="btn-success">등록</a>
+	            <a href="#" class="btn-cancel">취소</a>
+	        </div>
+	    </div>
+	</div>
+	<!-- 학생 정보 수정 팝업 -->
 	<div class="update-popup">
 		<div class="editor">
 			<div class="close">
@@ -151,10 +173,10 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="member_list">
 		<div class="cardHeader">
 			<h2>회원 명단</h2>
+            <input type="button" class="btn-mem" value="회원 등록">
 			<div class="search">
                 <label>
                     <input id="searchBar" type="text" placeholder="회원을 검색하세요..." >
@@ -197,7 +219,7 @@
 		<div class="pagination">
 		<c:if test="${fn:length(pageHelper.list) > 0}">
 			<c:if test="${pageHelper.hasPreviousPage}">
-				<a onclick="getAddrList(1,10)">←</a>
+				<a onclick="getMemberList(1,10)">←</a>
 				<a onclick="getMemberList(${pageHelper.pageNum-1},10)">이전</a>
 			</c:if>
 			<c:forEach begin="${pageHelper.navigateFirstPage}"
@@ -206,7 +228,7 @@
 			</c:forEach>
 			<c:if test="${pageHelper.hasNextPage}">
 				<a onclick="getMemberList(${pageHelper.pageNum+1},10)">다음</a>
-				<a onclick="getAddrList(${pageHelper.pages},10)">→</a>
+				<a onclick="getMemberList(${pageHelper.pages},10)">→</a>
 			</c:if>
 			<input id="nowPageNum" type="hidden" value="${pageHelper.pageNum}">
 		</c:if>
@@ -246,7 +268,7 @@
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
 <script>
-$('#insert_member').click(function(){
+$('.btn-mem').click(function(){
     $('.write-popup').css('display', 'block');
 });
 $('.btn-cancel').click(function(){
@@ -274,7 +296,7 @@ function getPageNum(){
 }
 
 function getMemberList(pageNum, pageSize){
-	location.href="/health/members?pageNum="+pageNum+"&pageSize="+pageSize;    
+	location.href="/admin/members?pageNum="+pageNum+"&pageSize="+pageSize;    
 }
 </script>
 <script>
@@ -311,7 +333,42 @@ function getMember(memberId) {//클릭한 게시물 확인하는 함수
 </script>
 
 <script>
-//게시물 삭제 하는 함수
+// 회원 등록
+$("#contentSubmit").click(function(){
+    var memberName = $("#insertMemberName").val();
+    var memberPassword = $("#insertMemberPassword").val();
+    var authority = $("#insertMemberAuthority").val();
+    if(memberName == ""){
+      alert("이름을 입력해주세요.");
+      return false;
+    }
+    if(memberPassword == ""){
+      alert("비밀번호를 입력해주세요");
+      return false;
+    }
+    if(confirm('회원을 등록하시겠습니까?')){
+        var jsonData = {
+            "memberName" : memberName,
+            "memberPassword" : memberPassword,
+            "authority" : authority
+        }
+        $.ajax({
+            url : "/health/member",
+            type : "POST",
+            contentType : "application/json",
+            dataType : "json",
+            data : JSON.stringify(jsonData), 
+            success : function(response){
+                if(response >0){
+                	alert("등록되었습니다!");
+                    location.reload();
+                }
+            }  
+        })
+    }
+})
+
+//회원 삭제 하는 함수
 $('#contentDelete').click(function() {
 	var memberId = $('#memberId').val(); //hidden에 숨겨둔 boardId 가져오기.
 	if (confirm('해당 회원을 정말 삭제하시겠습니까?')) {
@@ -330,7 +387,7 @@ $('#contentDelete').click(function() {
 	}
 });
 
-//게시물 수정 하는 함수
+//회원 수정 하는 함수
 $('#contentUpdate').click(function() { 
 	//1. 게시판 번호 확인
 	var memberId = $('#memberId').val(); //hidden에 숨겨둔 boardId 가져오기.
@@ -369,7 +426,7 @@ $('#searchBar').keyup(function(key){
     if(key.keyCode == 13){
         var search = $('#searchBar').val().trim();
         if(search !=''){
-        	location.href="/members/search?name="+search+"&pageNum="+pageNum+"&pageSize="+pageSize;
+        	location.href="/admin/members/search?name="+search+"&pageNum="+pageNum+"&pageSize="+pageSize;
         	console.log(search)
         }else{
         	alert("검색어를 입력해주세요.")

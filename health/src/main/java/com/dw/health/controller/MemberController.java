@@ -9,17 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dw.health.service.MemberService;
 import com.github.pagehelper.PageInfo;
 
 @Controller
+@RequestMapping("/admin")
 public class MemberController {
 	@Autowired
 	private MemberService memberservice;
 
-	@GetMapping("/health/members")
+	@GetMapping("/members")
 	public String loadMemberPage(ModelMap map, 
 			@RequestParam("pageNum") int pageNum,
 			@RequestParam("pageSize") int pageSize,

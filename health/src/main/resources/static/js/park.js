@@ -1,9 +1,7 @@
- var overlay = null; 
-    
- 	function closeOverlay(){ //닫기 버튼 누르면 실행하는 함수
- 		overlay.setMap(null);   
-    }
-
+var clickedOverlay = null; 
+function closeOverlay(){ //닫기 버튼 누르면 실행하는 함수
+	overlay.setMap(null);   
+}
 
 function getParkInfo(guName){
   var parkMarkers = [];
@@ -45,12 +43,11 @@ function getParkInfo(guName){
                 parkMarkers.push(marker); // 공원만 제거하기 위한 배열
                 markers.push(marker); // marker를 제거하기 위해 배열에 담음
                 // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-                	console.log(response.data[index].공원명)
                 	var content = 
  		      		'<div class="wrap">' + 
  		            '    <div class="info">' + 
- 		            '        <div class="title">' 
- 		           	+response.data[index].공원명+ 
+ 		            '        <div class="title">'+
+ 		           	response.data[index].공원명+ response.data[index].비고+
  		            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
  		            '        </div>' + 
  		            '        <div class="body">' + 
@@ -67,12 +64,16 @@ function getParkInfo(guName){
  		            '</div>',
 				iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다				
 				kakao.maps.event.addListener(marker, 'click', function() { // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-					overlay = new kakao.maps.CustomOverlay({
+					overlay = new kakao.maps.CustomOverlay({ // overlay에 클릭한 마커 정보 담음
 					    content: content,
 					    map: map,
 					    position: marker.getPosition()       
 					});
-					overlay.setMap(map);
+					if(clickedOverlay){ // clickedOverlay가 비어있지 않다면!! (비어있는 문자열을 제외한 모든 문자열은 논리 평가시 true를 반환함)
+						clickedOverlay.setMap(null); // clickedOverlay를 지도에서 지운다.
+					}
+					overlay.setMap(map); // 클릭한 overlay를 지도에 넣는다. 
+					clickedOverlay = overlay; // 생성된 overlay를 clickedOverlay로 넘겨주면서 다음 클릭시 사라지게 만듦.
 				});	
               }
             });

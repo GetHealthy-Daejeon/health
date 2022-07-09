@@ -15,6 +15,21 @@
 		NOW()
 		)
 	</insert>
+<!-- 멤버 등록 -->
+	<insert id="saveMemberByAdmin">
+		INSERT INTO membership
+		(
+			member_name,
+			member_password,
+			authority
+		)
+		VALUES
+		(
+			#{memberName},
+			#{memberPassword},
+			#{authority}
+		)
+	</insert>
 
 	<!-- AS로 VO에 있는 필드변수 이름을 별칭으로 줘서 mapping을 해 줌 -->
 	<select id="selectAllMemberList" resultType="map">

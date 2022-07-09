@@ -928,10 +928,17 @@ input#email {
 
     margin-bottom: 10px !important;
 }
-
+.col-sm-12{
+	align-items: center;
+}
+.col-sm-12 button{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 500;
+	font-size: 17px;
+}
 .text_area textarea {
     resize: none;
-    width: 555px;
+    width: 100%;
 }
 .text_area textarea,
 .form-inline .form-control,
