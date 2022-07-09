@@ -124,20 +124,20 @@
 	<div class="update-popup">
 		<div class="editor">
 			<div class="close">
-				<a href="#" class="btn-close">닫기</a>
+				<a href="#" class="btn-close">X</a>
 			</div>
 			<div class="input-box">
-				<label for="memberName">회원 아이디 : </label> 
+				<label for="memberName">멤버 번호 : </label> 
 				<input id="memberId" type="text"  value="${memberId}" readonly>
 				<%-- <input id="memberHiddenId" type="hidden" value="${memberId}"> --%>
 			</div>
 			<div class="input-box">
-				<label for="memberName">회원 이름 : </label> 
+				<label for="memberName">멤버 이름 : </label> 
 				<input id="memberName" type="text" placeholder="회원의 이름을 입력하세요" >
 			</div>
 			<div class="input-box">
-				<label for="title">비밀번호 </label> <input id="memberPassword"
-					type="password" placeholder="비밀번호를 입력하세요...">
+				<label for="title">비밀번호 </label>
+				<input id="memberPassword" type="text" placeholder="비밀번호를 입력하세요...">
 			</div>
 			<div class="input-box">
 				<label for="authority">회원 권한 : </label> 
@@ -153,7 +153,6 @@
 	</div>
 
 	<div class="member_list">
-	
 		<div class="cardHeader">
 			<h2>회원 명단</h2>
 			<div class="search">
@@ -163,12 +162,11 @@
             </div>
 		</div>
 		<div class="member_button">
-			
 		</div>
 		<table>
 			<thead>
 				<tr>
-					<th>멤버 아이디넘버</th>
+					<th>멤버 번호</th>
 					<th>멤버 이름</th>
 					<th>비밀번호</th>
 					<th>권한</th>
@@ -188,9 +186,8 @@
 			</tbody>
 		</table>
 		<div class="pagination">
-		<a onclick="getMemberList(1,10)"> ← </a>
 			<c:if test="${pageHelper.hasPreviousPage}">
-				<a onclick="getMemberList(${pageHelper.pageNum-1},10)">Previous</a>
+				<a onclick="getMemberList(${pageHelper.pageNum-1},10)">←</a>
 			</c:if>
 			<c:forEach begin="${pageHelper.navigateFirstPage}"
 				end="${pageHelper.navigateLastPage}" var="pageNum">
@@ -202,7 +199,6 @@
 			<input id="nowPageNum" type="hidden" value="${pageHelper.pageNum}">
 		</div>
 	</div>
-
 
 </section>
 <!--Start of footer-->
@@ -236,21 +232,25 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
-	
-	
-
-<script type="text/javascript">
-
+<script>
+$('#insert_member').click(function(){
+    $('.write-popup').css('display', 'block');
+});
+$('.btn-cancel').click(function(){
+    $('.write-popup').css('display', 'none');
+});
+$('.btn-close').click(function(){
+	$('.update-popup').css('display','none');
+});
+</script>
+<script>
 	function getPageNum() {
 		var pageNum = $('#nowPageNum').val();
 		$('#pageNum' + pageNum).css('backgroundColor', '#287bff');
 		$('#pageNum' + pageNum).css('color', '#fff');
 	}
-
-
 </script>
-
-<script type="text/javascript">
+<script>
 getPageNum();//페이지 번호 알아내는 함수 호출
 
 //페이지 번호 알아내는 함수
@@ -262,7 +262,6 @@ function getPageNum(){
 
 function getMemberList(pageNum, pageSize){
 	location.href="/health/members?pageNum="+pageNum+"&pageSize="+pageSize;    
-	
 }
 </script>
 <script>
@@ -284,19 +283,10 @@ function getMember(memberId) {//클릭한 게시물 확인하는 함수
 			$('#memberId').val(response.memberId);
 			$('#memberName').val(response.memberName);
 			$('#memberPassword').val(response.memberPassword);
+			$('#authority').val(response.authority);
 		}
 	});
 }//end
-
-    $('#insert_member').click(function(){
-        $('.write-popup').css('display', 'block');
-    });
-    $('.btn-cancel').click(function(){
-        $('.write-popup').css('display', 'none');
-    });
-    $('.btn-close').click(function(){
-        location.reload();//새로 고침
-    });
 
     let list = document.querySelectorAll('.navigation li');
     function activeLink(){
@@ -304,8 +294,6 @@ function getMember(memberId) {//클릭한 게시물 확인하는 함수
         this.classList.add('hovered');
     }
     list.forEach((item) => {item.addEventListener('mouseover',activeLink)});
-    
-   
     //end
 </script>
 
@@ -343,7 +331,6 @@ $('#contentUpdate').click(function() {
 			memberPassword: memberPassword,
 			authority : authority
 	};
-	console.log(memberId)
 	//3. AJAX를 이용해서 업데이트!
 	$.ajax({
 		url: '/health/member/' + memberId,
@@ -354,16 +341,15 @@ $('#contentUpdate').click(function() {
 		success: function(response) {
 			if (response > 0) {
 				alert('수정완료');
+				location.reload();
 /* 				var pageNum = $('#nowPageNum').val();
 				getMemberList(pageNum, 10); */
 			}
 		}
 	});//ajax end
 });//end
-</script>
 
-<!-- 검색 함수 -->
-<script type="text/javascript">
+// 검색 함수
 $('#searchBar').keyup(function(key){
     //13은 엔터를 의미
     var pageNum = 1;
@@ -378,9 +364,15 @@ $('#searchBar').keyup(function(key){
         }
     }
 });
+
+//esc 누르면 팝업 닫기
+$(document).keydown(function(key){
+    if(key.keyCode == 27){
+        $('.update-popup').css('display', 'none')
+        $('.write-popup').css('display', 'none')
+        return false;
+    }
+})
 </script>
-
-
 </body>
-
 </html>

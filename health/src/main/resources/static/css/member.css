@@ -583,6 +583,24 @@ ul.entry-meta {
     text-align: center;
 }
 
+.close{
+	text-align: right;
+	margin: 0 0 50px 0;
+}
+
+.btn-close{
+	position: absolute;
+    font-size: 18px;
+    background-color: black;
+    padding: 1.5% 2%;
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+}
+.close a.btn-close:hover{
+	color: black;
+}
+
 .btn-cancel{
     font-size: 18px;
     background-color: #e74a3b;
@@ -614,7 +632,6 @@ ul.entry-meta {
     box-shadow: 0 7px 25px rgba(0,0,0,0.3);
     border-radius: 5px;
 }
-
 
 /* 글 수정 */
 .update-popup{

@@ -27,7 +27,6 @@ public class MemberRestController {
 
 	@Autowired
 	private MemberService memberservice;
-	
 
 	// 멤버 저장
 	// post는 body로 데이터를 받음
@@ -45,8 +44,6 @@ public class MemberRestController {
 
 		return isLogin;
 	}
-
-
 	 
 	//회원 상세보기 (R)
 	@CrossOrigin
@@ -62,7 +59,6 @@ public class MemberRestController {
 	public int callUpdateMember(@PathVariable("id") int memberId, @RequestBody MemberVO vo) {
 		return memberservice.getUpdateMember(vo, memberId);
 	}
-	
 	
 	//회원 삭제 (D)
 	//@DeleteMapping("/member/{id}")

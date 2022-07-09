@@ -1,6 +1,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dw.health.mapper.MemberMapper">
-
+<!-- 회원가입 -->
 	<insert id="doJoin">
 		INSERT INTO membership
 		(
@@ -15,8 +15,6 @@
 		NOW()
 		)
 	</insert>
-
-
 
 	<!-- AS로 VO에 있는 필드변수 이름을 별칭으로 줘서 mapping을 해 줌 -->
 	<select id="selectAllMemberList" resultType="map">
@@ -57,8 +55,6 @@
 		member_name = #{memberName}
 		and
 		member_password = #{memberPassword}
-
-
 	</select>
 
 	<!-- 회원 수정 -->
@@ -66,11 +62,10 @@
 		UPDATE membership
 		SET
 		member_name = #{memberName},
+		member_password = #{memberPassword},
 		authority = #{authority}
-
 		WHERE member_id = #{memberId}
 	</update>
-
 
 	<!-- 회원 삭제 -->
 	<delete id="deleteMember">
@@ -86,9 +81,7 @@
 		member_password AS memberPassword,
 		create_at AS createAt
 		FROM membership
-
 	</select>
-
 
 	<select id="memberSearchList" resultType="map">
 		SELECT
@@ -100,6 +93,4 @@
 		FROM membership
 			WHERE member_name LIKE CONCAT('%',#{memberName},'%')
 	</select>
-
-
 </mapper>
