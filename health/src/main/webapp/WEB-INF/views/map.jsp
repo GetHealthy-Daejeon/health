@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="/resources/static/img/marker_img/favicon.ico">
 <style>
 
 </style>
