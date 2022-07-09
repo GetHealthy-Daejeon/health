@@ -14,50 +14,49 @@
 	
 	<select id="selectAddrOne" resultType="MapVO">
 		SELECT 
-			place_no AS place_no,
-			gu_code AS gu_code,
-			event_code AS event_code,
-			fac_name AS fac_name,
-			addr_road AS addr_road,
+			place_no AS placeNo,
+			gu_code AS guCode,
+			event_code AS eventCode,
+			fac_name AS facName,
+			addr_road AS addrRoad,
 			digit AS digit
-		FROM 
-			health_addr
-		WHERE 
-			place_no = #{place_no}
-			
+		FROM dw.health_addr
+		WHERE place_no = #{placeNo}
 	</select>
-	
+
+<!-- 주소수정 -->
 	<update id="updateAddrOne">
 	UPDATE health_addr
 	SET 
-		gu_code = #{gu_code},
-		event_code = #{event_code},
-		fac_name = #{fac_name},
-		addr_road = #{addr_road},
+		gu_code = #{guCode},
+		event_code = #{eventCode},
+		fac_name = #{facName},
+		addr_road = #{addrRoad},
 		digit = #{digit}
 	WHERE
-		place_no = #{place_no}
+		place_no = #{placeNo}
 	</update>
-	
+
+<!-- 주소등록 -->
 	<insert id="insertAddr">
-	INSERT INTO health_addr
-	(
-	gu_code,
-	event_code,
-	fac_name,
-	addr_road,
-	digit
-	)VALUE
-	(
-	#{gu_code},
-	#{event_code},
-	#{fac_name},
-	#{addr_road},
-	#{digit}
-	)
+		INSERT INTO health_addr
+		(
+			gu_code,
+			event_code,
+			fac_name,
+			addr_road,
+			digit
+		)VALUE
+		(
+			#{guCode},
+			#{eventCode},
+			#{facName},
+			#{addrRoad},
+			#{digit}
+		)
 	</insert>
 	
-		<!-- 회원 삭제 -->
+<!-- 주소 삭제 -->
 	<delete id="deleteAddr">
 		DELETE FROM health_addr
 		WHERE place_no = #{place_no}

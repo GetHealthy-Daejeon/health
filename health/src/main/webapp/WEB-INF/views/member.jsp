@@ -136,7 +136,7 @@
 				<input id="memberName" type="text" placeholder="회원의 이름을 입력하세요" >
 			</div>
 			<div class="input-box">
-				<label for="title">비밀번호 </label>
+				<label for="title">비밀번호 : </label>
 				<input id="memberPassword" type="text" placeholder="비밀번호를 입력하세요...">
 			</div>
 			<div class="input-box">
@@ -187,14 +187,16 @@
 		</table>
 		<div class="pagination">
 			<c:if test="${pageHelper.hasPreviousPage}">
-				<a onclick="getMemberList(${pageHelper.pageNum-1},10)">←</a>
+				<a onclick="getAddrList(1,10)">←</a>
+				<a onclick="getMemberList(${pageHelper.pageNum-1},10)">이전</a>
 			</c:if>
 			<c:forEach begin="${pageHelper.navigateFirstPage}"
 				end="${pageHelper.navigateLastPage}" var="pageNum">
 				<a id="pageNum${pageNum}" onclick="getMemberList(${pageNum},10)">${pageNum}</a>
 			</c:forEach>
 			<c:if test="${pageHelper.hasNextPage}">
-				<a onclick="getMemberList(${pageHelper.pageNum+1},10)">Next</a>
+				<a onclick="getMemberList(${pageHelper.pageNum+1},10)">다음</a>
+				<a onclick="getAddrList(${pageHelper.pages},10)">→</a>
 			</c:if>
 			<input id="nowPageNum" type="hidden" value="${pageHelper.pageNum}">
 		</div>

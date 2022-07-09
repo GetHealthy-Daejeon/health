@@ -13,9 +13,7 @@
 <link href="/resources/static/css/map_back.css" rel="stylesheet">
 <link href="/resources/static/css/bootstrap.min.css" rel="stylesheet">
 
-
 </head>
-
 <!--Start Hedaer Section-->
 <section id="header">
 	<div class="header-area">
@@ -122,41 +120,38 @@
 </section>
 <!--End of Hedaer Section-->
 <section id="member">
-
 	<div class="search">
-		<label> <input id="searchBar" type="text"
-			placeholder="시설명을 검색하세요..."> <input id="keyword"
-			type="hidden" value="null">
+		<label>
+			<input id="searchBar" type="text" placeholder="시설명을 검색하세요...">
+			<input id="keyword"	type="hidden" value="null">
 		</label>
 	</div>
 	<div class="write-popup">
 		<div class="editor">
-
 			<p class="addr-insert">주소 등록</p>
-
 			<div class="input-box">
-				<label for="gu_code">구 코드 : </label> <input id="gu_code" type="text"
-					placeholder="구 코드를 입력해주세요">
+				<label for="gu_code">구 코드 : </label>
+				<input id="insertGuCode" type="text" placeholder="구 코드를 입력해주세요">
 			</div>
 			<div class="input-box">
-				<label for="event_code">종목 코드 : </label> <input id="event_code"
-					type="text" placeholder="종목 코드를 입력해주세요">
+				<label for="event_code">종목 코드 : </label>
+				<input id="insertEventCode" type="text" placeholder="종목 코드를 입력해주세요">
 			</div>
 			<div class="input-box">
-				<label for="fac_name">시설 이름 : </label> <input id="fac_name"
-					type="text" placeholder="시설 이름을 입력해주세요">
+				<label for="fac_name">시설 이름 : </label>
+				<input id="insertFacName" type="text" placeholder="시설 이름을 입력해주세요">
 			</div>
 			<div class="input-box">
-				<label for="addr-road">도로명주소 : </label> <input id="addr_road"
-					type="text" placeholder="도로명주소를 입력해주세요">
+				<label for="addr-road">도로명주소 : </label>
+				<input id="insertAddrRoad" type="text" placeholder="도로명주소를 입력해주세요">
 			</div>
 			<div class="input-box">
-				<label for="digit">전화번호 : </label> <input id="digit" type="text"
-					placeholder="전화번호를 입력해주세요">
+				<label for="digit">전화번호 : </label>
+				<input id="insertDigit" type="text" placeholder="전화번호를 입력해주세요">
 			</div>
 			<div class="btn-area">
-				<a href="#" class="btn-cancel">취소</a> <a id="contentSubmit" href="#"
-					class="btn-success" onclick="insert_addr()">등록</a>
+				<a href="#" class="btn-cancel">취소</a> 
+				<a id="contentSubmit" href="#" class="btn-success" onclick="insert_addr()">등록</a>
 			</div>
 		</div>
 	</div>
@@ -164,37 +159,35 @@
 		<div class="update-popup">
 			<div class="editor">
 				<div class="close">
-					<a href="#" class="btn-close">닫기</a>
+					<a href="#" class="btn-close">X</a>
 				</div>
 				<div class="input-box">
-					<label for="place_no">시설 번호 : </label> <input id="place_no"
-						type="text" value="${place_no}" readonly>
-
+					<label for="place_no">시설 번호 : &nbsp;</label> 
+					<input id="place_no" type="text" value="${place_no}" readonly>
 				</div>
 				<div class="input-box">
-					<label for="gu-code">구 코드 :</label> <input id="gu_code" type="text"
-						placeholder="구 코드를 입력하세요">
+					<label for="gu_code">구 코드 :&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					<input id="gu_code" type="text" placeholder="구 코드를 입력하세요">
 				</div>
 				<div class="input-box">
-					<label for="event-code">종목 코드 :</label> <input id="event_code"
-						type="text" placeholder="종목 코드를 입력하세요">
+					<label for="event_code">종목 코드 :&nbsp;</label>
+					<input id="event_code" type="text" placeholder="종목 코드를 입력하세요">
 				</div>
 				<div class="input-box">
-					<label for="fac_name">시설명 :</label> <input id="fac_name"
-						type="text" placeholder="시설명을 입력하세요">
+					<label for="fac_name">시설명 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					<input id="fac_name" type="text" placeholder="시설명을 입력하세요">
 				</div>
 				<div class="input-box">
-					<label for="addr_road">도로명주소 :</label> <input id="addr_road"
-						type="text" placeholder="도로명주소를 입력하세요">
+					<label for="addr_road">도로명주소 :</label>
+					<input id="addr_road" type="text" placeholder="도로명주소를 입력하세요">
 				</div>
 				<div class="input-box">
-					<label for="digit">전화번호 :</label> <input id="digit" type="text"
-						placeholder="전화번호를 입력하세요">
+					<label for="digit">전화번호 :&nbsp;&nbsp;</label>
+					<input id="digit" type="text" placeholder="전화번호를 입력하세요">
 				</div>
-
 				<div class="btn-area">
-					<input id="boardIdHidden" type="hidden"> <a
-						id="contentUpdate" href="#" type="button" class="btn-update">수정</a>
+					<input id="boardIdHidden" type="hidden"> 
+					<a id="contentUpdate" href="#" type="button" class="btn-update">수정</a>
 					<a id="contentDelete" href="#" type="button" class="btn-delete">삭제</a>
 				</div>
 			</div>
@@ -234,24 +227,23 @@
 				</tbody>
 			</table>
 			<div class="pagination">
-				<a onclick="getAddrList(1,10)"> ← </a>
 				<c:if test="${pageHelper.hasPreviousPage}">
-					<a onclick="getAddrList(${pageHelper.pageNum-1},10)">Previous</a>
+					<a onclick="getAddrList(1,10)">←</a>
+					<a onclick="getAddrList(${pageHelper.pageNum-1},10)">이전</a>
 				</c:if>
 				<c:forEach begin="${pageHelper.navigateFirstPage}"
 					end="${pageHelper.navigateLastPage}" var="pageNum">
 					<a id="pageNum${pageNum}" onclick="getAddrList(${pageNum},10)">${pageNum}</a>
 				</c:forEach>
 				<c:if test="${pageHelper.hasNextPage}">
-					<a onclick="getAddrList(${pageHelper.pageNum+1},10)">Next</a>
+					<a onclick="getAddrList(${pageHelper.pageNum+1},10)">다음</a>
+					<a onclick="getAddrList(${pageHelper.pages},10)">→</a>
 				</c:if>
-				<a onclick="getAddrList(${pageHelper.pages},10)"> → </a>
 			</div>
 			<input id="nowPageNum" type="hidden" value="${pageHelper.pageNum}">
+			<input id="lastPage" type="hidden" value="${pageHelper.pages}">
 		</div>
 	</section>
-
-
 </section>
 <!--Start of footer-->
 <section id="footer">
@@ -281,8 +273,6 @@
 <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
 <!--End of Scroll to top-->
 
-
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
@@ -290,24 +280,46 @@
 	src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule
 	src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+    $('.btn-addr').click(function(){
+        $('.write-popup').css('display', 'block');
+    });
+    $('.btn-cancel').click(function(){
+        $('.write-popup').css('display', 'none');
+    });
+    $('.btn-close').click(function(){
+        $('.update-popup').css('display','none');
+    })
 
-<script type="text/javascript">
+    let list = document.querySelectorAll('.navigation li');
+    function activeLink(){
+        list.forEach((item) => {item.classList.remove('hovered')});
+        this.classList.add('hovered');
+    }
+    list.forEach((item) => {item.addEventListener('mouseover',activeLink)});
+    
+//esc 누르면 팝업 닫기
+    $(document).keydown(function(key){
+        if(key.keyCode == 27){
+            $('.update-popup').css('display', 'none')
+            $('.write-popup').css('display', 'none')
+            return false;
+        }
+    })
+</script>
+<script>
 getPageNum();
-
 
 function getAddrList(pageNum, pageSize){
 	location.href="/addr?pageNum="+pageNum+"&pageSize="+pageSize;    
-	
 }
 
-
-//페이지 번호 알아내는 함수
+//페이지 번호 색칠하는 함수
 function getPageNum(){
 	var pageNum = $('#nowPageNum').val();
 	$('#pageNum'+pageNum).css('backgroundColor','#287bff'); // id가 pageNum + pageNumber 문자를 합친거
 	$('#pageNum'+pageNum).css('color','#fff');
 }
-
 
 $('#searchBar').keyup(function(key) {
 	var pageNum = 1;
@@ -321,63 +333,30 @@ $('#searchBar').keyup(function(key) {
 		}
 	}
 });
-
 </script>
 <script>
-    $('.btn-addr').click(function(){
-        $('.write-popup').css('display', 'block');
-    });
-    $('.btn-cancel').click(function(){
-        $('.write-popup').css('display', 'none');
-    });
-
-    let list = document.querySelectorAll('.navigation li');
-    function activeLink(){
-        list.forEach((item) => {item.classList.remove('hovered')});
-        this.classList.add('hovered');
-    }
-    list.forEach((item) => {item.addEventListener('mouseover',activeLink)});
-</script>
-
-<script>
-
-
-
-/* <!-- 클릭한 주소 확인 --> */
-function getAddr(place_no){
-	
-    var gu_code = $('#gu_code').val();
-    var event_code = $('#event_code').val();
-    var fac_name = $('#fac_name').val();
-    var addr_road = $('#addr_road').val();
-    var latitude = $('#latitude').val();
-    var longitude = $('#longitude').val();
-    var digit = $('#digit').val();
-    
+// 클릭한 주소 확인
+function getAddr(placeNo){
     $('.update-popup').css('display','block');
-    
     $.ajax({
-        url : '/addr/placeno/'+place_no,
+        url : '/addr/placeNo/'+placeNo,
         type : 'GET',
         dataType : 'json',
         success : function(response){
-
-        	$('#place_no').val(response.place_no);
-            $('#gu_code').val(response.gu_code);
-            $('#event_code').val(response.event_code);
-            $('#fac_name').val(response.fac_name);
-            $('#addr_road').val(response.addr_road);
+        	$('#place_no').val(response.placeNo);
+            $('#gu_code').val(response.guCode);
+            $('#event_code').val(response.eventCode);
+            $('#fac_name').val(response.facName);
+            $('#addr_road').val(response.addrRoad);
             $('#digit').val(response.digit);
         }
-        });
+	});
 }
 
-
-//게시물 수정 하는 함수
+//게시물 수정 함수
 $('#contentUpdate').click(function() { 
-	//1. 게시판 번호 확인
-	var place_no = $('#place_no').val(); //hidden에 숨겨둔 boardId 가져오기.
-	//2. JSON 생성
+	var place_no = $('#place_no').val();
+	
 	var guCode = $('#gu_code').val();
 	var eventCode = $('#event_code').val();
 	var addrRoad = $('#addr_road').val();
@@ -386,15 +365,13 @@ $('#contentUpdate').click(function() {
 	var facName = $('#fac_name').val();
 	var diGit = $('#digit').val();
 	
-	
 	var jsonData = {
-			gu_code: guCode,
-			event_code: eventCode,
-			addr_road: addrRoad,
-			fac_name: facName,
+			guCode: guCode,
+			eventCode: eventCode,
+			addrRoad: addrRoad,
+			facName: facName,
 			digit: diGit
 	};
-	//3. AJAX를 이용해서 업데이트!
 	$.ajax({
 		url: '/addr/placeno/' + place_no,
 		type: 'PATCH', //HTTP 메소드는 PATCH
@@ -404,65 +381,63 @@ $('#contentUpdate').click(function() {
 		success: function(response) {
 			if (response > 0) {
 				alert('수정완료');
-/* 				var pageNum = $('#nowPageNum').val();
-				getMemberList(pageNum, 10); */
+				var lastPage = $('#lastPage').val();
+				getAddrList(lastPage, 10);
 			}
 		}
 	});//ajax end
 });//end
-</script>
-<script>
-/* 주소 등록작성 함수 */
-	function insert_addr(){
-	
-		var gu_code = $('#gu_code').val();
-		var event_code = $('#event_code').val();
-		var fac_name = $('#fac_name').val();
-		var addr_road = $('#addr_road').val();
-		var digit = $('#digit').val();
 
-		if (gu_code == '') {
+//주소 등록 함수
+	function insert_addr(){
+		var guCode = $('#insertGuCode').val();
+		var eventCode = $('#insertEventCode').val();
+		var facName = $('#insertFacName').val();
+		var addrRoad = $('#insertAddrRoad').val();
+		var digit = $('#insertDigit').val();
+		if (guCode == '') {
 			alert('구 코드를 입력 해주세요');
-			$('#gu_code').focus();
+			$('#insertGuCode').focus();
 			return false;
 		}
-		if (event_code == '') {
+		if (eventCode == '') {
 			alert('종목 코드를 입력 해주세요');
-			$('#event_code').focus();
+			$('#insertEventCode').focus();
 			return false;
 		}
-		if (fac_name == '') {
+		if (facName == '') {
 			alert('시설 이름을 입력 해주세요');
-			$('#fac_name').focus();
+			$('#insertFacName').focus();
 			return false;
 		}
-		if (addr_road == '') {
+		if (addrRoad == '') {
 			alert('주소를 작성 해주세요');
-			$('#addr_road').focus();
+			$('#insertAddrRoad').focus();
 			return false;
 		}
-		
+		if (digit == '') {
+			alert('주소를 작성 해주세요');
+			$('#insertDigit').focus();
+			return false;
+		}
 		var jsonData = {
-				gu_code: gu_code,
-				event_code: event_code,
-				fac_name: fac_name,
-				addr_road: addr_road
+				guCode: guCode,
+				eventCode: eventCode,
+				facName: facName,
+				addrRoad: addrRoad,
+				digit: digit
 		};
-		console.log("구코드"+gu_code)
-		console.log("종목코드"+event_code)
-		console.log("시설이름"+fac_name)
-		console.log("시설주소"+addr_road)
 		$.ajax({
-			url: '/addr',
+			url: '/addr/insert',
 			type: 'POST',
 			contentType: 'application/json', //서버에 json 타입으로 보낼 예정(요청)
 			dataType: 'json', //서버 결과를 json으로 응답받겠다.
 			data: JSON.stringify(jsonData),
 			success: function(response) {
 				if (response > 0) {
-					alert('주소 등록이 완료되었습니다.');
-					var pageNum = $('#nowPageNum').val();
-					getAddrList(pageNum, 10);
+					alert('주소가 등록되었습니다.');
+					var lastPage = $('#lastPage').val();
+					getAddrList(lastPage, 10);
 				}
 			}
 		});//ajax end
@@ -470,26 +445,21 @@ $('#contentUpdate').click(function() {
 
 //삭제 함수
 $('.btn-delete').click(function(){
-        
         // 게시판 번호 확인
         var place_no = $('#place_no').val();
         if(confirm('정말 삭제 하시겠습니까?')){
             $.ajax({
-            url : '/addr/delete/'+place_no,
-            type : 'DELETE',
-            dataType : 'json',
-            success : function(response){
-            	alert('삭제 완료')
-            	var pageNum = $('#nowPageNum').val();
-            	getAddrList(pageNum,10);     
-            }
-          }); //ajax end
+	            url : '/addr/delete/'+place_no,
+	            type : 'DELETE',
+	            dataType : 'json',
+	            success : function(response){
+	            	alert('삭제 완료')
+	            	var pageNum = $('#nowPageNum').val();
+	            	getAddrList(pageNum,10);     
+	            }
+			}); //ajax end
         }
     })
 </script>
-
-
-
 </body>
-
 </html>

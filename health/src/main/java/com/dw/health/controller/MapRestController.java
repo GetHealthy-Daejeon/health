@@ -35,18 +35,18 @@ public class MapRestController {
 	
 //	주소 상세 조회
 	@CrossOrigin
-	@GetMapping("/placeno/{place_no}")
-	public MapVO selectAddrOne(@PathVariable("place_no") int placeno) {
-		return mapservice.selectAddrOne(placeno);
+	@GetMapping("/placeNo/{place_no}")
+	public MapVO selectAddrOne(@PathVariable("place_no") int placeNo) {
+		return mapservice.selectAddrOne(placeNo);
 	}
 	
 // 특정 주소 수정
 	@CrossOrigin
 	@PatchMapping("/placeno/{place_no}")
 	public int updateAddrOne(
-			@PathVariable("place_no") int placeno,
+			@PathVariable("place_no") int placeNo,
 			@RequestBody MapVO vo) {
-		return mapservice.updateAddrOne(vo,placeno);
+		return mapservice.updateAddrOne(vo,placeNo);
 	}
 	
 // 특정 주소 삭제

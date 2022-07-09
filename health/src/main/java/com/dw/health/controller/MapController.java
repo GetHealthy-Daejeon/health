@@ -22,7 +22,6 @@ public class MapController {
 	
 	@Autowired
 	private MapService mapservice;
-
 	/* @GetMapping("/map") */
 //	@RequestMapping(value = "/map", method = { RequestMethod.GET, RequestMethod.POST })
 //	public String callMapPage() {
@@ -61,7 +60,6 @@ public class MapController {
 
 		PageInfo<Map<String, Object>> pageInfo = new PageInfo<Map<String, Object>>(list);
 		map.addAttribute("pageHelper", pageInfo);
-
 		return "map_back";
 	}
 	
@@ -74,11 +72,6 @@ public class MapController {
 		List<Map<String,Object>> list = mapservice.getAllAddrList(pageNum, pageSize);
 		PageInfo<Map<String,Object>> pageInfo = new PageInfo<Map<String,Object>>(list);
 		map.addAttribute("pageHelper", pageInfo);
-	
-		
 		return "map_back";
 	}
-	
-	
-
 }
