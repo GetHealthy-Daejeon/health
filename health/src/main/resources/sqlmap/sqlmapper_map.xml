@@ -1,27 +1,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dw.health.mapper.MapMapper">
 
-<select id="selectAllAddrList" resultType="map">
-		SELECT
-			place_no AS place_no,
-			gu_code AS gu_code,
-			event_code AS event_code,
-			fac_name AS fac_name,
-			addr_road AS addr_road,
-			digit AS digit
-		FROM health_addr
+<!-- 주소 조회 -->
+	<select id="selectAllAddrList" resultType="map">
+	SELECT
+		place_no AS placeNo,
+		gu_code AS guCode,
+		event_code AS eventCode,
+		fac_name AS facName,
+		addr_road AS addrRoad,
+		digit AS Digit
+	FROM health_addr
 	</select>
-	
+
+<!-- 클릭한 주소 정보 조회 -->
 	<select id="selectAddrOne" resultType="MapVO">
-		SELECT 
-			place_no AS placeNo,
-			gu_code AS guCode,
-			event_code AS eventCode,
-			fac_name AS facName,
-			addr_road AS addrRoad,
-			digit AS digit
-		FROM dw.health_addr
-		WHERE place_no = #{placeNo}
+	SELECT 
+		place_no AS placeNo,
+		gu_code AS guCode,
+		event_code AS eventCode,
+		fac_name AS facName,
+		addr_road AS addrRoad,
+		digit AS digit
+	FROM dw.health_addr
+	WHERE place_no = #{placeNo}
 	</select>
 
 <!-- 주소수정 -->
@@ -93,27 +95,27 @@
 		WHERE gu_code = "서구"
 	</select>
 	
-	
-	<!-- 종목 카테고리별 조회 -->
+<!-- 종목 카테고리별 조회 -->
 	<select id="selectEventCode" resultType="map">
 		SELECT * 
 		from health_addr
 		WHERE event_code = #{eventCode}
 	</select>
-	
+
+<!-- 검색한 주소 조회 -->
 	<select id="selectSearchBoardList" resultType="map">
 		SELECT
-			place_no AS place_no,
-			gu_code AS gu_code,
-			event_code AS event_code,
-			fac_name AS fac_name,
-			addr_road AS addr_road,
+			place_no AS placeNo,
+			gu_code AS guCode,
+			event_code AS eventCode,
+			fac_name AS facName,
+			addr_road AS addrRoad,
 			digit AS digit
 		FROM health_addr
-		WHERE fac_name LIKE CONCAT('%',#{fac_name},'%')
+		WHERE fac_name LIKE CONCAT('%',#{facName},'%')
 	</select>
 	
-	<!-- 대전시 공공체육시설 조회 -->
+<!-- 대전시 공공체육시설 수 조회 -->
 	<select id="selectAllFacility" resultType="map">
 		SELECT COUNT(*) as count
 		FROM dw.health_addr	

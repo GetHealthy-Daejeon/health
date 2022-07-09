@@ -26,13 +26,13 @@
 		  	<ul>
 			  	<li>
 			  		<div class="location_btn">
-			  			<button><img src="./resources/static/img/gps.png" alt="">내 위치</button>
+			  			<button><img src="./resources/static/img/gps.png" alt="">&nbsp;내 위치</button>
 			  		</div>
 			  	</li>
 			  	<li>
 			  		<div class="test_btn">
-			  		<!-- style="display: none" -->
-				  		<button><img src="./resources/static/img/gps.png" alt="">테스트</button>		  		
+			  		<!--  -->
+				  		<button style="display: none;"><img src="./resources/static/img/gps.png" alt="">테스트</button>		  		
 			  		</div>
 			  	</li>
 		  	</ul>
@@ -226,7 +226,7 @@
 			yuseong_dong_Polygon,
 			"click",
 			function (mouseEvent) {
-				var level = map.getLevel() - 2;
+				var level = map.getLevel() - 1;
 				map.setLevel(level, {
 					anchor: new daum.maps.LatLng(
 						mouseEvent.latLng.getLat(),
@@ -288,7 +288,7 @@
             getTashuInfo(name);
             getFacilityInfo('${daedeokList}');
         	
-			var level = map.getLevel() - 2;
+			var level = map.getLevel() - 1;
 			map.setLevel(level, {
 				anchor: new daum.maps.LatLng(
 					mouseEvent.latLng.getLat(),
@@ -390,7 +390,7 @@
 			getTashuInfo(name);
 			getFacilityInfo('${dongList}');
 
-			var level = map.getLevel() - 2;
+			var level = map.getLevel() - 1;
 			map.setLevel(level, {
 				anchor: new daum.maps.LatLng(
 					mouseEvent.latLng.getLat(),
@@ -491,7 +491,7 @@
 		getTashuInfo(name);
 		getFacilityInfo('${jungList}');
 
-		var level = map.getLevel() - 2;
+		var level = map.getLevel() - 1;
 		map.setLevel(level, {
 			anchor: new daum.maps.LatLng(
 				mouseEvent.latLng.getLat(),
@@ -592,7 +592,7 @@
 		getTashuInfo(name);
 		getFacilityInfo('${seoList}');
     	
-		var level = map.getLevel() - 2;
+		var level = map.getLevel() - 1;
 		map.setLevel(level, {
 			anchor: new daum.maps.LatLng(
 				mouseEvent.latLng.getLat(),
@@ -651,13 +651,10 @@
     //centroid 알고리즘 (폴리곤 중심좌표 구하기 위함)
     function centroid(points) {
       var i, j, len, p1, p2, f, area, x, y;
-
       area = x = y = 0;
-
       for (i = 0, len = points.length, j = len - 1; i < len; j = i++) {
         p1 = points[i];
         p2 = points[j];
-
         f = p1.y * p2.x - p2.y * p1.x;
         x += (p1.x + p2.x) * f;
         y += (p1.y + p2.y) * f;
@@ -666,16 +663,15 @@
       return new daum.maps.LatLng(x / area, y / area);
     }
 
-    // 아래와 같이 옵션을 입력하지 않아도 된다
+    // 지도 오른쪽에 줌 컨트롤 추가
     var zoomControl = new kakao.maps.ZoomControl();
-    // 지도 오른쪽에 줌 컨트롤이 표시되도록 지도에 컨트롤을 추가한다.
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
     kakao.maps.event.addListener(map, 'zoom_changed', function() {        
         // 지도 현재 레벨
         var level = map.getLevel();
         console.log('현재 지도 레벨은 ' + level + ' 입니다');
         if(level >= 10){
-        	// 지도레벨이 10이면 커스텀 오버레이 지우는 코드 작성중... 
+        	// 지도레벨이 10이면 커스텀 오버레이 지우는 코드...? 
 			$('.label').remove();
         }
     });
@@ -684,7 +680,4 @@
 	<script src="/resources/static/js/tashu.js"></script>
 	<script src="/resources/static/js/facility.js"></script>
 	<script src="/resources/static/js/getGps.js"></script>
-<script type="text/javascript">
-
-</script>
 </html>
