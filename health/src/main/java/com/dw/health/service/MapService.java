@@ -17,14 +17,11 @@ public class MapService {
 	@Autowired
 	private MapMapper mapMapper;
 	
-	
 	//주소 추가
 	@Transactional(rollbackFor = {Exception.class})
 	public int insertAddr(MapVO vo) {
-		
 		return mapMapper.insertAddr(vo);
 	}
-	
 	
 	//주소 전체 조회 
 	@Transactional(rollbackFor = {Exception.class})
@@ -35,20 +32,20 @@ public class MapService {
 	
 	//주소 상세 조회(주소 클릭시 조회)
 	@Transactional(rollbackFor = {Exception.class})
-	public MapVO selectAddrOne(int placeno) {
-		return mapMapper.selectAddrOne(placeno);
+	public MapVO selectAddrOne(int placeNo) {
+		return mapMapper.selectAddrOne(placeNo);
 	}
 	
-	//회원 정보 수정
+	//주소 정보 수정
 	@Transactional(rollbackFor = Exception.class)
-	public int updateAddrOne(MapVO vo, int placeno) {
-		vo.setPlace_no(placeno);
+	public int updateAddrOne(MapVO vo, int placeNo) {
+		vo.setPlaceNo(placeNo);
 		return mapMapper.updateAddrOne(vo);
 	}
-	//회원 정보 삭제
+	//주소 정보 삭제
 	@Transactional(rollbackFor = {Exception.class})
-	public int deleteAddr(int placeno) {
-		return mapMapper.deleteAddr(placeno);
+	public int deleteAddr(int placeNo) {
+		return mapMapper.deleteAddr(placeNo);
 	}
 	
 	// 구별 데이터 list 가져오기

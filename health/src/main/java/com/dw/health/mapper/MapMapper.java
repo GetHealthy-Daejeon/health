@@ -20,7 +20,7 @@ public interface MapMapper {
 	public List<Map<String,Object>> selectAllAddrList();
 	
 	public int insertAddr (MapVO vo);
-	public MapVO selectAddrOne(int placeno);
+	public MapVO selectAddrOne(int placeNo);
 	public int updateAddrOne(MapVO vo);
 	public int deleteAddr(int placeno);
 	
