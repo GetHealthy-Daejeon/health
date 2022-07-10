@@ -112,10 +112,10 @@
 	<section id="login">
 		<h1>Login</h1>
 		<div class="txt-field">
-			<input type="text" id="userId" required /> <label>이름</label>
+			<input type="text" id="memberName" required /> <label>이름</label>
 		</div>
 		<div class="txt-field">
-			<input type="password" id="userPassword" required /> <label>비밀번호</label>
+			<input type="password" id="memberPassword" required /> <label>비밀번호</label>
 		</div>
 		<input class="login-btn" type="button" value="로그인" onclick="login()" />
 		<div class="signup-link">
@@ -153,34 +153,28 @@
 		crossorigin="anonymous"></script>
 	<script>
 		// 엔터 누르면 로그인 실행되게
-		$('#userId').keyup(function(key){
+		$('#memberName').keyup(function(key){
 	        if(key.keyCode == 13){
 				login();
 	        }
 	    })
-	    $('#userPassword').keyup(function(key){
+	    $('#memberPassword').keyup(function(key){
 	        if(key.keyCode == 13){
 				login();
 	        }
 	    })
 	    
 		function login() {
-			var userId = $('#userId').val();
-			var userPassword = $('#userPassword').val();
-			if (userId == '' || userPassword == '') {
+			var memberName = $('#memberName').val();
+			var memberPassword = $('#memberPassword').val();
+			if (memberName == '' || memberPassword == '') {
 				alert('회원 정보를 정확히 입력해주십시오.');
 				return false;
 			}
-			console.log(userId)
-			console.log(userPassword)
-			
-			
-			
 			var jsonData = {
-				memberName : userId,
-				memberPassword : userPassword
+				memberName : memberName,
+				memberPassword : memberPassword
 			}
-
 			$.ajax({
 				url : '/health/login',
 				type : 'POST',
@@ -189,11 +183,10 @@
 				success : function(response) {
 					if (response) {
 						alert('로그인 되었습니다.')
-						location.href = 'http://localhost:8080/health/index';
+						location.href = '/health/index';
 					} else {
 						alert('아이디 혹은 비밀번호가 틀렸습니다.')
 					}
-
 				}
 			})
 		}

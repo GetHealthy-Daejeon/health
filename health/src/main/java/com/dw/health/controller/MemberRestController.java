@@ -41,7 +41,6 @@ public class MemberRestController {
 	@PostMapping("/login")
 	public boolean callIsLogin(@RequestBody MemberVO vo, HttpSession httpSession) {
 		boolean isLogin = memberservice.ismember(vo, httpSession);
-
 		return isLogin;
 	}
 	 
