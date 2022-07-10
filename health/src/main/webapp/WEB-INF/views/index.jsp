@@ -343,49 +343,26 @@
 							<div class="col-md-12 text-center">
 								<div class="carousel slide" id="fade-quote-carousel"
 									data-ride="carousel" data-interval="3000">
-									<!-- Carousel indicators -->
-									<ol class="carousel-indicators">
-										<li data-target="#fade-quote-carousel" data-slide-to="0"
-											class="active"></li>
-										<li data-target="#fade-quote-carousel" data-slide-to="1"></li>
-									</ol>
-									<!-- Carousel items -->
 									<div class="carousel-inner">
 										<div class="active item">
 											<div class="row">
 												<div class="col-md-6">
-													<div class="profile-circle">
-														<img src="/resources/static/img/tree_cut_3.jpg" alt="">
-													</div>
+													
 													<div class="testimonial_content">
-														<i class="fa fa-quote-left"></i>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-															elit. Quidem, veritatis nulla eum laudantium totam
-															tempore optio doloremque laboriosam quas, quos eaque
-															molestias odio aut eius animi. Impedit temporibus nisi
-															accusamus.</p>
+														<a href="http://www.ggilbo.com/news/articleView.html?idxno=921218/">
+														<img src="/resources/static/img/marker_img/tashuNews.jpg" alt="">
+														<br><br>[新타슈시대 열린다] 더 편하고 경쾌하게 … 타슈 시즌2, 일상을 바꾸다</a>
 													</div>
-													<div class="testimonial_author">
-														<h5>Sadequr Rahman Sojib</h5>
-														<p>CEO, Fourder</p>
-													</div>
+													
 												</div>
 												<div class="col-md-6">
-													<div class="profile-circle">
-														<img src="/resources/static/img/tree_cut_3.jpg" alt="">
-													</div>
+												
 													<div class="testimonial_content">
-														<i class="fa fa-quote-left"></i>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-															elit. Quidem, veritatis nulla eum laudantium totam
-															tempore optio doloremque laboriosam quas, quos eaque
-															molestias odio aut eius animi. Impedit temporibus nisi
-															accusamus.</p>
+														<a href="http://mbnmoney.mbn.co.kr/news/view?news_no=MM1004593365">
+													   <img src="/resources/static/img/marker_img/daejeonNews.jpg" alt="">
+														<br><br> [대전시 생활체육 인프라 확충] 서남부종합스포츠타운 등 조성 '순항'</a>
 													</div>
-													<div class="testimonial_author">
-														<h5>Sadequr Rahman Sojib</h5>
-														<p>CEO, Fourder</p>
-													</div>
+													
 												</div>
 											</div>
 										</div>
