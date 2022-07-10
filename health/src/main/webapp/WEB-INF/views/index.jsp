@@ -15,6 +15,7 @@
 
 <link rel="stylesheet" href="/resources/static/css/style.css" />
 <link href="/resources/static/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/> <!-- 추가 -->
 <!-- fontawesome kit(아이콘) -->
 <script src="https://kit.fontawesome.com/70d780dcf7.js"
 	crossorigin="anonymous"></script>
@@ -134,62 +135,75 @@
 
 	<!--Start of slider section-->
 	<section id="slider">
+    <div class="swiper-wrapper"> <!-- 추가 -->
 		<div id="carousel-example-generic"
 			class="carousel slide carousel-fade" data-ride="carousel"
 			data-interval="3000">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 			</ol>
-
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active"> <!-- swiper -->
-					<div class="slider_overlay"> <!-- swiper-slide -->
-					
-						<img src="/resources/static/img/img1.jpg" alt="...">
-						<div class="carousel-caption">
-							<div class="slider_text">
-								<h3>Get Healthy</h3>
-								<br>
-								<h4>대전 시민 건강증진을 위해 대전시에 위치한 공공 체육시설을 안내하는 지도 서비스</h2>
-								<p></p>
- 								<a href="#welcome" id ="moreView" class="custom_btn" name="scroll_move">살펴보기</a>
- 							</div>
-						</div>
-					</div>
-				</div>
-				<!--End of item With Active-->
-				<div class="item">
-					<div class="slider_overlay">
-						<img src="/resources/static/img/img2.jpg" alt="...">
-						<div class="carousel-caption">
-							<div class="slider_text">
-								<h3>OUR PAGE`s UPDATE 2</h3>
-								<h2>UPDATES</h2>
-								<p>지도가 새로 업데이트 됐습니다.</p>
-								<a href="" class="custom_btn">Read More</a>
+				<!-- <div class="item active"> --> 
+				<!-- swiper -->
+				<div class="container" id="gara">
+					<div class="swiper">
+						<div class="swiper-wrapper"> <!-- 추가 -->
+							<div class="swiper-slide"> <!-- 추가 아래에 반복-->
+								<div class="slider_overlay"> <!-- swiper-slide -->
+									<img src="/resources/static/img/img1.jpg" alt="...">
+									<div class="carousel-caption">
+										<div class="slider_text">
+											<h2>Get Healthy</h3>
+											<h3>건강하슈</h3>
+											<h4>대전 시민 건강증진을 위해 대전시에 위치한 공공 체육시설을 안내하는 지도 서비스</h2>
+											<p></p>
+			 								<a href="#welcome" id ="moreView" class="custom_btn" name="scroll_move">살펴보기</a>
+			 							</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-				<!--End of Item-->
-				<div class="item">
-					<div class="slider_overlay">
-						<img src="/resources/static/img/img3.jpg" alt="...">
-						<div class="carousel-caption">
-							<div class="slider_text">
-								<h3>OUR PAGE`s UPDATE 3</h3>
-								<h2>UPDATES</h2>
-								<p>@@구 @@동에 새로운 풋볼장이 생겼습니다.</p>
-								<a href="" class="custom_btn">Read More</a>
+							<!--End of item With Active-->
+							<!-- <div class="item"> -->
+							<div class="swiper-slide">
+								<div class="slider_overlay">
+									<img src="/resources/static/img/img2.jpg" alt="...">
+									<div class="carousel-caption">
+										<div class="slider_text">
+											<h2>Get Healthy</h3>
+											<h3>UPDATES</h2>
+											<p>지도가 새로 업데이트 됐습니다.</p>
+											<a href="#welcome" id ="moreView" class="custom_btn" name="scroll_move">살펴보기</a>
+										</div>
+									</div>
+								</div>
 							</div>
+							<!--End of Item-->
+							<!-- <div class="item"> -->
+							<div class="swiper-slide">
+								<div class="slider_overlay">
+									<img src="/resources/static/img/img3.jpg" alt="...">
+									<div class="carousel-caption">
+										<div class="slider_text">
+											<h2>Get Healthy</h3>
+											<h3>UPDATES</h2>
+											<p>@@구 @@동에 새로운 풋볼장이 생겼습니다.</p>
+											<a href="#welcome" id ="moreView" class="custom_btn" name="scroll_move">살펴보기</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--End of item-->
 						</div>
+						<div class="swiper-pagination"></div>
+						<div class="swiper-button-prev"></div>
+		    			<div class="swiper-button-next"></div>
 					</div>
 				</div>
-				<!--End of item-->
 			</div>
 			<!--End of Carousel Inner-->
 		</div>
+	</div> <!-- 추가 -->
 	</section>
 	<!--end of slider section-->
 
@@ -221,17 +235,17 @@
 									</c:if>
 									<!-- 일반 회원 -->
 									<c:if test="${authority eq '1'}">
-										<a href="http://localhost:8080/map" target="_blank"> <img class="daejeon"
+										<a href="/map" target="_blank"> <img class="daejeon"
 											src="/resources/static/img/대전.png"
-											href="http://localhost:8080/map">
+											href="/map">
 											<h3 class="t1"><< 이미지를 클릭하여 지도로 이동하기 >></h3>
 										</a>
 									</c:if>
 									<!-- 관리자 -->
 									<c:if test="${authority eq '2'}">
-										<a href="http://localhost:8080/map" target="_blank"> <img class="daejeon"
+										<a href="/map" target="_blank"> <img class="daejeon"
 											src="/resources/static/img/대전.png"
-											href="http://localhost:8080/map">
+											href="/map">
 											<h3 class="t1"><< 이미지를 클릭하여 지도로 이동하기 >></h3>
 										</a>
 									</c:if>
@@ -486,8 +500,6 @@
 								<i class="fa fa-envelope"><span>cozy2402@gmail.com</span></i>
 							</div>
 							<div id="map">
-								<img
-									src="https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=300&h=300&center=127.1054221,37.3591614&level=16&X-NCP-APIGW-API-KEY-ID={bip93kdchz}">
 							</div>
 						</div>
 					</div>
@@ -583,53 +595,43 @@
 			alert("로그인 후 이용 가능합니다.")
 		})
 	</script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=42189fc27ae4cf0d73678ba4cae1e6a0"></script>
+	<script>
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = { 
+	        center: new kakao.maps.LatLng(36.3291227, 127.4229921), // 지도의 중심좌표
+	        level: 3 // 지도의 확대 레벨
+	    };
+	var map = new kakao.maps.Map(mapContainer, mapOption);
+	var marker = new kakao.maps.Marker({
+	    map: map, 
+	    position: new kakao.maps.LatLng(36.3286904, 127.4229992)
+	});
+	var content = '<div class="wrap">' + 
+	            '    <div class="info">' + 
+	            '        <div class="title">' + 
+	            '            DW 아카데미' +
+	            '        </div>' + 
+	            '            <div class="desc">' + 
+	            '                <div class="ellipsis">대전광역시 중구 중앙로121번길 20</div>' + 
+	            '                <div class="jibun ellipsis">(우) 34838 (지번) 선화동 41</div>' + 
+	            '                <div><br><a href="https://map.kakao.com/link/map/DW아카데미,36.3286904,127.4229992" style="color:blue" target="_blank">큰지도</a> <a href="https://map.kakao.com/link/to/DW아카데미,36.3286904,127.4229992" style="color:blue" target="_blank">길찾기</a></div>' + 
+	            '            </div>' + 
+	            '        </div>' + 
+	            '    </div>' +    
+	            '</div>';
 
-	<!--Gmaps-->
-	<script src="/resources/static/js/gmaps.min.js"></script>
-	<script type="text/javascript">
-		var map;
-		$(document).ready(function() { //$(document).ready : 웹 사이트 처음 켰을 때 바로 실행
-			map = new GMaps({
-				el : '#map',
-				lat : 23.6911078,
-				lng : 90.5112799,
-				zoomControl : true,
-				zoomControlOpt : {
-					style : 'SMALL',
-					position : 'LEFT_BOTTOM'
-				},
-				panControl : false,
-				streetViewControl : false,
-				mapTypeControl : false,
-				overviewMapControl : false,
-				scrollwheel : false,
-			});
-
-			map.addMarker({
-				lat : 36.3286904,
-				lng : 127.4229992,
-				title : 'Office',
-				details : {
-					database_id : 42,
-					author : 'joon'
-				},
-				click : function(e) {
-					if (console.log)
-						console.log(e);
-					alert('You clicked in this marker');
-				},
-				mouseover : function(e) {
-					if (console.log)
-						console.log(e);
-				}
-			});
-		});
+	// 마커 위에 커스텀오버레이를 표시합니다
+	// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+	var overlay = new kakao.maps.CustomOverlay({
+	    content: content,
+	    map: map,
+	    position: marker.getPosition()       
+	});
 	</script>
+	
 	<!-- 문의하기(get in touch) 버튼 클릭 결과를 메세지로 변경 -->
 	<script data-cfasync="false" type="text/javascript" src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
-	<!--Google Maps API-->
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjxvF9oTfcziZWw--3phPVx1ztAsyhXL4"></script>
 	<!--Back To Top-->
 	<script src="/resources/static/js/backtotop.js"></script>
 
@@ -665,25 +667,16 @@
       	});
 	</script>
 	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script>const swiper = new Swiper('.active', {
- 
-       
-        autoplay : {
-            delay: 4000,
-        },
-        loop: true,
-       
-        pagination: {
-          el: '.active',
-        },
-      
-        
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-    
-      });</script>
-	
+    <script>
+    	const swiper = new Swiper('.swiper', {
+	        autoplay : {delay: 10000},
+	        loop: true,
+	        pagination: {el:'.swiper-pagination'},
+	        navigation: {
+	          nextEl: '.swiper-button-next',
+	          prevEl: '.swiper-button-prev',
+	        },
+		});
+	</script>
 </body>
 </html>
