@@ -139,16 +139,13 @@
 			data-interval="3000">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0"
-					class="active"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 			</ol>
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<div class="slider_overlay">
+				<div class="item active"> <!-- swiper -->
+					<div class="slider_overlay"> <!-- swiper-slide -->
+					
 						<img src="/resources/static/img/img1.jpg" alt="...">
 						<div class="carousel-caption">
 							<div class="slider_text">
@@ -330,11 +327,11 @@
 		<div class="testimonial_overlay">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12">
 						<div class="testimonial_header text-center">
-							<h2>대전시 건강 소식</h2>
+							<h2>대전시 건강 소식<h2>
+							<h3>Sports News in Daejeon</h3>
+							<br>
 						</div>
-					</div>
 				</div>
 				<!--End of row-->
 				<section id="carousel">
@@ -347,16 +344,14 @@
 										<div class="active item">
 											<div class="row">
 												<div class="col-md-6">
-													
 													<div class="testimonial_content">
-														<a href="http://www.ggilbo.com/news/articleView.html?idxno=921218/">
+														<a href="http://www.ggilbo.com/news/articleView.html?idxno=921218">
 														<img src="/resources/static/img/marker_img/tashuNews.jpg" alt="">
 														<br><br>[新타슈시대 열린다] 더 편하고 경쾌하게 … 타슈 시즌2, 일상을 바꾸다</a>
 													</div>
 													
 												</div>
 												<div class="col-md-6">
-												
 													<div class="testimonial_content">
 														<a href="http://mbnmoney.mbn.co.kr/news/view?news_no=MM1004593365">
 													   <img src="/resources/static/img/marker_img/daejeonNews.jpg" alt="">
@@ -669,5 +664,26 @@
         $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
       	});
 	</script>
+	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>const swiper = new Swiper('.active', {
+ 
+       
+        autoplay : {
+            delay: 4000,
+        },
+        loop: true,
+       
+        pagination: {
+          el: '.active',
+        },
+      
+        
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+    
+      });</script>
+	
 </body>
 </html>
