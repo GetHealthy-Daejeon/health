@@ -117,10 +117,10 @@
                 <input type="text" id="userName" required />
                 <label>성명</label>
             </div>
-            <div class="txt-field">
+            <!-- <div class="txt-field">
                 <input type="text" id="userId" required />
                 <label>아이디</label>
-            </div>
+            </div> -->
             <div class="txt-field">
                 <input type="password" id="userPassword" required />
                 <label>비밀번호</label>
@@ -164,7 +164,7 @@
             var password = $('#userPassword').val();
             var rePassword = $('#userRePassword').val().trim();
             var userName = $('#userName').val();
-            var userId = $('#userId').val();
+            /* var userId = $('#userId').val(); */
             var pass_len = password.length;
 
           //빈칸 체크

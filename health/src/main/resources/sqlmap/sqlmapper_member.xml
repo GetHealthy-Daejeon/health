@@ -68,8 +68,6 @@
 		membership
 		WHERE
 		member_name = #{memberName}
-		and
-		member_password = #{memberPassword}
 	</select>
 
 	<!-- 회원 수정 -->

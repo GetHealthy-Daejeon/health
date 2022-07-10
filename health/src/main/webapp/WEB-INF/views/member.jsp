@@ -134,7 +134,7 @@
 	        </div>
 	        <div class="input-box">
 	            <label for="memberAuthority">권한 : </label>
-	            <input id="insertMemberAuthority" type="text" placeholder="기본값 : 1">
+	            <input id="insertMemberAuthority" type="text" placeholder="권한">
 	        </div>
 	        <div class="btn-area">
 	            <a id="contentSubmit" href="#" class="btn-success">등록</a>
@@ -346,6 +346,10 @@ $("#contentSubmit").click(function(){
       alert("비밀번호를 입력해주세요");
       return false;
     }
+    if(authority == ""){
+        alert("권한을 입력해주세요");
+        return false;
+    }
     if(confirm('회원을 등록하시겠습니까?')){
         var jsonData = {
             "memberName" : memberName,
@@ -379,8 +383,7 @@ $('#contentDelete').click(function() {
 			success: function(response) {
 				if (response > 0) {
 					alert('삭제완료');
- 					/* var pageNum = $('#nowPageNum').val();
- 					getMemberList(pageNum, 10);  */
+					location.reload();
 				}
 			}
 		});
