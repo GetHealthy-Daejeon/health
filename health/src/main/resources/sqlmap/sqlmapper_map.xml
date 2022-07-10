@@ -9,7 +9,7 @@
 		event_code AS eventCode,
 		fac_name AS facName,
 		addr_road AS addrRoad,
-		digit AS Digit
+		digit AS digit
 	FROM health_addr
 	</select>
 

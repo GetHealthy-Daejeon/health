@@ -389,9 +389,12 @@ section#login {
 
 /*Footer*/
 #footer {
-	min-height: 100px;
-	background: #222222;
-	color: #fff;
+    min-height: 80px;
+    background: #222222;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    width:100%;
 }
 
 #footer .copyright, #footer .designer {

@@ -43,7 +43,6 @@ public class MemberService {
 	public boolean ismember(MemberVO vo, HttpSession httpSession) {
 		MemberVO member = membermapper.selectLoginOne(vo);
 		// 회원이 있는지 없는지 부터 체크
-		System.out.println(member);
 		if (member == null) { // query결과가 null로 리턴
 			return false;
 		}
@@ -55,7 +54,7 @@ public class MemberService {
 			return false;
 		}
 		// 세션에 정보 저장
-		httpSession.setAttribute("memberPassword", member.getMemberPassword());
+		// httpSession.setAttribute("memberPassword", member.getMemberPassword());
 		httpSession.setAttribute("memberName", member.getMemberName());
 		httpSession.setAttribute("authority", member.getAuthority());
 		return true;
