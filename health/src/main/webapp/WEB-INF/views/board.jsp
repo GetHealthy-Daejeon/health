@@ -14,7 +14,7 @@
 
 <title>건강하슈 관리자페이지</title>
 </head>
-
+<link rel="icon" href="/resources/static/img/marker_img/favicon.ico">
 <!--Start Hedaer Section-->
 <section id="header">
 	<div class="header-area">
