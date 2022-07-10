@@ -58,15 +58,11 @@ public class LoginController {
 		return "/join";
 	}
 	
-
-	
 	@GetMapping("/logout")
 	public String callLoginout(HttpSession httpSession) {
 		// 세션 remove
 		httpSession.removeAttribute("memberName");
-		httpSession.removeAttribute("memberPassword");
 		httpSession.removeAttribute("authority");
 		return "login";
 	}
-
 }
