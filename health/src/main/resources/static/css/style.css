@@ -1231,3 +1231,16 @@ ul.entry-meta {
 .welcome_name p{
 	margin-top: 50px;
 }
+
+.testimonial_content img{
+	width : 300px;
+	height : 230px
+}
+
+.testimonial_content a{
+	font-size : 13pt;
+	color : #fff;
+	font-weight: 700;
+	
+}
+
