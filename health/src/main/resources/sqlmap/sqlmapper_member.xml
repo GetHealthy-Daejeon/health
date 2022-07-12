@@ -34,8 +34,7 @@
 	<!-- AS로 VO에 있는 필드변수 이름을 별칭으로 줘서 mapping을 해 줌 -->
 	<select id="selectAllMemberList" resultType="map">
 		SELECT
-		member_id AS
-		memberId,
+		member_id AS memberId,
 		member_name AS memberName,
 		authority AS authority,
 		member_password AS memberPassword,

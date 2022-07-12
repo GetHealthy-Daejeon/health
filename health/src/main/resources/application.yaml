@@ -5,7 +5,7 @@ application:
 
 ##포트 수정
 server:
-   port: 8080
+   port: 9090
    
 #개발 버전 설정
 spring :
@@ -25,9 +25,9 @@ spring:
       initialization-mode : always
       schema: classpath:init.sql
       driver-class-name : com.mysql.cj.jdbc.Driver # 이렇게 설정하면 스프링과 sql이 서로 접속할 수 있음
-      url: jdbc:mysql://minyoung-database.cphsvlh69mke.ap-northeast-2.rds.amazonaws.com:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
-      username: admin
-      password: bs07360012!
+      url: jdbc:mysql://DB주소:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
+      username: 아이디
+      password: 비번
    #JSP 경로 설정
    mvc : 
       view :
@@ -37,11 +37,8 @@ spring:
          filter:
             enable: true
          
-
-         
       #css,js,image 폴더 위치 설정
       static-path-pattern : /resources/static/**
-      
 ---
 spring:
    profiles: dev
@@ -49,17 +46,14 @@ spring:
       initialization-mode : always
       schema: classpath:init.sql
       driver-class-name : com.mysql.cj.jdbc.Driver # 이렇게 설정하면 스프링과 sql이 서로 접속할 수 있음
-      url: jdbc:mysql://localhost:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
-      username: root
-      password: bs07360012!
+      url: jdbc:mysql://db주소:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
+      username: 아이디
+      password: 비번
    #JSP 경로 설정
    mvc : 
       view :
          prefix : /WEB-INF/views/
          suffix : .jsp
          
-
-         
       #css,js,image 폴더 위치 설정
       static-path-pattern : /resources/static/**
-      
