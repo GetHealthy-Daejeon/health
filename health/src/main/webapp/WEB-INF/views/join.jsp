@@ -69,7 +69,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index"><img src="/resources/static/img/logo.png" alt=""></a>
+                                <a class="navbar-brand custom_navbar-brand" href="/health/index"><img src="/resources/static/img/logo.png" alt=""></a>
                             </div>
                             <!--End of navbar-header-->
 
@@ -78,7 +78,7 @@
                                 <ul class="nav navbar-nav navbar-right main_menu">
 								<li><a href="/health/index">Home<span class="sr-only">(current)</span></a></li>
 								<li><a href="/health/login">Login</a></li>
-								<li class="active"><a href="http://localhost:8080/health/join">Join</a></li>
+								<li class="active"><a href="/health/join">Join</a></li>
 							</ul>
                             </div>
                             <!-- /.navbar-collapse -->
@@ -223,7 +223,7 @@
           success : function(response){
 	            if(response>0){
 	              alert('회원가입이 완료되었습니다.');
-	              location.href = 'http://localhost:8080/health/index';
+	              location.href = '/health/index';
 	            }
           	}
         });
