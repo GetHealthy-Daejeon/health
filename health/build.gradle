@@ -2,6 +2,13 @@ plugins {
 	id 'org.springframework.boot' version '2.6.8'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'war'
+}
+
+bootWar{
+	archiveBaseName= 'health'
+	archiveFileName= 'health.war'
+	archiveVersion= '0.0.1'
 }
 
 group = 'com.dw'
@@ -42,8 +49,8 @@ dependencies {
 
 	//json
 	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
-
-	
+	// deploy
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
 
 tasks.named('test') {
