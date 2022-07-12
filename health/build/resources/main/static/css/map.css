@@ -1,0 +1,305 @@
+.label{
+  font-family: 'Gamja Flower', cursive;
+}
+.info {
+	font-size: 12px;
+	padding: 5px;
+}
+.info .title {
+	font-weight: bold;
+}
+#map {
+	width: 100%;
+	height: 100vh;
+	z-index: 0;
+}
+
+
+.text-box{
+	font-family: 'Gamja Flower', cursive;
+    font-size: 30px;
+    font-weight: 1000;
+    writing-mode: vertical-rl; /* 세로 쓰기 */
+    text-align: center;
+    /* margin-right: 30%; */
+    /* 아래는 드래그 막는 css */
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    margin-right : 15px;	
+}
+.text-box:hover{
+    transform: scaleX(1.15);
+    transform: scaleY(1.05);
+    transition: 2s;
+}
+.logo {
+	display: flex;
+    position: fixed;
+    z-index: 1;
+}
+.logo .navbar-brand{
+	margin-top: 10px
+}
+.side-button{
+	padding: 0;
+}
+.side-button ul{
+	padding: 0;
+	display: flex;
+	align-content: center;
+	list-style: none;
+	text-align: center;
+	box-shadow: 1px 1px 1px gray;
+	border-radius: 5px;
+}
+.side-button ul li button{
+	background-color:rgba(255,255,255,0.8);
+	border-radius: 5px;
+	padding: 10px;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 20px;
+	font-weight: 600;
+	border: 0;
+	cursor: pointer;
+	margin-top: 10px;
+}
+.side-button ul li button:hover{
+	color: #4169E1;
+}
+.side-button ul li button.active{
+	color: #4169E1;
+}
+.side-button ul li button img{
+	vertical-align: middle;
+	width: 20px;
+}
+.navbar-brand img{
+	width: 80%
+}
+.banner-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    visibility: hidden;
+    z-index: 1;
+    width: 0%; /* 처음에 0이었다가 구 클릭하면 커질예정 */
+    margin: 10% auto;
+    /* transition: 0.7s; */
+    /* position: fixed; */
+    /* visibility: hidden; */
+    /* margin-top: 100px; */
+}
+.banner {
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    max-width: 3.5%;
+    height: 80%;
+    margin-top: 7%;
+    background-color: rgba(255, 255, 255, 0.796);
+    border-right: 1px solid gray;
+    box-shadow: 1px 1px 5px gray;
+    z-index: 1;
+    transition: 1s;
+}
+
+/* .logo {
+    margin: 15px;
+    border-bottom: 1px solid;
+}
+.banner-list {
+    margin-top: 50px;
+    position: fixed;
+}
+.banner {
+    visibility: hidden;
+    position: fixed;
+    width: 0%;
+    height: 98%;
+    background-color: rgb(255, 255, 255);
+    border-right: 1px solid gray;
+    box-shadow: 1px 1px 5px gray;
+    z-index: 1;
+    transition: 0.5s;
+} */
+
+
+.banner-list input {
+	width: 100%;
+	height: 50px;
+	margin: 5px 0;
+	border-radius: 10%;
+	border-color: rgb(156, 156, 156);
+	cursor: pointer;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 1px 3px 3px rgb(143, 143, 143);
+	font-size: 15px;
+	font-weight: 600;
+	color: rgb(70, 70, 70);
+}
+
+.banner-list input:hover {
+	background-color: rgba(0, 148, 0, 0.623);
+	color: #ffffff;
+}
+.banner-list .active {
+  background-color: rgba(0, 148, 0, 0.623);
+  color: #ffffff;
+}
+.banner-list input#T{
+	background-image:url(/resources/static/img/marker_img/tennis.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#B{
+	background-image:url(/resources/static/img/marker_img/badminton.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#BB{
+	background-image:url(/resources/static/img/marker_img/baseball.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#BK{
+	background-image:url(/resources/static/img/marker_img/basketball.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#J{
+	background-image:url(/resources/static/img/marker_img/footVolley.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#G{
+	background-image:url(/resources/static/img/marker_img/gateball.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#F{
+	background-image:url(/resources/static/img/marker_img/soccer.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#S{
+	background-image:url(/resources/static/img/marker_img/swimming.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#V{
+	background-image:url(/resources/static/img/marker_img/volleyball.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#H{
+	background-image:url(/resources/static/img/marker_img/weightlifter.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#A{
+	background-image:url(/resources/static/img/marker_img/archery.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#P{
+	background-image:url(/resources/static/img/marker_img/park_sports.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#E{
+	background-image:url(/resources/static/img/marker_img/etc.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#park{
+	background-image:url(/resources/static/img/park.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#tashu{
+	background-image:url(/resources/static/img/bike.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#deleteMarker{
+	background-image:url(/resources/static/img/delete.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+.banner-list input#refresh{
+	background-image:url(/resources/static/img/refresh.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding-left: 30px;
+}
+
+@keyframes blink-effect {
+	0% {opacity: 0.2;}
+	25% {opacity: 0.5;}
+	50% {opacity: 0.8;}
+	75% {opacity: 1;}
+	100% {opacity: 1;}
+}
+.gps img{
+	width: 35px;
+  	animation: blink-effect 1s ease infinite;
+	/*
+	animation-name: blink-effect;
+	animation-duration: 1s;
+	animation-iteration-count:infinite;
+	animation-timing-function:ease;
+	*/
+}
+
+
+	.wrap {position: absolute;left: 0;bottom: 40px;width: 250px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap; font-weight : bold;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
