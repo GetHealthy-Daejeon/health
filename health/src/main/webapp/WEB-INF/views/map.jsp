@@ -70,7 +70,7 @@
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=053fa1a57cda6a2315480dc66ba2a3ec&libraries=services"></script>
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=42189fc27ae4cf0d73678ba4cae1e6a0&libraries=services"></script>
 <script>
 // 지도 설정
 	var mapContainer = document.getElementById("map"), // 지도를 div
