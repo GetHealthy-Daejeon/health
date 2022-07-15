@@ -25,15 +25,12 @@ spring:
       initialization-mode : always
       schema: classpath:init.sql
       driver-class-name : com.mysql.cj.jdbc.Driver # 이렇게 설정하면 스프링과 sql이 서로 접속할 수 있음
-<<<<<<< Upstream, based on branch 'develop' of https://github.com/GetHealthy-Daejeon/health.git
       url: jdbc:mysql://DB주소:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
       username: 아이디
       password: 비번
-=======
       url: jdbc:mysql://daeun-database.ceq0maohxapl.ap-northeast-2.rds.amazonaws.com:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
       username: admin
       password: dkssud1951!
->>>>>>> 2e82b83 feat: init.sql 추가
    #JSP 경로 설정
    mvc : 
       view :
@@ -41,12 +38,9 @@ spring:
          suffix : .jsp
       hiddenmethod:
          filter:
-<<<<<<< Upstream, based on branch 'develop' of https://github.com/GetHealthy-Daejeon/health.git
             enable: true
          
-=======
             enable: true   
->>>>>>> 2e82b83 feat: init.sql 추가
       #css,js,image 폴더 위치 설정
       static-path-pattern : /resources/static/**
 ---
