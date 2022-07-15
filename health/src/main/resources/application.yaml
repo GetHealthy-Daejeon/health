@@ -28,6 +28,12 @@ spring:
       url: jdbc:mysql://DB주소:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
       username: 아이디
       password: 비번
+<<<<<<< Upstream, based on 1676a39816e1ac8fb0c1292b85431269c94f2260
+=======
+      url: jdbc:mysql://daeun-database.ceq0maohxapl.ap-northeast-2.rds.amazonaws.com:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
+      username: admin
+      password: dkssud1951!
+>>>>>>> e7b473b fix : merge 해결
    #JSP 경로 설정
    mvc : 
       view :
@@ -37,6 +43,10 @@ spring:
          filter:
             enable: true
          
+<<<<<<< Upstream, based on 1676a39816e1ac8fb0c1292b85431269c94f2260
+=======
+            enable: true   
+>>>>>>> e7b473b fix : merge 해결
       #css,js,image 폴더 위치 설정
       static-path-pattern : /resources/static/**
 ---
