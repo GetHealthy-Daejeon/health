@@ -1,0 +1,59 @@
+#제목과 버전 설정
+application:
+   version : v0.0.1
+   title : KIMMINYOUNG
+
+##포트 수정
+server:
+   port: 9090
+   
+#개발 버전 설정
+spring :
+   profiles:
+      active: env
+      
+#MyBatis 설정
+mybatis:
+   mapper-locations: classpath:/sqlmap/sqlmapper_*.xml
+   type-aliases-package: com.dw.health.vo
+
+#MySQL 접속정보 설정
+---
+spring:
+   profiles: env
+   datasource:
+      initialization-mode : always
+      schema: classpath:init.sql
+      driver-class-name : com.mysql.cj.jdbc.Driver # 이렇게 설정하면 스프링과 sql이 서로 접속할 수 있음
+      url: jdbc:mysql://joon-database.cswsbqu2rso7.ap-northeast-2.rds.amazonaws.com:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
+      username: dudwns0311
+      password: 184365wns
+   #JSP 경로 설정
+   mvc : 
+      view :
+         prefix : /WEB-INF/views/
+         suffix : .jsp
+      hiddenmethod:
+         filter:
+            enable: true
+         
+      #css,js,image 폴더 위치 설정
+      static-path-pattern : /resources/static/**
+---
+spring:
+   profiles: dev
+   datasource:
+      initialization-mode : always
+      schema: classpath:init.sql
+      driver-class-name : com.mysql.cj.jdbc.Driver # 이렇게 설정하면 스프링과 sql이 서로 접속할 수 있음
+      url: jdbc:mysql://db주소:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
+      username: 아이디
+      password: 비번
+   #JSP 경로 설정
+   mvc : 
+      view :
+         prefix : /WEB-INF/views/
+         suffix : .jsp
+         
+      #css,js,image 폴더 위치 설정
+      static-path-pattern : /resources/static/**

@@ -28,9 +28,6 @@ spring:
       url: jdbc:mysql://DB주소:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
       username: 아이디
       password: 비번
-      url: jdbc:mysql://daeun-database.ceq0maohxapl.ap-northeast-2.rds.amazonaws.com:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
-      username: admin
-      password: dkssud1951!
    #JSP 경로 설정
    mvc : 
       view :
@@ -39,8 +36,6 @@ spring:
       hiddenmethod:
          filter:
             enable: true
-         
-            enable: true   
       #css,js,image 폴더 위치 설정
       static-path-pattern : /resources/static/**
 ---
